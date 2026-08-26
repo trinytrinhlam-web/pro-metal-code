@@ -95,10 +95,18 @@
 	.pm-nav{flex-basis:auto;display:block;margin-left:auto}
 	.pm-menu{flex-direction:row;align-items:center;gap:2px;padding:0}
 	.pm-menu>li{position:relative}
-	.pm-menu>li>a{padding:10px 13px;white-space:nowrap}
+	.pm-menu>li>a{position:relative;padding:10px 13px;white-space:nowrap;transition:color .15s}
 
-	/* mũi tên dropdown */
-	.pm-menu .menu-item-has-children>a::after{content:"";display:inline-block;width:.46em;height:.46em;margin-left:.45em;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.85}
+	/* Hover mục cấp 1 — gạch chân trượt vào giữa (theo Figma), không tô nền
+	   để giữ cảm giác nhẹ; mobile vẫn dùng nền pill của .pm-menu a:hover. */
+	.pm-menu>li>a::before{content:"";position:absolute;left:13px;right:13px;bottom:2px;height:2px;background:var(--pm-accent);transform:scaleX(0);transform-origin:left;transition:transform .25s cubic-bezier(.4,0,.2,1)}
+	.pm-menu>li>a:hover,.pm-menu>li>a:focus-visible{background:transparent;color:#fff}
+	.pm-menu>li>a:hover::before,.pm-menu>li>a:focus-visible::before,
+	.pm-menu>li.current-menu-item>a::before,.pm-menu>li.current-menu-parent>a::before{transform:scaleX(1)}
+
+	/* Mũi tên dropdown — lật ngược khi menu đang mở (hover/focus), như chevron trong Figma */
+	.pm-menu .menu-item-has-children>a::after{content:"";display:inline-block;width:.46em;height:.46em;margin-left:.45em;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.85;transition:transform .2s}
+	.pm-menu>li.menu-item-has-children:hover>a::after,.pm-menu>li.menu-item-has-children:focus-within>a::after{transform:rotate(225deg) translateY(2px)}
 
 	/* Dropdown đơn giản (menu 2 cấp không đổi — vẫn dùng .sub-menu như trước) */
 	.pm-menu .sub-menu{position:absolute;top:100%;left:0;min-width:236px;background:var(--pm-white);border-radius:0 0 var(--pm-r-md) var(--pm-r-md);box-shadow:var(--pm-sh-card);padding:8px;margin:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .16s ease,transform .16s ease,visibility .16s;z-index:60}
@@ -106,8 +114,14 @@
 	.pm-menu .sub-menu a{color:var(--pm-text);font-size:15px;padding:10px 12px;border-radius:6px}
 	.pm-menu .sub-menu a:hover,.pm-menu .sub-menu a:focus-visible{background:var(--pm-surface-2);color:var(--pm-brand-deep)}
 
-	/* Mega-menu (cấp 3, cột icon+heading+list) — tự bung khi menu có thêm 1 cấp con */
-	.pm-mega{position:absolute;top:100%;left:0;display:flex;flex-wrap:wrap;align-items:flex-start;width:max-content;max-width:min(94vw,780px);background:var(--pm-white);border-radius:0 0 var(--pm-r-lg) var(--pm-r-lg);box-shadow:var(--pm-sh-elev);padding:6px;margin:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:60}
+	/* Lớp phủ mờ + blur phía sau khi mega-menu đang mở (giống hiệu ứng backdrop trong Figma) */
+	.pm-site-header::after{content:"";position:fixed;inset:0;background:rgba(11,20,26,.28);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .18s ease;z-index:55;pointer-events:none}
+	.pm-site-header:has(.pm-menu>li.menu-item-has-children:hover)::after,
+	.pm-site-header:has(.pm-menu>li.menu-item-has-children:focus-within)::after{opacity:1;visibility:visible}
+
+	/* Mega-menu (cấp 3, cột icon+heading+list) — tự bung khi menu có thêm 1 cấp con.
+	   Trượt xuống + mờ dần vào, cùng nhịp easing với bản Figma. */
+	.pm-mega{position:absolute;top:100%;left:0;display:flex;flex-wrap:wrap;align-items:flex-start;width:max-content;max-width:min(94vw,780px);background:var(--pm-white);border-radius:0 0 var(--pm-r-lg) var(--pm-r-lg);box-shadow:var(--pm-sh-elev);padding:6px;margin:0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .22s cubic-bezier(.4,0,.2,1),transform .22s cubic-bezier(.4,0,.2,1),visibility .22s;z-index:60}
 	.pm-menu>li:hover>.pm-mega,.pm-menu>li:focus-within>.pm-mega{opacity:1;visibility:visible;transform:none}
 
 	.pm-mega__col{width:230px;flex:0 0 230px;padding:18px 20px;border-left:1px solid var(--pm-line)}
@@ -115,16 +129,16 @@
 	.pm-mega__col--flat{flex:1 1 100%;width:auto;padding:0;border-left:none}
 	.pm-mega__col--flat:not(:first-child){border-top:1px solid var(--pm-line)}
 
-	.pm-menu .pm-mega__col-heading{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding:0;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pm-muted)}
-	.pm-menu .pm-mega__col-heading:hover{color:var(--pm-brand-deep)}
+	.pm-menu .pm-mega__col-heading{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding:0;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pm-muted);transition:color .15s}
+	.pm-menu .pm-mega__col-heading:hover{color:var(--pm-accent-ink)}
 	.pm-mega__col-heading .pm-icon{color:var(--pm-accent);flex:none}
 
 	.pm-mega__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-	.pm-menu .pm-mega__link{display:flex;align-items:center;gap:8px;padding:8px 10px;margin:0 -10px;border-radius:6px;color:var(--pm-text);text-decoration:none;font-size:14.5px;font-weight:500;white-space:nowrap}
+	.pm-menu .pm-mega__link{display:flex;align-items:center;gap:8px;padding:8px 10px;margin:0 -10px;border-radius:6px;color:var(--pm-text);text-decoration:none;font-size:14.5px;font-weight:500;white-space:nowrap;transition:background .15s,color .15s}
 	.pm-mega__col--flat .pm-mega__link{margin:0;padding:11px 14px}
-	.pm-menu .pm-mega__link:hover,.pm-menu .pm-mega__link:focus-visible{background:var(--pm-surface-2);color:var(--pm-brand-deep)}
-	.pm-mega__link-icon{opacity:0;color:var(--pm-accent);flex:none;transform:translateX(-3px);transition:opacity .15s,transform .15s}
-	.pm-menu .pm-mega__link:hover .pm-mega__link-icon{opacity:1;transform:translateX(0)}
+	.pm-menu .pm-mega__link:hover,.pm-menu .pm-mega__link:focus-visible{background:color-mix(in srgb,var(--pm-accent) 8%,#fff);color:var(--pm-accent-ink)}
+	.pm-mega__link-icon{opacity:0;color:var(--pm-accent);flex:none;transform:translateX(0);transition:opacity .15s,transform .15s}
+	.pm-menu .pm-mega__link:hover .pm-mega__link-icon{opacity:1;transform:translateX(2px)}
 
 	.pm-header-cta{flex-basis:auto;display:flex;padding:0;margin-left:16px}
 	.pm-header-cta .pm-cta{flex:none}

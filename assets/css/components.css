@@ -1,0 +1,324 @@
+/*!
+ * Components Pro-Metal — button, card, tiêu đề, field, table, FAQ, badge, pill, TOC, sticky CTA.
+ * @owner Session B · CHỈ dùng var(--pm-*) từ tokens.css. Không định nghĩa lại .pm-cta (của Session A).
+ *
+ * Kỷ luật màu: cam (--pm-accent) chỉ cho CTA gọi + gạch tiêu đề nhỏ + accent điểm nhấn (≤8%).
+ * KHÔNG tô cam cho H1–H6 hay mảng nền lớn.
+ */
+
+/* ============================================================= *
+ *  1. BUTTON — .pm-btn (+ --call / --zalo / --ghost)
+ * ============================================================= */
+.pm-btn{
+	display:inline-flex;align-items:center;justify-content:center;gap:9px;
+	padding:13px 24px;border:2px solid transparent;border-radius:var(--pm-r-pill);
+	font-family:inherit;font-weight:700;font-size:15px;line-height:1;text-align:center;
+	text-decoration:none;white-space:nowrap;cursor:pointer;
+	background:var(--pm-brand);color:#fff;
+	transition:transform .16s ease,background .16s ease,box-shadow .16s ease,filter .16s ease,border-color .16s ease;
+}
+.pm-btn .pm-icon{flex:none}
+.pm-btn:hover,.pm-btn:focus-visible{background:var(--pm-brand-deep);color:#fff;transform:translateY(-2px)}
+
+/* Biến thể chính: Gọi ngay (cam — CTA quan trọng nhất) */
+/* Chữ navy (không phải trắng) để đạt WCAG: #1e2b33 trên cam = 6,15:1 (base) / 4,80:1 (hover). Giữ nền cam thương hiệu. */
+.pm-btn--call{background:var(--pm-accent);color:var(--pm-text);box-shadow:0 6px 16px rgba(240,147,43,.28)}
+.pm-btn--call:hover,.pm-btn--call:focus-visible{background:var(--pm-accent-hover);color:var(--pm-text)}
+
+/* Zalo */
+.pm-btn--zalo{background:var(--pm-zalo);color:#fff}
+.pm-btn--zalo:hover,.pm-btn--zalo:focus-visible{background:var(--pm-zalo);color:#fff;filter:brightness(1.08)}
+
+/* Ghost / viền */
+.pm-btn--ghost{background:transparent;border-color:var(--pm-brand);color:var(--pm-brand)}
+.pm-btn--ghost:hover,.pm-btn--ghost:focus-visible{background:var(--pm-surface-2);border-color:var(--pm-brand-deep);color:var(--pm-brand-deep)}
+/* Ghost trên nền tối (hero) */
+.pm-btn--ghost-light{background:transparent;border-color:rgba(255,255,255,.6);color:#fff}
+.pm-btn--ghost-light:hover,.pm-btn--ghost-light:focus-visible{background:rgba(255,255,255,.14);border-color:#fff;color:#fff}
+
+/* Kích thước & tiện ích */
+.pm-btn--sm{padding:9px 16px;font-size:14px;gap:7px}
+.pm-btn--lg{padding:16px 30px;font-size:16px}
+.pm-btn--block{display:flex;width:100%}
+
+/* Trạng thái disabled / loading */
+.pm-btn[disabled],.pm-btn.is-disabled,.pm-btn.is-loading{
+	opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;pointer-events:none;
+}
+.pm-btn.is-loading{position:relative;color:transparent !important}
+.pm-btn.is-loading::after{
+	content:"";position:absolute;width:18px;height:18px;top:calc(50% - 9px);left:calc(50% - 9px);
+	border:2px solid rgba(255,255,255,.55);border-top-color:#fff;border-radius:50%;
+	animation:pm-spin .6s linear infinite;
+}
+@keyframes pm-spin{to{transform:rotate(360deg)}}
+
+/* Link "xem thêm" kiểu mũi tên */
+.pm-link-more{display:inline-flex;align-items:center;gap:6px;color:var(--pm-brand-deep);font-weight:700;font-size:14px;text-decoration:none}
+.pm-link-more .pm-icon{transition:transform .16s ease}
+.pm-link-more:hover{color:var(--pm-brand-dark)}
+.pm-link-more:hover .pm-icon{transform:translateX(3px)}
+
+/* ============================================================= *
+ *  2. TIÊU ĐỀ KHỐI — .pm-h2wrap (eyebrow + tiêu đề + gạch cam + lead)
+ * ============================================================= */
+.pm-h2wrap{margin:0 0 34px;text-align:center;max-width:760px;margin-inline:auto}
+.pm-h2wrap__eyebrow{
+	display:inline-block;margin:0 0 8px;font-size:var(--pm-small);font-weight:700;
+	letter-spacing:.12em;text-transform:uppercase;color:var(--pm-accent-ink); /* cam-đậm = 4,83:1 trên trắng (cam tươi #f0932b chỉ 2,36:1) */
+}
+.pm-h2wrap>:where(h1,h2,h3){margin:0;color:var(--pm-brand)}
+/* Gạch cam nằm ngay dưới tiêu đề (trước lead) */
+.pm-h2wrap>:where(h1,h2,h3)::after{content:"";display:block;width:56px;height:4px;border-radius:2px;background:var(--pm-accent);margin:14px auto 0}
+.pm-h2wrap__lead{margin:16px 0 0;font-size:var(--pm-lead);line-height:1.6;color:var(--pm-muted)}
+
+/* Căn trái */
+.pm-h2wrap--left{text-align:left;margin-inline:0}
+.pm-h2wrap--left>:where(h1,h2,h3)::after{margin-left:0;margin-right:auto}
+.pm-h2wrap--left .pm-h2wrap__lead{margin-left:0}
+
+/* Trên nền tối (section--dark / hero) */
+.pm-h2wrap--light>:where(h1,h2,h3){color:#fff}
+.pm-h2wrap--light .pm-h2wrap__lead{color:rgba(255,255,255,.82)}
+
+/* ============================================================= *
+ *  3. CARD — .pm-card (+ lưới .pm-cards)
+ * ============================================================= */
+.pm-card{
+	background:var(--pm-white);border:1px solid var(--pm-line);border-radius:var(--pm-r-md);
+	box-shadow:var(--pm-sh-card);overflow:hidden;
+	transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.pm-card--pad{padding:24px}
+.pm-card__media{display:block;position:relative;overflow:hidden;background:var(--pm-surface-2)}
+.pm-card__media img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.pm-card__body{padding:22px}
+.pm-card__title{margin:0 0 8px}
+.pm-card__title a{color:var(--pm-brand-dark);text-decoration:none}
+.pm-card__title a:hover{color:var(--pm-brand-deep)}
+.pm-card__text{margin:0;color:var(--pm-muted)}
+
+/* Ô icon 2 màu (surface-tile) — cấu trúc brand-dark, chấm nhấn cam do SVG tự set */
+.pm-card__icon{
+	display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;
+	border-radius:var(--pm-r-md);background:var(--pm-surface-2);color:var(--pm-brand-deep);margin-bottom:16px;
+}
+.pm-card__icon .pm-icon{width:30px;height:30px}
+
+/* Card có thể click cả khối (link phủ) */
+.pm-card--link:hover,.pm-card--link:focus-within{transform:translateY(-4px);box-shadow:var(--pm-sh-elev);border-color:var(--pm-brand-deep)}
+.pm-card--link:hover .pm-card__media img{transform:scale(1.04)}
+
+/* Lưới card responsive (mặc định auto-fit; cố định qua modifier) */
+.pm-cards{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.pm-cards--2{grid-template-columns:repeat(2,1fr)}
+.pm-cards--3{grid-template-columns:repeat(3,1fr)}
+.pm-cards--4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:980px){.pm-cards--3,.pm-cards--4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.pm-cards--2,.pm-cards--3,.pm-cards--4{grid-template-columns:1fr}}
+
+/* ============================================================= *
+ *  4. BADGE & PILL
+ * ============================================================= */
+.pm-badge{
+	display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:var(--pm-r-pill);
+	font-size:var(--pm-small);font-weight:700;line-height:1;
+	background:var(--pm-surface-2);color:var(--pm-brand-deep);
+}
+.pm-badge .pm-icon{width:15px;height:15px}
+.pm-badge--brand{background:var(--pm-brand);color:#fff}
+/* dùng tiết chế · chữ trên nền tint cam .14: ink token #a8600c chỉ 4,31:1 (KHÔNG đạt) → cam-đậm hơn #8a4e08 = 5,2–5,9:1 ✅ */
+.pm-badge--accent{background:rgba(240,147,43,.14);color:#8a4e08}
+.pm-badge--soft{background:var(--pm-surface);color:var(--pm-muted)}
+
+/* Pill/chip: tag, khu vực, bộ lọc */
+.pm-pill{
+	display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--pm-r-pill);
+	font-size:14px;font-weight:600;line-height:1;text-decoration:none;
+	background:var(--pm-surface);color:var(--pm-brand-dark);border:1px solid var(--pm-line);
+	transition:background .16s ease,border-color .16s ease,color .16s ease;
+}
+a.pm-pill:hover,a.pm-pill:focus-visible{background:var(--pm-surface-2);border-color:var(--pm-brand);color:var(--pm-brand-deep)}
+.pm-pill.is-active{background:var(--pm-brand);border-color:var(--pm-brand);color:#fff}
+.pm-pill--sm{padding:4px 11px;font-size:12.5px;font-weight:700}
+.pm-pill-group{display:flex;flex-wrap:wrap;gap:10px}
+
+/* ============================================================= *
+ *  5. FIELD — .pm-field (bọc label + control, glow khi focus)
+ *  (input/select/textarea cơ sở đã style ở base.css)
+ * ============================================================= */
+.pm-field{margin:0 0 16px;position:relative}
+.pm-field>label,.pm-field__label{display:block;margin-bottom:6px;font-weight:600;color:var(--pm-brand-dark)}
+.pm-field__req{color:var(--pm-accent);margin-left:2px}
+.pm-field__hint{display:block;margin-top:6px;font-size:var(--pm-small);color:var(--pm-muted)}
+.pm-field__error{display:none;margin-top:6px;font-size:var(--pm-small);font-weight:600;color:#ba1a1a}
+
+/* Glow rõ hơn khi focus control bên trong */
+.pm-field:focus-within>label,.pm-field:focus-within .pm-field__label{color:var(--pm-brand)}
+
+/* Trạng thái lỗi */
+.pm-field.has-error input,.pm-field.has-error select,.pm-field.has-error textarea{
+	border-color:#ba1a1a;box-shadow:0 0 0 3px rgba(186,26,26,.12)
+}
+.pm-field.has-error .pm-field__error{display:block}
+
+/* Input đi kèm icon trái */
+.pm-field--icon{position:relative}
+.pm-field--icon .pm-icon{position:absolute;left:14px;top:38px;color:var(--pm-muted);pointer-events:none}
+.pm-field--icon input{padding-left:42px}
+
+/* Thông báo trạng thái form (nền sáng; footer nền tối override ở header-footer.css) */
+.pm-form-msg{margin:.4rem 0 0;font-size:14px;min-height:1.2em;font-weight:600}
+.pm-form-msg.is-error{color:#ba1a1a}
+.pm-form-msg.is-ok{color:#1f7a43}
+.pm-form-msg:empty{margin:0;min-height:0}
+
+/* ============================================================= *
+ *  6. TABLE — .pm-table (+ .pm-table-wrap cuộn ngang mobile)
+ * ============================================================= */
+.pm-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--pm-r-md);border:1px solid var(--pm-line)}
+.pm-table{width:100%;border-collapse:collapse;background:var(--pm-white);font-size:15.5px;min-width:520px}
+.pm-table caption{text-align:left;padding:12px 16px;color:var(--pm-muted);font-size:var(--pm-small)}
+.pm-table th,.pm-table td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--pm-line);vertical-align:top}
+.pm-table thead th{background:var(--pm-brand);color:#fff;font-weight:700;border-bottom:0;white-space:nowrap}
+.pm-table tbody tr:nth-child(even){background:var(--pm-surface)}
+.pm-table tbody tr:hover{background:var(--pm-surface-2)}
+.pm-table td:last-child,.pm-table th:last-child{text-align:right}
+.pm-table .pm-table__price{font-weight:700;color:var(--pm-brand-deep);white-space:nowrap}
+
+/* ============================================================= *
+ *  7. FAQ — accordion thuần CSS trên <details>/<summary> (không cần JS)
+ *      <div class="pm-faq"><details class="pm-faq__item"><summary class="pm-faq__q">…</summary><div class="pm-faq__a">…</div></details></div>
+ * ============================================================= */
+.pm-faq{display:flex;flex-direction:column;gap:12px}
+.pm-faq__item{border:1px solid var(--pm-line);border-radius:var(--pm-r-md);background:var(--pm-white);overflow:hidden}
+.pm-faq__item[open]{border-color:var(--pm-brand);box-shadow:var(--pm-sh-card)}
+.pm-faq__q{
+	display:flex;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;list-style:none;
+	font-weight:600;color:var(--pm-brand-dark);
+}
+.pm-faq__q::-webkit-details-marker{display:none}
+.pm-faq__q::after{
+	content:"";flex:none;width:.6em;height:.6em;margin-left:auto;
+	border-right:2px solid var(--pm-accent);border-bottom:2px solid var(--pm-accent);
+	transform:rotate(45deg);transition:transform .2s ease;
+}
+.pm-faq__item[open] .pm-faq__q::after{transform:rotate(-135deg)}
+.pm-faq__q:hover{color:var(--pm-brand-deep)}
+.pm-faq__q:focus-visible{outline:3px solid var(--pm-brand-deep);outline-offset:-3px}
+.pm-faq__a{padding:0 18px 18px;color:var(--pm-text);line-height:1.7}
+.pm-faq__a>:first-child{margin-top:0}
+.pm-faq__a>:last-child{margin-bottom:0}
+
+/* ============================================================= *
+ *  8. TOC — .pm-toc (mục lục dính + scroll-spy, tô đậm mục đang xem)
+ * ============================================================= */
+.pm-toc{background:var(--pm-surface);border:1px solid var(--pm-line);border-radius:var(--pm-r-md);padding:18px 20px}
+.pm-toc__title{margin:0 0 12px;font-size:var(--pm-small);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pm-brand)}
+.pm-toc__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.pm-toc__list .pm-toc__list{margin:2px 0 2px 14px}   /* cấp con (h3) */
+.pm-toc__link{
+	display:block;padding:7px 10px;border-radius:6px;border-left:3px solid transparent;
+	color:var(--pm-muted);text-decoration:none;font-size:14.5px;line-height:1.45;
+	transition:color .16s ease,background .16s ease,border-color .16s ease;
+}
+.pm-toc__link:hover{color:var(--pm-brand-deep);background:var(--pm-surface-2)}
+.pm-toc__link.is-active{color:var(--pm-brand-deep);font-weight:700;border-left-color:var(--pm-accent);background:var(--pm-surface-2)}
+
+/* Dính khi cuộn (dùng trong sidebar) */
+.pm-toc--sticky{position:sticky;top:96px;max-height:calc(100vh - 120px);overflow:auto}
+@media(max-width:1024px){.pm-toc--sticky{position:static;max-height:none}}
+
+/* ============================================================= *
+ *  9. SECTION — bổ trợ (base.css đã có .pm-section / --alt)
+ * ============================================================= */
+.pm-section--dark{background:var(--pm-brand-dark);color:#dbe8ef}
+.pm-section--dark :where(h1,h2,h3,h4,h5,h6){color:#fff}
+.pm-section--tight{padding-block:clamp(28px,4vw,40px)}
+.pm-section__head{margin-bottom:clamp(24px,4vw,40px)}
+
+/* ============================================================= *
+ *  10. STICKY CTA MOBILE — thanh Gọi/Zalo dính đáy (template-parts/sticky-cta.php)
+ * ============================================================= */
+.pm-sticky-cta{
+	position:fixed;left:0;right:0;bottom:0;z-index:80;display:flex;gap:1px;
+	background:var(--pm-line);box-shadow:0 -6px 20px rgba(11,58,78,.16);
+	padding-bottom:env(safe-area-inset-bottom);
+}
+.pm-sticky-cta__btn{
+	flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+	padding:14px 8px;font-weight:700;font-size:15px;line-height:1;text-decoration:none;color:#fff;
+}
+.pm-sticky-cta__btn .pm-icon{width:20px;height:20px;flex:none}
+.pm-sticky-cta__btn--call{background:var(--pm-accent)}
+.pm-sticky-cta__btn--call:active{background:var(--pm-accent-hover)}
+.pm-sticky-cta__btn--zalo{background:var(--pm-zalo)}
+.pm-sticky-cta__btn--phone{background:var(--pm-brand)}
+.pm-sticky-cta__btn:hover,.pm-sticky-cta__btn:focus-visible{color:#fff;filter:brightness(1.05)}
+/* Nút "Gọi ngay" nền cam: chữ navy để đạt WCAG (chữ trắng trên cam chỉ 2,36:1). Zalo/phone nền xanh giữ chữ trắng. */
+.pm-sticky-cta__btn--call{color:var(--pm-text)}
+.pm-sticky-cta__btn--call:hover,.pm-sticky-cta__btn--call:focus-visible{color:var(--pm-text)}
+
+/* Chỉ hiện trên mobile/tablet; chừa chỗ để không che nội dung cuối trang */
+@media(min-width:1080px){.pm-sticky-cta{display:none}}
+@media(max-width:1079px){body.pm-has-sticky-cta{padding-bottom:60px}}
+
+/* ============================================================= *
+ *  11. POST CARD — item danh sách bài (template-parts/content.php)
+ * ============================================================= */
+.pm-post-card{display:flex;flex-direction:column;height:100%}
+.pm-post-card .pm-post-card__media{aspect-ratio:16/10}
+.pm-post-card__body{display:flex;flex-direction:column;flex:1;gap:10px;padding:20px 22px 22px}
+.pm-post-card__meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:var(--pm-small);color:var(--pm-muted)}
+.pm-post-card__meta .pm-icon{width:14px;height:14px;vertical-align:-2px;margin-right:4px}
+.pm-post-card__title{margin:0}
+.pm-post-card__title a{color:var(--pm-brand-dark);text-decoration:none}
+.pm-post-card__title a:hover{color:var(--pm-brand-deep)}
+.pm-post-card__excerpt{margin:0;color:var(--pm-muted);flex:1}
+.pm-post-card__more{margin-top:auto;align-self:flex-start}
+
+/* ============================================================= *
+ *  12. EMPTY STATE — template-parts/content-none.php
+ * ============================================================= */
+.pm-none{max-width:620px;margin-inline:auto;text-align:center;padding-block:clamp(24px,5vw,48px)}
+.pm-none__title{margin:0 0 12px}
+.pm-none__text{color:var(--pm-muted);margin:0 0 22px}
+.pm-none .search-form,.pm-none .pm-search-form{display:flex;gap:8px;max-width:420px;margin-inline:auto}
+.pm-none .search-form .search-submit{width:auto;flex:none}
+
+/* ============================================================= *
+ *  13. GALLERY & LIGHTBOX (lightbox.js sinh overlay runtime)
+ * ============================================================= */
+.pm-gallery{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+.pm-gallery a{display:block;border-radius:var(--pm-r-md);overflow:hidden;background:var(--pm-surface-2)}
+.pm-gallery img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .3s ease}
+.pm-gallery a:hover img{transform:scale(1.05)}
+.pm-lb-trigger{cursor:zoom-in}
+
+body.pm-lb-open{overflow:hidden}
+.pm-lightbox-overlay{
+	position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
+	background:rgba(11,58,78,.92);padding:24px;
+}
+.pm-lightbox-overlay[hidden]{display:none}
+.pm-lb__figure{margin:0;max-width:min(92vw,1100px);max-height:86vh;display:flex;flex-direction:column;align-items:center;gap:12px}
+.pm-lb__img{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;border-radius:var(--pm-r-md);box-shadow:var(--pm-sh-elev);background:#fff}
+.pm-lb__cap{color:#e6eff4;font-size:14.5px;text-align:center;max-width:70ch}
+.pm-lb__close,.pm-lb__nav{
+	position:absolute;display:inline-flex;align-items:center;justify-content:center;
+	background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;cursor:pointer;
+	transition:background .16s ease,transform .16s ease;
+}
+.pm-lb__close{top:16px;right:16px;width:44px;height:44px;font-size:26px;line-height:1}
+.pm-lb__nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:32px;line-height:1}
+.pm-lb__prev{left:16px}
+.pm-lb__next{right:16px}
+.pm-lb__close:hover,.pm-lb__nav:hover{background:var(--pm-accent)}
+.pm-lb__nav:hover{transform:translateY(-50%) scale(1.06)}
+.pm-lb__close:focus-visible,.pm-lb__nav:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.pm-lb__counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#cfe0e8;font-size:13.5px;letter-spacing:.04em}
+@media(max-width:600px){
+	.pm-lb__nav{width:44px;height:44px;font-size:26px}
+	.pm-lb__prev{left:6px}.pm-lb__next{right:6px}
+	.pm-lightbox-overlay{padding:12px}
+}

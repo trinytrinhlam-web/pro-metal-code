@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+
+# Compiled/minified nếu bạn build từ source
+*.min.css
+*.min.js
+
+# Log files
+*.log
+
+# Cache
+cache/
+*.cache

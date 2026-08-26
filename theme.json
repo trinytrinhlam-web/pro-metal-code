@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"layout": { "contentSize": "1200px", "wideSize": "1440px" },
+		"color": {
+			"custom": false,
+			"customGradient": false,
+			"palette": [
+				{ "slug": "brand", "color": "#224b69", "name": "Xanh chính (logo)" },
+				{ "slug": "brand-deep", "color": "#163a54", "name": "Xanh nhấn đậm" },
+				{ "slug": "brand-dark", "color": "#0b3a4e", "name": "Xanh nền tối" },
+				{ "slug": "brand-soft", "color": "#3C6382", "name": "Xanh nhạt" },
+				{ "slug": "accent", "color": "#f0932b", "name": "Cam (phụ)" },
+				{ "slug": "text", "color": "#1e2b33", "name": "Chữ" },
+				{ "slug": "muted", "color": "#5a6b76", "name": "Chữ phụ" },
+				{ "slug": "line", "color": "#d6e3ea", "name": "Đường kẻ" },
+				{ "slug": "surface", "color": "#f2f7f9", "name": "Nền surface" },
+				{ "slug": "white", "color": "#ffffff", "name": "Trắng" }
+			]
+		},
+		"typography": {
+			"customFontSize": false,
+			"fontFamilies": [
+				{ "slug": "sans", "name": "Be Vietnam Pro", "fontFamily": "'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" }
+			],
+			"fontSizes": [
+				{ "slug": "body", "name": "Body", "size": "17px" },
+				{ "slug": "heading", "name": "H2-H6", "size": "24px" },
+				{ "slug": "h1", "name": "H1", "size": "44px" }
+			]
+		},
+		"spacing": {
+			"units": [ "px", "rem", "%", "vh", "vw" ],
+			"spacingSizes": [
+				{ "slug": "20", "size": "8px", "name": "XS" },
+				{ "slug": "40", "size": "16px", "name": "S" },
+				{ "slug": "60", "size": "24px", "name": "M" },
+				{ "slug": "80", "size": "48px", "name": "L" },
+				{ "slug": "100", "size": "64px", "name": "XL" }
+			]
+		}
+	},
+	"styles": {
+		"color": { "background": "#ffffff", "text": "#1e2b33" },
+		"typography": { "fontFamily": "'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" }
+	}
+}

@@ -1,0 +1,1905 @@
+# Pro-Metal WordPress theme — translation template.
+# Copyright (C) 2026 Pro-Metal.
+# This file is distributed under the same license as the Pro-Metal theme.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Pro-Metal 0.1.0\n"
+"Report-Msgid-Bugs-To: https://suachuacuasat.com\n"
+"POT-Creation-Date: 2026-08-13 20:25\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: prometal\n"
+
+
+#: 404.php:24
+msgid "Không tìm thấy trang"
+msgstr ""
+
+#: 404.php:25
+msgid "Rất tiếc, trang bạn tìm có thể đã được di chuyển hoặc không còn tồn tại. Hãy thử tìm kiếm hoặc quay lại trang chủ."
+msgstr ""
+
+#: 404.php:30 template-parts/content-none.php:48
+msgid "Về trang chủ"
+msgstr ""
+
+#. translators:%s: hotline.
+#: 404.php:33 template-parts/landing/hero.php:55
+msgid "Gọi %s"
+msgstr ""
+
+#: archive.php:23
+msgid "Chuyên mục"
+msgstr ""
+
+#: archive.php:25
+msgid "Tác giả"
+msgstr ""
+
+#: archive.php:27
+msgid "Lưu trữ"
+msgstr ""
+
+#: archive.php:50 home.php:46 index.php:52 search.php:55
+msgid "← Trước"
+msgstr ""
+
+#: archive.php:51 home.php:47 index.php:53 search.php:56
+msgid "Sau →"
+msgstr ""
+
+#: archive.php:52
+msgid "Điều hướng lưu trữ"
+msgstr ""
+
+#: footer.php:15 inc/template-tags.php:466 template-parts/news/sidebar-cards.php:37
+msgid "Sửa cửa sắt tại nhà"
+msgstr ""
+
+#: footer.php:16
+msgid "Sửa cửa kéo, cổng"
+msgstr ""
+
+#: footer.php:17 inc/template-tags.php:468
+msgid "Thợ hàn sắt tại nhà"
+msgstr ""
+
+#: footer.php:18 template-parts/news/sidebar-cards.php:38
+msgid "Làm cửa / cổng sắt"
+msgstr ""
+
+#: footer.php:19
+msgid "Mái hiên / mái che"
+msgstr ""
+
+#: footer.php:20
+msgid "Cầu thang / lan can"
+msgstr ""
+
+#: footer.php:21
+msgid "Cửa & cầu thang inox"
+msgstr ""
+
+#: footer.php:22
+msgid "Nhôm kính, vách panel"
+msgstr ""
+
+#: footer.php:38 page-lien-he.php:47
+msgid "Trụ sở chính:"
+msgstr ""
+
+#: footer.php:45 header.php:38
+msgid "Hotline:"
+msgstr ""
+
+#: footer.php:63 inc/customizer.php:82
+msgid "Mạng xã hội"
+msgstr ""
+
+#: footer.php:77
+msgid "Dịch vụ"
+msgstr ""
+
+#: footer.php:101
+msgid "Khu vực phục vụ"
+msgstr ""
+
+#: footer.php:124
+msgid "Nhận báo giá nhanh"
+msgstr ""
+
+#: footer.php:125
+msgid "Để lại thông tin, Pro-Metal gọi lại tư vấn & báo giá miễn phí."
+msgstr ""
+
+#: footer.php:128 page-bao-gia.php:74 page-lien-he.php:84 template-parts/home/contact-form.php:33 template-parts/home/contact-form.php:34 template-parts/landing/quote-form.php:53
+msgid "Họ tên"
+msgstr ""
+
+#: footer.php:129 page-bao-gia.php:75 page-lien-he.php:85
+msgid "Họ tên của bạn"
+msgstr ""
+
+#: footer.php:132 footer.php:133 page-bao-gia.php:78 page-lien-he.php:88 template-parts/home/contact-form.php:37 template-parts/home/contact-form.php:38
+msgid "Số điện thoại (có Zalo)"
+msgstr ""
+
+#: footer.php:136
+msgid "Dịch vụ cần tư vấn"
+msgstr ""
+
+#: footer.php:138
+msgid "— Chọn dịch vụ —"
+msgstr ""
+
+#: footer.php:142
+msgid "Khác"
+msgstr ""
+
+#: footer.php:148 page-bao-gia.php:88 page-lien-he.php:98 template-parts/home/contact-form.php:48 template-parts/landing/quote-form.php:68
+msgid "Để trống ô này"
+msgstr ""
+
+#: footer.php:153 page-lien-he.php:104 template-parts/home/contact-form.php:54
+msgid "Gửi yêu cầu"
+msgstr ""
+
+#: footer.php:163
+msgid "Cơ Khí Pro-Metal. Đã đăng ký bản quyền."
+msgstr ""
+
+#: footer.php:165
+msgid "Liên kết cuối trang"
+msgstr ""
+
+#: header.php:24
+msgid "Bỏ qua tới nội dung"
+msgstr ""
+
+#: header.php:54
+msgid "Mở / đóng menu"
+msgstr ""
+
+#: header.php:56
+msgid "Menu"
+msgstr ""
+
+#: header.php:61
+msgid "Menu chính"
+msgstr ""
+
+#: header.php:79 page-lien-he.php:70 template-parts/sticky-cta.php:17
+msgid "Gọi ngay"
+msgstr ""
+
+#: header.php:83 inc/shortcodes.php:146 page-lien-he.php:74 template-parts/sticky-cta.php:21
+msgid "Nhắn Zalo"
+msgstr ""
+
+#: home.php:18 inc/template-tags.php:193 index.php:22
+msgid "Tin tức"
+msgstr ""
+
+#: home.php:26
+msgid "Tin tức & Kiến thức"
+msgstr ""
+
+#: home.php:28
+msgid "Kinh nghiệm thi công, sửa chữa cửa sắt, kết cấu thép và tin tức mới nhất từ đội ngũ Pro-Metal."
+msgstr ""
+
+#: home.php:48
+msgid "Điều hướng danh sách bài viết"
+msgstr ""
+
+#: inc/cpt.php:25 inc/cpt.php:26
+msgid "Đánh giá"
+msgstr ""
+
+#: inc/cpt.php:27
+msgid "Thêm đánh giá"
+msgstr ""
+
+#: inc/cpt.php:28
+msgid "Thêm đánh giá mới"
+msgstr ""
+
+#: inc/cpt.php:29
+msgid "Sửa đánh giá"
+msgstr ""
+
+#: inc/cpt.php:30
+msgid "Đánh giá mới"
+msgstr ""
+
+#: inc/cpt.php:31
+msgid "Xem đánh giá"
+msgstr ""
+
+#: inc/cpt.php:32
+msgid "Tìm đánh giá"
+msgstr ""
+
+#: inc/cpt.php:33
+msgid "Chưa có đánh giá"
+msgstr ""
+
+#: inc/cpt.php:34 inc/cpt.php:66
+msgid "Thùng rác trống"
+msgstr ""
+
+#: inc/cpt.php:35
+msgid "Tất cả đánh giá"
+msgstr ""
+
+#: inc/cpt.php:36
+msgid "Đánh giá KH"
+msgstr ""
+
+#: inc/cpt.php:57 inc/cpt.php:58 inc/cpt.php:68
+msgid "Công trình"
+msgstr ""
+
+#: inc/cpt.php:59
+msgid "Thêm công trình"
+msgstr ""
+
+#: inc/cpt.php:60
+msgid "Thêm công trình mới"
+msgstr ""
+
+#: inc/cpt.php:61
+msgid "Sửa công trình"
+msgstr ""
+
+#: inc/cpt.php:62
+msgid "Công trình mới"
+msgstr ""
+
+#: inc/cpt.php:63
+msgid "Xem công trình"
+msgstr ""
+
+#: inc/cpt.php:64
+msgid "Tìm công trình"
+msgstr ""
+
+#: inc/cpt.php:65
+msgid "Chưa có công trình"
+msgstr ""
+
+#: inc/cpt.php:67
+msgid "Tất cả công trình"
+msgstr ""
+
+#: inc/cpt.php:87 inc/cpt.php:88 inc/cpt.php:95
+msgid "Loại công trình"
+msgstr ""
+
+#: inc/cpt.php:89
+msgid "Tìm loại"
+msgstr ""
+
+#: inc/cpt.php:90
+msgid "Tất cả loại"
+msgstr ""
+
+#: inc/cpt.php:91
+msgid "Sửa loại"
+msgstr ""
+
+#: inc/cpt.php:92
+msgid "Cập nhật loại"
+msgstr ""
+
+#: inc/cpt.php:93
+msgid "Thêm loại mới"
+msgstr ""
+
+#: inc/cpt.php:94
+msgid "Tên loại mới"
+msgstr ""
+
+#: inc/customizer.php:22
+msgid "Pro-Metal — Thông tin & Liên hệ"
+msgstr ""
+
+#: inc/customizer.php:23
+msgid "Hotline, Zalo, địa chỉ, chi nhánh, mạng xã hội dùng chung toàn theme."
+msgstr ""
+
+#: inc/customizer.php:54
+msgid "Liên hệ & Hotline"
+msgstr ""
+
+#: inc/customizer.php:59
+msgid "Hotline (hiển thị)"
+msgstr ""
+
+#: inc/customizer.php:59
+msgid "VD: 03.4444.07.17"
+msgstr ""
+
+#: inc/customizer.php:60
+msgid "Số Zalo"
+msgstr ""
+
+#: inc/customizer.php:60
+msgid "Chỉ số; để trống sẽ dùng theo hotline."
+msgstr ""
+
+#: inc/customizer.php:61
+msgid "Email"
+msgstr ""
+
+#: inc/customizer.php:62
+msgid "Website (hiển thị)"
+msgstr ""
+
+#: inc/customizer.php:68
+msgid "Địa chỉ & Chi nhánh"
+msgstr ""
+
+#: inc/customizer.php:73
+msgid "Trụ sở chính"
+msgstr ""
+
+#: inc/customizer.php:74
+msgid "Ghi chú chi nhánh"
+msgstr ""
+
+#: inc/customizer.php:74
+msgid "VD: Và 8 chi nhánh khác khắp TP.HCM"
+msgstr ""
+
+#: inc/customizer.php:75
+msgid "Danh sách chi nhánh"
+msgstr ""
+
+#: inc/customizer.php:75
+msgid "Mỗi dòng 1 chi nhánh (tuỳ chọn)."
+msgstr ""
+
+#: inc/customizer.php:76
+msgid "Link Google Maps"
+msgstr ""
+
+#: inc/customizer.php:87
+msgid "Facebook (URL)"
+msgstr ""
+
+#: inc/customizer.php:88 inc/template-tags.php:152
+msgid "Telegram"
+msgstr ""
+
+#: inc/customizer.php:88
+msgid "Username, @tên hoặc URL t.me/…"
+msgstr ""
+
+#: inc/customizer.php:94
+msgid "Thương hiệu & Logo"
+msgstr ""
+
+#: inc/customizer.php:99
+msgid "Slogan"
+msgstr ""
+
+#: inc/customizer.php:115
+msgid "Logo trắng (nền tối)"
+msgstr ""
+
+#: inc/customizer.php:116
+msgid "Dùng cho header/footer nền xanh đậm. Bỏ trống sẽ dùng logo mặc định hoặc tên site."
+msgstr ""
+
+#: inc/fields.php:82
+msgid "Nội dung Landing (Pro-Metal)"
+msgstr ""
+
+#: inc/fields.php:86
+msgid "Khối nội dung"
+msgstr ""
+
+#: inc/fields.php:91 inc/fields.php:92
+msgid "Khối"
+msgstr ""
+
+#: inc/fields.php:99
+msgid "Hero dịch vụ"
+msgstr ""
+
+#: inc/fields.php:101
+msgid "Tiêu đề H1"
+msgstr ""
+
+#: inc/fields.php:102
+msgid "Mô tả ngắn"
+msgstr ""
+
+#: inc/fields.php:103
+msgid "Gạch đầu dòng (USP)"
+msgstr ""
+
+#: inc/fields.php:104 inc/fields.php:130 inc/rest-lead.php:252
+msgid "Nội dung"
+msgstr ""
+
+#: inc/fields.php:105 inc/fields.php:224 inc/fields.php:302
+msgid "Ảnh minh hoạ"
+msgstr ""
+
+#: inc/fields.php:112
+msgid "Thanh niềm tin"
+msgstr ""
+
+#: inc/fields.php:114
+msgid "Chỉ số"
+msgstr ""
+
+#: inc/fields.php:118
+msgid "Dòng nổi bật"
+msgstr ""
+
+#: inc/fields.php:119
+msgid "Ghi chú"
+msgstr ""
+
+#: inc/fields.php:128
+msgid "Đoạn mở đầu"
+msgstr ""
+
+#: inc/fields.php:137
+msgid "Thẻ ứng dụng"
+msgstr ""
+
+#: inc/fields.php:139 inc/fields.php:157 inc/fields.php:174 inc/fields.php:205 inc/fields.php:222 inc/fields.php:240 inc/fields.php:263 inc/fields.php:284 inc/fields.php:300
+msgid "Tiêu đề khối"
+msgstr ""
+
+#: inc/fields.php:140 inc/fields.php:158 inc/fields.php:175 inc/fields.php:206 inc/fields.php:223 inc/fields.php:264
+msgid "Mô tả khối"
+msgstr ""
+
+#: inc/fields.php:141
+msgid "Thẻ"
+msgstr ""
+
+#: inc/fields.php:144 inc/fields.php:251
+msgid "Icon (ảnh)"
+msgstr ""
+
+#: inc/fields.php:145 inc/fields.php:210 inc/fields.php:244
+msgid "Tiêu đề"
+msgstr ""
+
+#: inc/fields.php:146 inc/fields.php:211 inc/fields.php:229 inc/fields.php:245 inc/fields.php:301
+msgid "Mô tả"
+msgstr ""
+
+#: inc/fields.php:155
+msgid "Thư viện ảnh"
+msgstr ""
+
+#: inc/fields.php:159 inc/fields.php:162 inc/fields.php:317
+msgid "Ảnh"
+msgstr ""
+
+#: inc/fields.php:163
+msgid "Chú thích"
+msgstr ""
+
+#: inc/fields.php:172
+msgid "Bảng loại panel"
+msgstr ""
+
+#: inc/fields.php:176
+msgid "Dòng bảng"
+msgstr ""
+
+#: inc/fields.php:179 inc/fields.php:491 template-parts/landing/price-table.php:140
+msgid "Loại panel"
+msgstr ""
+
+#: inc/fields.php:180 template-parts/landing/price-table.php:141
+msgid "Phù hợp"
+msgstr ""
+
+#: inc/fields.php:181 template-parts/landing/price-table.php:142
+msgid "Ghi chú tư vấn"
+msgstr ""
+
+#: inc/fields.php:182
+msgid "Nhãn chi phí"
+msgstr ""
+
+#: inc/fields.php:183
+msgid "Mức chi phí"
+msgstr ""
+
+#: inc/fields.php:186 template-parts/landing/price-table.php:92
+msgid "Hợp lý"
+msgstr ""
+
+#: inc/fields.php:187 template-parts/landing/price-table.php:93
+msgid "Cao hơn"
+msgstr ""
+
+#: inc/fields.php:188 template-parts/landing/price-table.php:94
+msgid "Theo yêu cầu"
+msgstr ""
+
+#: inc/fields.php:193
+msgid "CTA — tiêu đề"
+msgstr ""
+
+#: inc/fields.php:194
+msgid "CTA — mô tả"
+msgstr ""
+
+#: inc/fields.php:195
+msgid "CTA — nhãn nút"
+msgstr ""
+
+#: inc/fields.php:196
+msgid "CTA — link (trống = Zalo)"
+msgstr ""
+
+#: inc/fields.php:203
+msgid "Yếu tố chi phí"
+msgstr ""
+
+#: inc/fields.php:207
+msgid "Yếu tố"
+msgstr ""
+
+#: inc/fields.php:220
+msgid "Quy trình thi công"
+msgstr ""
+
+#: inc/fields.php:225
+msgid "Bước"
+msgstr ""
+
+#: inc/fields.php:228
+msgid "Tên bước"
+msgstr ""
+
+#: inc/fields.php:238 inc/fields.php:241 inc/fields.php:503
+msgid "Cam kết"
+msgstr ""
+
+#: inc/fields.php:248
+msgid "Ô lợi ích (icon)"
+msgstr ""
+
+#: inc/fields.php:252
+msgid "Nhãn"
+msgstr ""
+
+#: inc/fields.php:261
+msgid "Khu vực & chi nhánh"
+msgstr ""
+
+#: inc/fields.php:265 inc/fields.php:507
+msgid "Khu vực"
+msgstr ""
+
+#: inc/fields.php:266
+msgid "Tên khu vực"
+msgstr ""
+
+#: inc/fields.php:267
+msgid "Chi nhánh"
+msgstr ""
+
+#: inc/fields.php:270
+msgid "Tên chi nhánh"
+msgstr ""
+
+#: inc/fields.php:271
+msgid "Địa chỉ"
+msgstr ""
+
+#: inc/fields.php:272 template-parts/landing/quote-form.php:45
+msgid "Hotline & Zalo"
+msgstr ""
+
+#: inc/fields.php:273
+msgid "Là trụ sở chính"
+msgstr ""
+
+#: inc/fields.php:282
+msgid "Câu hỏi thường gặp"
+msgstr ""
+
+#: inc/fields.php:285 inc/fields.php:288
+msgid "Câu hỏi"
+msgstr ""
+
+#: inc/fields.php:289
+msgid "Trả lời"
+msgstr ""
+
+#: inc/fields.php:298
+msgid "Form báo giá"
+msgstr ""
+
+#: inc/fields.php:309
+msgid "Pro-Metal — Trang chủ"
+msgstr ""
+
+#: inc/fields.php:313
+msgid "Ảnh hero trang chủ"
+msgstr ""
+
+#: inc/fields.php:314
+msgid "Bỏ trống để dùng ảnh mặc định trong theme."
+msgstr ""
+
+#: inc/fields.php:318
+msgid "Tiêu đề / mô tả ảnh (alt)"
+msgstr ""
+
+#: inc/fields.php:319
+msgid "Mô tả phụ"
+msgstr ""
+
+#: inc/fields.php:320
+msgid "Nhãn nút"
+msgstr ""
+
+#: inc/fields.php:321
+msgid "Link nút"
+msgstr ""
+
+#: inc/fields.php:483
+msgid "Ứng dụng"
+msgstr ""
+
+#: inc/fields.php:487
+msgid "Ảnh thật"
+msgstr ""
+
+#: inc/fields.php:495
+msgid "Chi phí"
+msgstr ""
+
+#: inc/fields.php:499
+msgid "Quy trình"
+msgstr ""
+
+#: inc/fields.php:511
+msgid "Hỏi đáp"
+msgstr ""
+
+#: inc/fields.php:515 template-parts/landing/process.php:134
+msgid "Báo giá"
+msgstr ""
+
+#: inc/rest-lead.php:28
+msgid "Yêu cầu / Lead"
+msgstr ""
+
+#: inc/rest-lead.php:29
+msgid "Lead"
+msgstr ""
+
+#: inc/rest-lead.php:30
+msgid "Yêu cầu liên hệ"
+msgstr ""
+
+#: inc/rest-lead.php:31
+msgid "Tất cả yêu cầu"
+msgstr ""
+
+#: inc/rest-lead.php:32
+msgid "Tìm yêu cầu"
+msgstr ""
+
+#: inc/rest-lead.php:33
+msgid "Chưa có yêu cầu nào."
+msgstr ""
+
+#: inc/rest-lead.php:87
+msgid "Phiên đã hết hạn, vui lòng tải lại trang và thử lại."
+msgstr ""
+
+#: inc/rest-lead.php:109
+msgid "Vui lòng nhập họ tên."
+msgstr ""
+
+#: inc/rest-lead.php:112
+msgid "Số điện thoại chưa hợp lệ, vui lòng kiểm tra lại."
+msgstr ""
+
+#: inc/rest-lead.php:137
+msgid "Không lưu được yêu cầu, vui lòng gọi hotline giúp chúng tôi."
+msgstr ""
+
+#: inc/rest-lead.php:191
+msgid "Đã nhận yêu cầu! Pro-Metal sẽ gọi lại tư vấn trong ít phút."
+msgstr ""
+
+#. translators:%s: khách hàng.
+#: inc/rest-lead.php:213
+msgid "[%1$s] Yêu cầu mới từ %2$s"
+msgstr ""
+
+#: inc/rest-lead.php:219
+msgid "Có yêu cầu liên hệ mới:"
+msgstr ""
+
+#: inc/rest-lead.php:221
+msgid "Họ tên: %s"
+msgstr ""
+
+#: inc/rest-lead.php:222
+msgid "Điện thoại: %s"
+msgstr ""
+
+#: inc/rest-lead.php:223
+msgid "Nội dung: %s"
+msgstr ""
+
+#: inc/rest-lead.php:224
+msgid "Nguồn: %s"
+msgstr ""
+
+#: inc/rest-lead.php:225
+msgid "Thời gian: %s"
+msgstr ""
+
+#: inc/rest-lead.php:250
+msgid "Khách hàng"
+msgstr ""
+
+#: inc/rest-lead.php:251
+msgid "Điện thoại"
+msgstr ""
+
+#: inc/rest-lead.php:253
+msgid "Nguồn"
+msgstr ""
+
+#: inc/rest-lead.php:254
+msgid "Ngày gửi"
+msgstr ""
+
+#: inc/setup.php:29
+msgid "Menu chính (header)"
+msgstr ""
+
+#: inc/setup.php:30
+msgid "Menu footer"
+msgstr ""
+
+#: inc/shortcodes.php:177
+msgid "Liên hệ ngay"
+msgstr ""
+
+#: inc/template-tags.php:137
+msgid "Facebook"
+msgstr ""
+
+#: inc/template-tags.php:144
+msgid "Zalo"
+msgstr ""
+
+#: inc/template-tags.php:188 inc/template-tags.php:480
+msgid "Trang chủ"
+msgstr ""
+
+#. translators:%s: search query.
+#: inc/template-tags.php:223
+msgid "Kết quả tìm: %s"
+msgstr ""
+
+#. translators:%s: search query.
+#: inc/template-tags.php:225
+msgid "Không tìm thấy"
+msgstr ""
+
+#: inc/template-tags.php:232
+msgid "Đường dẫn"
+msgstr ""
+
+#. translators:%d: number of minutes.
+#: inc/template-tags.php:272
+msgid "%d phút đọc"
+msgid_plural "%d phút đọc"
+msgstr[0] ""
+
+#: inc/template-tags.php:467
+msgid "Sửa cửa kéo"
+msgstr ""
+
+#: inc/template-tags.php:471
+msgid "Làm cửa/cổng sắt"
+msgstr ""
+
+#: inc/template-tags.php:472
+msgid "Làm cửa kéo"
+msgstr ""
+
+#: inc/template-tags.php:473
+msgid "Mái hiên/mái che"
+msgstr ""
+
+#: inc/template-tags.php:474
+msgid "Cầu thang/lan can"
+msgstr ""
+
+#: inc/template-tags.php:475
+msgid "Vách ngăn panel"
+msgstr ""
+
+#: inc/template-tags.php:483
+msgid "Dịch vụ sửa chữa"
+msgstr ""
+
+#: inc/template-tags.php:490
+msgid "Thi công mới"
+msgstr ""
+
+#: inc/template-tags.php:496 template-parts/news/sidebar-cards.php:39
+msgid "Báo giá cửa sắt"
+msgstr ""
+
+#: inc/template-tags.php:497
+msgid "Giới thiệu"
+msgstr ""
+
+#: inc/template-tags.php:498
+msgid "Liên hệ"
+msgstr ""
+
+#. translators:%s: search query.
+#: index.php:27
+msgid "Kết quả tìm kiếm: %s"
+msgstr ""
+
+#: index.php:54
+msgid "Điều hướng trang"
+msgstr ""
+
+#: page-bao-gia.php:26
+msgid "Báo giá theo bản vẽ/kích thước"
+msgstr ""
+
+#: page-bao-gia.php:27
+msgid "Bóc tách rõ hạng mục vật tư và nhân công trước khi làm, không phát sinh mập mờ."
+msgstr ""
+
+#: page-bao-gia.php:30 template-parts/landing/process.php:28
+msgid "Tư vấn đúng nhu cầu"
+msgstr ""
+
+#: page-bao-gia.php:31
+msgid "Chọn vật tư và phương án phù hợp mục đích sử dụng, tránh dư thừa gây đội chi phí."
+msgstr ""
+
+#: page-bao-gia.php:34
+msgid "Khảo sát tận nơi tại TP.HCM"
+msgstr ""
+
+#: page-bao-gia.php:35
+msgid "Nhận khảo sát hiện trạng, đo đạc và thống nhất khối lượng trước khi chốt giá."
+msgstr ""
+
+#: page-bao-gia.php:49
+msgid "Gửi bản vẽ, kích thước hoặc ảnh hiện trạng — Pro-Metal bóc tách khối lượng và báo giá rõ ràng theo từng hạng mục. Cần gấp, anh chị gọi hotline để được tư vấn ngay."
+msgstr ""
+
+#: page-bao-gia.php:53
+msgid "Cam kết báo giá"
+msgstr ""
+
+#: page-bao-gia.php:68
+msgid "Nhận báo giá"
+msgstr ""
+
+#: page-bao-gia.php:69
+msgid "Nhận báo giá miễn phí"
+msgstr ""
+
+#: page-bao-gia.php:70
+msgid "Để lại thông tin, Pro-Metal gọi lại tư vấn và báo giá trong thời gian sớm nhất."
+msgstr ""
+
+#: page-bao-gia.php:79 page-lien-he.php:89
+msgid "Số điện thoại để gọi lại"
+msgstr ""
+
+#: page-bao-gia.php:82
+msgid "Hạng mục cần báo giá"
+msgstr ""
+
+#: page-bao-gia.php:83
+msgid "Ví dụ: làm cửa cổng sắt 3,2m x 2,4m; hoặc vách panel 12m dài, cao 3m…"
+msgstr ""
+
+#: page-bao-gia.php:94
+msgid "Gửi yêu cầu báo giá"
+msgstr ""
+
+#: page-bao-gia.php:98 template-parts/landing/quote-form.php:77
+msgid "Chúng tôi chỉ dùng số điện thoại để gọi lại tư vấn, không gửi tin nhắn quảng cáo."
+msgstr ""
+
+#: page-lien-he.php:36
+msgid "Anh chị cần tư vấn, khảo sát hoặc báo giá? Gọi hotline, nhắn Zalo hoặc để lại thông tin — Pro-Metal sẽ liên hệ lại nhanh nhất."
+msgstr ""
+
+#: page-lien-he.php:42 page-lien-he.php:43
+msgid "Thông tin liên hệ"
+msgstr ""
+
+#: page-lien-he.php:51 template-parts/landing/areas.php:94
+msgid "Hotline & Zalo:"
+msgstr ""
+
+#: page-lien-he.php:56
+msgid "Email:"
+msgstr ""
+
+#: page-lien-he.php:62
+msgid "Website:"
+msgstr ""
+
+#: page-lien-he.php:80 page-lien-he.php:81
+msgid "Gửi yêu cầu tư vấn"
+msgstr ""
+
+#: page-lien-he.php:92
+msgid "Nội dung cần tư vấn"
+msgstr ""
+
+#: page-lien-he.php:93
+msgid "Mô tả ngắn nhu cầu, khu vực và thời gian mong muốn"
+msgstr ""
+
+#: page-lien-he.php:114
+msgid "Bản đồ tới Pro-Metal"
+msgstr ""
+
+#: page.php:38
+msgid "Trang con"
+msgstr ""
+
+#: search.php:23 searchform.php:16
+msgid "Tìm kiếm"
+msgstr ""
+
+#. translators:%s: từ khoá tìm kiếm.
+#: search.php:27
+msgid "Kết quả cho: %s"
+msgstr ""
+
+#. translators:%s: số lượng kết quả.
+#: search.php:34
+msgid "Tìm thấy %s bài viết phù hợp."
+msgid_plural "Tìm thấy %s bài viết phù hợp."
+msgstr[0] ""
+
+#: search.php:57
+msgid "Điều hướng kết quả"
+msgstr ""
+
+#: searchform.php:23
+msgid "Tìm dịch vụ, bài viết…"
+msgstr ""
+
+#: searchform.php:26 searchform.php:28
+msgid "Tìm"
+msgstr ""
+
+#: sidebar.php:17
+msgid "Thông tin bên lề bài viết"
+msgstr ""
+
+#: single.php:36
+msgid "Trang bài viết"
+msgstr ""
+
+#: single.php:36
+msgid "Trang:"
+msgstr ""
+
+#: single.php:50
+msgid "Tags:"
+msgstr ""
+
+#: single.php:64
+msgid "Chia sẻ:"
+msgstr ""
+
+#: single.php:65
+msgid "Chia sẻ lên Facebook"
+msgstr ""
+
+#: single.php:68
+msgid "Chia sẻ qua Zalo"
+msgstr ""
+
+#: single.php:71
+msgid "Chia sẻ qua email"
+msgstr ""
+
+#: template-parts/content-none.php:18
+msgid "Không có kết quả phù hợp"
+msgstr ""
+
+#: template-parts/content-none.php:20
+msgid "Rất tiếc, không tìm thấy nội dung nào khớp với từ khoá của bạn. Hãy thử từ khoá khác."
+msgstr ""
+
+#: template-parts/content-none.php:26
+msgid "Chưa có bài viết nào"
+msgstr ""
+
+#. translators:%s: URL trang thêm bài viết mới.
+#: template-parts/content-none.php:32
+msgid "Bắt đầu chia sẻ nội dung bằng cách <a href=\"%s\">tạo bài viết đầu tiên</a>."
+msgstr ""
+
+#: template-parts/content-none.php:42
+msgid "Chưa có nội dung"
+msgstr ""
+
+#: template-parts/content-none.php:44
+msgid "Nội dung đang được cập nhật. Bạn có thể tìm kiếm hoặc quay lại trang chủ."
+msgstr ""
+
+#: template-parts/content.php:54 template-parts/home/news-latest.php:66
+msgid "Đọc tiếp"
+msgstr ""
+
+#: template-parts/home/aluminum.php:17
+msgid "Hệ thống cửa nhôm:"
+msgstr ""
+
+#: template-parts/home/aluminum.php:18
+msgid "cửa chính (2/4 cánh), cửa sổ, cửa lùa hiện đại, tối ưu ánh sáng."
+msgstr ""
+
+#: template-parts/home/aluminum.php:21
+msgid "Kết cấu an toàn:"
+msgstr ""
+
+#: template-parts/home/aluminum.php:22
+msgid "lan can nhôm, cầu thang và hệ khung bảo vệ chắc chắn, tinh tế."
+msgstr ""
+
+#: template-parts/home/aluminum.php:25
+msgid "Giải pháp văn phòng:"
+msgstr ""
+
+#: template-parts/home/aluminum.php:26
+msgid "vách ngăn nhôm kính chia không gian chuyên nghiệp, cách âm."
+msgstr ""
+
+#: template-parts/home/aluminum.php:33
+msgid "Ảnh hệ nhôm kính"
+msgstr ""
+
+#: template-parts/home/aluminum.php:36
+msgid "Giải pháp nhôm kính toàn diện"
+msgstr ""
+
+#. translators:%s: nhóm dịch vụ được in đậm.
+#: template-parts/home/aluminum.php:41
+msgid "Pro-Metal tự hào là đơn vị chuyên %s các hạng mục nhôm cao cấp cho nhà ở dân dụng và văn phòng."
+msgstr ""
+
+#. translators:%s: nhóm dịch vụ được in đậm.
+#: template-parts/home/aluminum.php:42
+msgid "Thiết kế – Thi công – Sửa chữa"
+msgstr ""
+
+#: template-parts/home/aluminum.php:55 template-parts/home/services-sat.php:55
+msgid "Xem chi tiết"
+msgstr ""
+
+#: template-parts/home/brand-intro.php:37 template-parts/home/brand-intro.php:38
+msgid "Cơ khí Pro-Metal"
+msgstr ""
+
+#: template-parts/home/brand-intro.php:41
+msgid "Cơ khí Pro-Metal chuyên thi công cửa sắt, lan can, cầu thang, mái hiên… tại nhà chuyên nghiệp, chất lượng đạt chuẩn, giá hợp lý, bảo hành đầy đủ. Chúng tôi cam kết mang tới ngôi nhà bạn nét chấm phá hiện đại từ các công trình SẮT, NHÔM, INOX."
+msgstr ""
+
+#: template-parts/home/brand-intro.php:63
+msgid "Công trình %d"
+msgstr ""
+
+#: template-parts/home/contact-form.php:21
+msgid "Liên hệ với Pro-Metal"
+msgstr ""
+
+#: template-parts/home/contact-form.php:26
+msgid "Ảnh xưởng cơ khí"
+msgstr ""
+
+#: template-parts/home/contact-form.php:29
+msgid "Gửi ngay yêu cầu của bạn"
+msgstr ""
+
+#: template-parts/home/contact-form.php:41 template-parts/home/contact-form.php:42
+msgid "Lời nhắn / nhu cầu"
+msgstr ""
+
+#: template-parts/home/contact-form.php:60
+msgid "THÔNG TIN LIÊN HỆ"
+msgstr ""
+
+#: template-parts/home/contact-form.php:63
+msgid "SĐT/Zalo:"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:26
+msgid "Thợ Pro-Metal sửa chữa cửa sắt tại nhà"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:30
+msgid "Thi công tổng hợp cửa sắt, nhôm, inox"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:34
+msgid "Nhà xưởng cơ khí Pro-Metal"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:63
+msgid "Giới thiệu Pro-Metal"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:75
+msgid "Ảnh trước"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:78
+msgid "Ảnh sau"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:88
+msgid "Sửa Chữa Cửa Sắt"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:92
+msgid "Thiết kế – thi công – sửa chữa cửa sắt, cửa nhôm, cửa inox… tại nhà. Chuyên nghiệp – Uy tín – Nhanh chóng – Bảo hành đầy đủ."
+msgstr ""
+
+#: template-parts/home/hero-slider.php:96
+msgid "Nhận báo giá ngay"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:99
+msgid "Xem dịch vụ"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:108
+msgid "Chọn ảnh hero"
+msgstr ""
+
+#: template-parts/home/hero-slider.php:113
+msgid "Ảnh %d"
+msgstr ""
+
+#: template-parts/home/news-latest.php:38
+msgid "Tin tức – Thông tin"
+msgstr ""
+
+#: template-parts/home/news-latest.php:53
+msgid "Ảnh bài viết"
+msgstr ""
+
+#: template-parts/home/news-latest.php:76
+msgid "Xem tất cả tin tức"
+msgstr ""
+
+#: template-parts/home/services-inox.php:17
+msgid "CỬA INOX"
+msgstr ""
+
+#: template-parts/home/services-inox.php:19
+msgid "Ảnh cửa inox"
+msgstr ""
+
+#: template-parts/home/services-inox.php:22
+msgid "CẦU THANG INOX"
+msgstr ""
+
+#: template-parts/home/services-inox.php:24
+msgid "Ảnh cầu thang inox"
+msgstr ""
+
+#: template-parts/home/services-inox.php:27
+msgid "CÔNG TRÌNH INOX KHÁC"
+msgstr ""
+
+#: template-parts/home/services-inox.php:29
+msgid "Ảnh công trình inox"
+msgstr ""
+
+#: template-parts/home/services-inox.php:37
+msgid "Thiết kế – Thi công – Sửa chữa cửa inox"
+msgstr ""
+
+#: template-parts/home/services-inox.php:38
+msgid "Cửa inox, lan can inox, cầu thang inox… giá trị cao với chi phí tối ưu, đa dạng mẫu mã."
+msgstr ""
+
+#: template-parts/home/services-sat.php:18
+msgid "CỬA SẮT"
+msgstr ""
+
+#: template-parts/home/services-sat.php:19
+msgid "Chuyên thiết kế, thi công Cửa Sắt, Cửa Cuốn, Cửa Cổng, Cửa Sổ. Mẫu mã hiện đại, vật liệu bền bỉ."
+msgstr ""
+
+#: template-parts/home/services-sat.php:21
+msgid "Ảnh cửa sắt"
+msgstr ""
+
+#: template-parts/home/services-sat.php:24
+msgid "NHÀ XƯỞNG – CÔNG TY"
+msgstr ""
+
+#: template-parts/home/services-sat.php:25
+msgid "Thiết kế, thi công & sửa chữa nhà xưởng, văn phòng, công ty. Tối ưu không gian, đúng tiến độ."
+msgstr ""
+
+#: template-parts/home/services-sat.php:27
+msgid "Ảnh nhà xưởng"
+msgstr ""
+
+#: template-parts/home/services-sat.php:30
+msgid "CÔNG TRÌNH SẮT KHÁC"
+msgstr ""
+
+#: template-parts/home/services-sat.php:31
+msgid "Lan can, cầu thang, mái hiên, mái che. Sản phẩm bền đẹp, an toàn và thẩm mỹ."
+msgstr ""
+
+#: template-parts/home/services-sat.php:33
+msgid "Ảnh lan can"
+msgstr ""
+
+#: template-parts/home/services-sat.php:41
+msgid "Thiết kế – Thi công – Sửa chữa cửa sắt"
+msgstr ""
+
+#: template-parts/home/services-sat.php:42
+msgid "Pro-Metal thiết kế – thi công các mẫu cửa sắt, cửa cổng, lan can, cầu thang… đẹp, hiện đại theo yêu cầu."
+msgstr ""
+
+#: template-parts/home/testimonials.php:56
+msgid "Pro-Metal tư vấn vật liệu tốt, thi công đúng tiến độ và rất cẩn thận. Tôi rất hài lòng về chất lượng công trình."
+msgstr ""
+
+#: template-parts/home/testimonials.php:57
+msgid "Anh Trường"
+msgstr ""
+
+#: template-parts/home/testimonials.php:58
+msgid "Q. Gò Vấp"
+msgstr ""
+
+#: template-parts/home/testimonials.php:62
+msgid "Anh em thợ rất chuyên nghiệp và tận tâm. Từ thi công đến dọn dẹp vệ sinh sau khi xong đều gọn gàng."
+msgstr ""
+
+#: template-parts/home/testimonials.php:63
+msgid "Chị Hoa"
+msgstr ""
+
+#: template-parts/home/testimonials.php:64
+msgid "Q. Bình Thạnh"
+msgstr ""
+
+#: template-parts/home/testimonials.php:68
+msgid "Chọn Pro-Metal thi công lan can, cầu thang cho dự án lớn, được giám sát chặt chẽ. Rất yên tâm."
+msgstr ""
+
+#: template-parts/home/testimonials.php:69
+msgid "Cty PNJ"
+msgstr ""
+
+#: template-parts/home/testimonials.php:70
+msgid "Bình Thạnh"
+msgstr ""
+
+#: template-parts/home/testimonials.php:80
+msgid "Khách hàng đánh giá Pro-Metal"
+msgstr ""
+
+#: template-parts/home/testimonials.php:84
+msgid "Đánh giá trước"
+msgstr ""
+
+#: template-parts/home/testimonials.php:111
+msgid "Đánh giá sau"
+msgstr ""
+
+#: template-parts/home/testimonials.php:115
+msgid "Trang đánh giá"
+msgstr ""
+
+#: template-parts/home/values.php:23
+msgid "MIỄN PHÍ"
+msgstr ""
+
+#: template-parts/home/values.php:24
+msgid "Tư vấn thiết kế, vật liệu và các vấn đề liên quan đến công trình hoàn toàn miễn phí."
+msgstr ""
+
+#: template-parts/home/values.php:28
+msgid "CHUYÊN NGHIỆP"
+msgstr ""
+
+#: template-parts/home/values.php:29
+msgid "Đội ngũ thợ lành nghề, nhiều năm kinh nghiệm trong ngành cơ khí."
+msgstr ""
+
+#: template-parts/home/values.php:33
+msgid "NHANH – GIÁ RẺ"
+msgstr ""
+
+#: template-parts/home/values.php:34
+msgid "Dịch vụ nhanh chóng với mức giá hợp lý và cạnh tranh nhất."
+msgstr ""
+
+#: template-parts/home/values.php:38
+msgid "BẢO HÀNH"
+msgstr ""
+
+#: template-parts/home/values.php:39
+msgid "Cam kết chất lượng cao nhất, bảo hành đầy đủ và nhanh chóng trong 2 năm."
+msgstr ""
+
+#: template-parts/home/values.php:47
+msgid "Cam kết của chúng tôi"
+msgstr ""
+
+#: template-parts/home/values.php:48
+msgid "Điểm khác biệt Pro-Metal — bốn cam kết đi cùng mọi công trình."
+msgstr ""
+
+#: template-parts/landing/areas.php:16
+msgid "Khu vực nhận thi công vách panel tại TP.HCM"
+msgstr ""
+
+#: template-parts/landing/areas.php:17
+msgid "Pro-Metal nhận khảo sát tại nhiều khu vực TP.HCM. Với công trình ngoài TP.HCM, anh chị gửi vị trí để chúng tôi xem khả năng nhận thi công."
+msgstr ""
+
+#: template-parts/landing/areas.php:34
+msgid "Trụ sở chính - Bình Tân"
+msgstr ""
+
+#: template-parts/landing/areas.php:40
+msgid "Chi nhánh Tân Bình"
+msgstr ""
+
+#: template-parts/landing/areas.php:41
+msgid "Lầu 4, 249 Cộng Hòa, P.13, Q. Tân Bình"
+msgstr ""
+
+#: template-parts/landing/areas.php:46
+msgid "Chi nhánh Quận 3"
+msgstr ""
+
+#: template-parts/landing/areas.php:47
+msgid "64 Vườn Chuối, Quận 3, TP.HCM"
+msgstr ""
+
+#: template-parts/landing/cards.php:25
+msgid "Vách panel phù hợp với những công trình cần chia không gian nhanh nhưng vẫn muốn sạch, nhẹ và dễ kiểm soát tiến độ. Thay vì xây tường gạch mất nhiều thời gian, nhiều bụi và khó thay đổi về sau, vách panel có thể lắp theo khung, ghép tấm, xử lý khe nối và đưa vào sử dụng nhanh hơn."
+msgstr ""
+
+#: template-parts/landing/cards.php:26
+msgid "Tuy vậy, thi công panel không chỉ là dựng vài tấm vách lên. Công trình nhà xưởng cần tính độ cao, khung xương và độ ổn định. Văn phòng trong xưởng cần nhìn gọn, kín, đủ sáng. Phòng trọ cần tối ưu chi phí và dễ vệ sinh. Kho mát hoặc khu phụ trợ lại cần chú ý khả năng cách nhiệt và cách xử lý khe nối."
+msgstr ""
+
+#: template-parts/landing/cards.php:27
+msgid "Pro-Metal đi theo hướng tư vấn trước khi thi công: xem mục đích sử dụng, đo kích thước, kiểm tra nền/tường/trần hiện trạng, rồi mới đề xuất loại panel, độ dày, khung phụ và cách hoàn thiện."
+msgstr ""
+
+#: template-parts/landing/cards.php:45
+msgid "Vách panel phù hợp công trình nào?"
+msgstr ""
+
+#: template-parts/landing/cards.php:46
+msgid "Mỗi mặt bằng cần một cách làm khác nhau. Chúng tôi ưu tiên tư vấn theo mục đích sử dụng để không chọn vật tư quá thiếu hoặc quá dư."
+msgstr ""
+
+#: template-parts/landing/cards.php:52
+msgid "Vách panel nhà xưởng"
+msgstr ""
+
+#: template-parts/landing/cards.php:53
+msgid "Chia khu làm việc, kho phụ, phòng kỹ thuật hoặc khu cần ngăn bụi/giảm nóng tương đối. Điểm quan trọng là khung xương chắc, chân vách neo ổn và chiều cao phù hợp."
+msgstr ""
+
+#: template-parts/landing/cards.php:56
+msgid "Văn phòng trong xưởng"
+msgstr ""
+
+#: template-parts/landing/cards.php:57
+msgid "Làm phòng quản lý, phòng họp nhỏ, khu admin hoặc phòng nghỉ. Có thể kết hợp cửa đi, ô kính và trần panel để tách khu rõ hơn."
+msgstr ""
+
+#: template-parts/landing/cards.php:60
+msgid "Phòng trọ, nhà cho thuê"
+msgstr ""
+
+#: template-parts/landing/cards.php:61
+msgid "Phù hợp chia phòng nhanh, giảm tải trọng lên sàn và hạn chế thi công ướt. Cần tư vấn kỹ khe hở, điện và nhu cầu riêng tư."
+msgstr ""
+
+#: template-parts/landing/cards.php:64
+msgid "Kho mát, khu phụ trợ"
+msgstr ""
+
+#: template-parts/landing/cards.php:65
+msgid "Panel giúp hạn chế nóng và ổn định không gian hơn vách thường. Nếu là kho lạnh/phòng sạch tiêu chuẩn cao, cần xem yêu cầu kỹ thuật cụ thể."
+msgstr ""
+
+#: template-parts/landing/cards.php:68
+msgid "Cửa hàng, kho nhỏ"
+msgstr ""
+
+#: template-parts/landing/cards.php:69
+msgid "Ngăn kho hàng, khu nhân viên hoặc khu thao tác phía sau cửa hàng. Thi công gọn giúp mặt bằng kinh doanh sớm vận hành lại."
+msgstr ""
+
+#: template-parts/landing/cards.php:72
+msgid "Trần panel chống nóng"
+msgstr ""
+
+#: template-parts/landing/cards.php:73
+msgid "Một số công trình cần kết hợp trần panel để giảm nóng và làm mặt bằng gọn hơn. Cần xem cao độ, khung treo và hệ thống đèn/quạt."
+msgstr ""
+
+#: template-parts/landing/faq.php:16
+msgid "Câu hỏi thường gặp về vách panel"
+msgstr ""
+
+#: template-parts/landing/faq.php:22
+msgid "Thi công vách panel mất bao lâu?"
+msgstr ""
+
+#: template-parts/landing/faq.php:23
+msgid "Tùy diện tích, chiều cao, loại panel và điều kiện mặt bằng. Vách nhỏ, mặt bằng trống thường nhanh hơn; công trình có nhiều cửa, ô kính, trần hoặc đang vận hành cần thêm thời gian tổ chức."
+msgstr ""
+
+#: template-parts/landing/faq.php:26
+msgid "Panel có cách âm tốt không?"
+msgstr ""
+
+#: template-parts/landing/faq.php:27
+msgid "Panel có thể giảm ồn ở mức nhất định, nhưng hiệu quả phụ thuộc loại lõi, độ dày, khe nối, cửa đi và trần/sàn. Nếu anh chị cần cách âm cao, cần nói rõ mục tiêu để tư vấn phương án phù hợp."
+msgstr ""
+
+#: template-parts/landing/faq.php:30
+msgid "Panel có chống nóng không?"
+msgstr ""
+
+#: template-parts/landing/faq.php:31
+msgid "Có, nhất là các loại panel có lõi cách nhiệt phù hợp. Tuy nhiên mức hiệu quả phụ thuộc loại panel, độ dày, hướng nắng, mái/trần và cách xử lý khe hở."
+msgstr ""
+
+#: template-parts/landing/faq.php:34
+msgid "Có nhận diện tích nhỏ không?"
+msgstr ""
+
+#: template-parts/landing/faq.php:35
+msgid "Có thể nhận nếu sắp xếp được thợ và vật tư theo khu vực. Anh chị gửi kích thước và vị trí để chúng tôi phản hồi nhanh."
+msgstr ""
+
+#: template-parts/landing/faq.php:38
+msgid "Có làm kho lạnh hoặc phòng sạch không?"
+msgstr ""
+
+#: template-parts/landing/faq.php:39
+msgid "Với kho lạnh/phòng sạch có tiêu chuẩn kỹ thuật riêng, Pro-Metal cần xem yêu cầu, bản vẽ và thông số vận hành trước. Nếu phù hợp năng lực và phạm vi, chúng tôi sẽ báo phương án; nếu không phù hợp sẽ nói rõ để anh chị tránh mất thời gian."
+msgstr ""
+
+#: template-parts/landing/faq.php:42
+msgid "Có tháo dời, di chuyển vách panel cũ không?"
+msgstr ""
+
+#: template-parts/landing/faq.php:43
+msgid "Có thể khảo sát tháo dỡ hoặc di dời nếu hệ khung và panel còn sử dụng được. Thợ cần xem hiện trạng trước khi báo cách làm."
+msgstr ""
+
+#: template-parts/landing/gallery.php:17
+msgid "Ảnh thực tế vật tư và công trình panel"
+msgstr ""
+
+#: template-parts/landing/gallery.php:18
+msgid "Anh chị có thể gửi thêm ảnh mặt bằng hiện trạng qua Zalo. Chúng tôi dựa trên kích thước, vị trí lắp và vật tư thực tế để tư vấn phương án phù hợp."
+msgstr ""
+
+#: template-parts/landing/gallery.php:24
+msgid "Văn phòng panel trong nhà xưởng"
+msgstr ""
+
+#: template-parts/landing/gallery.php:25
+msgid "Không gian văn phòng lắp ráp bằng panel"
+msgstr ""
+
+#: template-parts/landing/gallery.php:26
+msgid "Hệ khung và vách panel đang hoàn thiện"
+msgstr ""
+
+#: template-parts/landing/gallery.php:27
+msgid "Vật tư panel trước khi lắp đặt"
+msgstr ""
+
+#: template-parts/landing/gallery.php:28
+msgid "Vách panel hoàn thiện bên trong"
+msgstr ""
+
+#: template-parts/landing/gallery.php:29
+msgid "Ứng dụng panel chia phòng gọn nhẹ"
+msgstr ""
+
+#: template-parts/landing/hero.php:16
+msgid "Thi Công Vách Ngăn Panel Tại TP.HCM"
+msgstr ""
+
+#: template-parts/landing/hero.php:17
+msgid "Pro-Metal nhận làm vách ngăn panel cho nhà xưởng, văn phòng trong xưởng, phòng trọ, kho mát/khu phụ trợ và các mặt bằng cần chia phòng nhanh, sạch, ít đập phá. Gửi bản vẽ hoặc kích thước qua Zalo để chúng tôi tư vấn loại panel phù hợp."
+msgstr ""
+
+#: template-parts/landing/hero.php:22
+msgid "Lắp nhanh, gọn, hạn chế bụi và thi công ướt"
+msgstr ""
+
+#: template-parts/landing/hero.php:23
+msgid "Tư vấn EPS, PU, Glasswool/Rockwool theo đúng nhu cầu"
+msgstr ""
+
+#: template-parts/landing/hero.php:24
+msgid "Báo giá theo bản vẽ/kích thước, rõ hạng mục trước khi làm"
+msgstr ""
+
+#: template-parts/landing/hero.php:25
+msgid "Nhận khảo sát tại TP.HCM, bàn giao gọn và có bảo hành"
+msgstr ""
+
+#: template-parts/landing/hero.php:59
+msgid "Gửi bản vẽ qua Zalo"
+msgstr ""
+
+#: template-parts/landing/hero.php:70
+msgid "Ảnh công trình panel"
+msgstr ""
+
+#: template-parts/landing/price-table.php:22
+msgid "Chi phí thi công vách panel phụ thuộc điều gì?"
+msgstr ""
+
+#: template-parts/landing/price-table.php:23
+msgid "Pro-Metal không ghi số tiền cố định vì chi phí thay đổi theo vật tư, mặt bằng và yêu cầu hoàn thiện. Cách báo đúng là bóc tách từ bản vẽ hoặc kích thước thực tế."
+msgstr ""
+
+#: template-parts/landing/price-table.php:29
+msgid "Loại panel và độ dày"
+msgstr ""
+
+#: template-parts/landing/price-table.php:30
+msgid "EPS, PU, Glasswool/Rockwool có tính năng và mức chi phí khác nhau. Độ dày panel ảnh hưởng đến độ cứng, khả năng cách nhiệt và giá vật tư."
+msgstr ""
+
+#: template-parts/landing/price-table.php:33
+msgid "Diện tích và chiều cao"
+msgstr ""
+
+#: template-parts/landing/price-table.php:34
+msgid "Diện tích càng lớn thì khối lượng tấm và công lắp càng nhiều. Vách cao cần tính thêm khung, điểm neo, độ rung và vận chuyển tấm vào công trình."
+msgstr ""
+
+#: template-parts/landing/price-table.php:37
+msgid "Khung xương hiện trạng"
+msgstr ""
+
+#: template-parts/landing/price-table.php:38
+msgid "Nền/tường phẳng, chắc sẽ thi công nhanh hơn. Mặt bằng yếu, lệch, nhiều vật cản hoặc cần gia cố sẽ tăng công xử lý."
+msgstr ""
+
+#: template-parts/landing/price-table.php:41
+msgid "Cửa, ô kính, điện"
+msgstr ""
+
+#: template-parts/landing/price-table.php:42
+msgid "Vách đi kèm cửa đi, ô kính, dây điện, đèn/quạt hoặc lỗ kỹ thuật cần bóc tách riêng để báo đúng."
+msgstr ""
+
+#: template-parts/landing/price-table.php:45
+msgid "Vị trí thi công"
+msgstr ""
+
+#: template-parts/landing/price-table.php:46
+msgid "Tầng cao, hẻm nhỏ, khu đang vận hành hoặc cần làm ngoài giờ sẽ có cách tổ chức thi công khác công trình trống mặt bằng."
+msgstr ""
+
+#: template-parts/landing/price-table.php:49
+msgid "Mức hoàn thiện"
+msgstr ""
+
+#: template-parts/landing/price-table.php:50
+msgid "Nẹp góc, keo xử lý khe, vệ sinh bàn giao và yêu cầu thẩm mỹ ảnh hưởng đến thời gian thi công và chi phí sau cùng."
+msgstr ""
+
+#: template-parts/landing/price-table.php:88
+msgid "Các loại panel thường dùng"
+msgstr ""
+
+#: template-parts/landing/price-table.php:89
+msgid "Không có một loại panel tốt nhất cho mọi công trình. Loại phù hợp là loại đáp ứng đúng nhu cầu sử dụng, tiến độ và ngân sách."
+msgstr ""
+
+#: template-parts/landing/price-table.php:101
+msgid "Panel EPS"
+msgstr ""
+
+#: template-parts/landing/price-table.php:102
+msgid "Vách ngăn phòng, xưởng nhẹ, phòng trọ, khu phụ trợ"
+msgstr ""
+
+#: template-parts/landing/price-table.php:103
+msgid "Dễ dùng, thi công nhanh, phù hợp nhu cầu phổ thông không đòi hỏi cách nhiệt quá cao."
+msgstr ""
+
+#: template-parts/landing/price-table.php:107
+msgid "Panel PU"
+msgstr ""
+
+#: template-parts/landing/price-table.php:108
+msgid "Khu cần cách nhiệt tốt hơn, kho mát nhẹ, không gian cần ổn định nhiệt"
+msgstr ""
+
+#: template-parts/landing/price-table.php:109
+msgid "Hiệu quả cách nhiệt tốt hơn EPS, nên dùng khi nhu cầu thật sự cần để tránh đội chi phí."
+msgstr ""
+
+#: template-parts/landing/price-table.php:113
+msgid "Panel Glasswool/Rockwool"
+msgstr ""
+
+#: template-parts/landing/price-table.php:114
+msgid "Công trình quan tâm chống cháy, cách âm/cách nhiệt và yêu cầu kỹ thuật"
+msgstr ""
+
+#: template-parts/landing/price-table.php:115
+msgid "Cần xem tiêu chuẩn cụ thể, độ dày, hệ khung và phụ kiện đi kèm trước khi chốt."
+msgstr ""
+
+#: template-parts/landing/price-table.php:121
+msgid "Không chắc nên dùng panel nào?"
+msgstr ""
+
+#: template-parts/landing/price-table.php:122
+msgid "Gửi ảnh mặt bằng hoặc bản vẽ, chúng tôi xem nhu cầu rồi tư vấn loại phù hợp trước khi báo giá."
+msgstr ""
+
+#: template-parts/landing/price-table.php:123
+msgid "Gửi qua Zalo"
+msgstr ""
+
+#: template-parts/landing/price-table.php:143
+msgid "Mức chi phí tương đối"
+msgstr ""
+
+#: template-parts/landing/process.php:22
+msgid "Cam kết khi nhận công trình panel"
+msgstr ""
+
+#: template-parts/landing/process.php:29
+msgid "Không đẩy loại panel vượt yêu cầu sử dụng chỉ để tăng chi phí."
+msgstr ""
+
+#: template-parts/landing/process.php:32
+msgid "Báo rõ vật tư"
+msgstr ""
+
+#: template-parts/landing/process.php:33
+msgid "Loại panel, khung, nẹp, phụ kiện và phần phát sinh được nói rõ trước."
+msgstr ""
+
+#: template-parts/landing/process.php:36
+msgid "Thi công gọn"
+msgstr ""
+
+#: template-parts/landing/process.php:37
+msgid "Hạn chế ảnh hưởng khu vực đang vận hành, dọn gọn khi bàn giao."
+msgstr ""
+
+#: template-parts/landing/process.php:40
+msgid "Phát sinh phải hỏi trước"
+msgstr ""
+
+#: template-parts/landing/process.php:41
+msgid "Không tự làm thêm rồi tính thêm khi chưa thống nhất với anh chị."
+msgstr ""
+
+#: template-parts/landing/process.php:49 template-parts/landing/trust-bar.php:24
+msgid "Lắp nhanh"
+msgstr ""
+
+#: template-parts/landing/process.php:50
+msgid "Cách nhiệt"
+msgstr ""
+
+#: template-parts/landing/process.php:51
+msgid "Gọn sạch"
+msgstr ""
+
+#: template-parts/landing/process.php:52
+msgid "Dễ điều chỉnh"
+msgstr ""
+
+#: template-parts/landing/process.php:82
+msgid "Lợi ích vách ngăn panel"
+msgstr ""
+
+#: template-parts/landing/process.php:118
+msgid "Quy trình thi công vách panel"
+msgstr ""
+
+#: template-parts/landing/process.php:119
+msgid "Quy trình được giữ rõ từ đầu để công trình B2B không bị mập mờ khối lượng, vật tư và thời gian bàn giao."
+msgstr ""
+
+#: template-parts/landing/process.php:126
+msgid "Nhận bản vẽ"
+msgstr ""
+
+#: template-parts/landing/process.php:127
+msgid "Gửi mặt bằng, ảnh hiện trạng, chiều dài/cao vách và nhu cầu sử dụng."
+msgstr ""
+
+#: template-parts/landing/process.php:130
+msgid "Khảo sát"
+msgstr ""
+
+#: template-parts/landing/process.php:131
+msgid "Xem nền, tường, trần, hướng lắp, vị trí cửa/điện và đường vận chuyển."
+msgstr ""
+
+#: template-parts/landing/process.php:135
+msgid "Tách phần panel, khung, phụ kiện, cửa/ô kính, thời gian thi công."
+msgstr ""
+
+#: template-parts/landing/process.php:138
+msgid "Chuẩn bị vật tư"
+msgstr ""
+
+#: template-parts/landing/process.php:139
+msgid "Chuẩn bị panel, khung, nẹp, vít, keo và phương án đưa vật tư vào công trình."
+msgstr ""
+
+#: template-parts/landing/process.php:142
+msgid "Lắp đặt"
+msgstr ""
+
+#: template-parts/landing/process.php:143
+msgid "Cố định khung, dựng tấm, xử lý khe nối, vệ sinh và nghiệm thu."
+msgstr ""
+
+#: template-parts/landing/process.php:164
+msgid "Minh hoạ quy trình thi công"
+msgstr ""
+
+#: template-parts/landing/quote-form.php:18
+msgid "Gửi bản vẽ hoặc kích thước, nhận tư vấn vách panel"
+msgstr ""
+
+#: template-parts/landing/quote-form.php:19
+msgid "Anh chị để lại số điện thoại kèm diện tích, chiều cao vách, mục đích sử dụng và khu vực thi công. Có bản vẽ mặt bằng hoặc ảnh hiện trạng thì gửi thêm qua Zalo để chúng tôi bóc tách nhanh hơn."
+msgstr ""
+
+#: template-parts/landing/quote-form.php:37
+msgid "Tư vấn báo giá theo bản vẽ"
+msgstr ""
+
+#: template-parts/landing/quote-form.php:54
+msgid "Ví dụ: Nguyễn Văn A"
+msgstr ""
+
+#: template-parts/landing/quote-form.php:57
+msgid "Số điện thoại"
+msgstr ""
+
+#: template-parts/landing/quote-form.php:58
+msgid "Số có Zalo càng tốt"
+msgstr ""
+
+#: template-parts/landing/quote-form.php:61
+msgid "Nhu cầu thi công panel"
+msgstr ""
+
+#: template-parts/landing/quote-form.php:62
+msgid "Ví dụ: làm vách panel chia văn phòng trong xưởng, dài khoảng 12m, cao 3m, có 1 cửa đi"
+msgstr ""
+
+#: template-parts/landing/quote-form.php:74
+msgid "Nhận tư vấn vách panel"
+msgstr ""
+
+#: template-parts/landing/toc.php:20
+msgid "Mục lục nội dung"
+msgstr ""
+
+#: template-parts/landing/trust-bar.php:20
+msgid "Gửi bản vẽ"
+msgstr ""
+
+#: template-parts/landing/trust-bar.php:21
+msgid "bóc tách khối lượng rõ hơn"
+msgstr ""
+
+#: template-parts/landing/trust-bar.php:25
+msgid "ít đập phá, ít bụi"
+msgstr ""
+
+#: template-parts/landing/trust-bar.php:28
+msgid "Nhiều ứng dụng"
+msgstr ""
+
+#: template-parts/landing/trust-bar.php:29
+msgid "xưởng, văn phòng, phòng trọ"
+msgstr ""
+
+#: template-parts/landing/trust-bar.php:33
+msgid "hotline & Zalo"
+msgstr ""
+
+#: template-parts/landing/trust-bar.php:38
+msgid "Điểm nổi bật"
+msgstr ""
+
+#: template-parts/news/related.php:40
+msgid "Bài viết liên quan"
+msgstr ""
+
+#: template-parts/news/sidebar-cards.php:14 template-parts/news/sidebar-cards.php:21
+msgid "Tư vấn kỹ thuật nhanh"
+msgstr ""
+
+#: template-parts/news/sidebar-cards.php:22
+msgid "Kết nối trực tiếp với kỹ sư Pro-Metal để được khảo sát, tư vấn và báo giá miễn phí."
+msgstr ""
+
+#. translators:%s: hotline.
+#: template-parts/news/sidebar-cards.php:26
+msgid "Hotline: %s"
+msgstr ""
+
+#: template-parts/news/sidebar-cards.php:31
+msgid "Chat qua Zalo"
+msgstr ""
+
+#: template-parts/news/sidebar-cards.php:43
+msgid "Dịch vụ nổi bật"
+msgstr ""
+
+#: template-parts/news/toc.php:16
+msgid "Nội dung bài viết"
+msgstr ""
+
+#: template-parts/news/toc.php:16
+msgid "Mục lục bài viết"
+msgstr ""
+
+#: template-parts/sticky-cta.php:14
+msgid "Liên hệ nhanh"
+msgstr ""

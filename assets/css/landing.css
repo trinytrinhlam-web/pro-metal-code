@@ -1,0 +1,246 @@
+/*!
+ * Landing Pro-Metal — hero dịch vụ, trust bar, TOC dính, intro, cards ứng dụng,
+ * gallery, bảng loại panel, yếu tố chi phí, quy trình, cam kết, khu vực, FAQ, form.
+ * Kế thừa LP11-preview.html, map màu → token (--pm-*). Tái dùng component Session B
+ * (.pm-card / .pm-table / .pm-faq / .pm-gallery / .pm-pill / .pm-btn / .pm-h2wrap).
+ *
+ * @owner Session D · CHỈ dùng var(--pm-*). Cam (--pm-accent) chỉ cho CTA + gạch tiêu
+ *        đề + icon nhỏ (≤8%); KHÔNG tô H1–H6 hay mảng nền lớn.
+ */
+
+/* ============================================================= *
+ *  0. Chung
+ * ============================================================= */
+.pm-lp [id]{scroll-margin-top:72px}
+.pm-lp .pm-section{padding-block:clamp(40px,6vw,64px)}
+
+/* Ô ảnh giữ chỗ (khi chưa có ảnh thật) */
+.pm-lp-ph{
+	display:flex;align-items:center;justify-content:center;text-align:center;
+	min-height:220px;padding:20px;border:1px dashed var(--pm-line);
+	background:linear-gradient(135deg,var(--pm-surface),var(--pm-surface-2));
+	color:var(--pm-muted);font-weight:600;font-size:14px;
+}
+.pm-lp-ph span{max-width:26ch}
+.pm-lp-ph--wide,.pm-lp-ph--banner{aspect-ratio:16/9;min-height:0}
+
+/* ============================================================= *
+ *  1. HERO dịch vụ (nền tối, H1 TRẮNG)
+ * ============================================================= */
+.pm-lp-hero{
+	background:linear-gradient(160deg,var(--pm-brand-dark) 0%,var(--pm-brand) 100%);
+	color:#fff;padding-block:clamp(40px,6vw,60px);
+}
+.pm-lp-hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.pm-lp-hero__title{color:#fff;margin:0 0 18px}
+.pm-lp-hero__sub{font-size:var(--pm-lead);color:rgba(255,255,255,.82);margin:0 0 24px;max-width:610px}
+.pm-lp-hero__usp{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:11px}
+.pm-lp-hero__usp li{display:flex;gap:11px;align-items:flex-start;color:#eaf2f7}
+.pm-lp-hero__usp .pm-icon{flex:none;margin-top:3px;color:var(--pm-accent)}
+.pm-lp-hero__btns{display:flex;gap:12px;flex-wrap:wrap}
+.pm-lp-hero__media{border-radius:var(--pm-r-lg);overflow:hidden;box-shadow:var(--pm-sh-elev);background:var(--pm-white)}
+.pm-lp-hero__img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.pm-lp-hero__media .pm-lp-ph{border:0}
+
+/* ============================================================= *
+ *  2. TRUST BAR (nền xanh brand)
+ * ============================================================= */
+.pm-lp-trust{background:var(--pm-brand);color:#fff;padding:22px 0}
+.pm-lp-trust__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+.pm-lp-trust__item b{display:block;font-size:22px;color:#fff;font-weight:800;line-height:1.25}
+.pm-lp-trust__item span{font-size:14px;color:rgba(255,255,255,.72)}
+
+/* ============================================================= *
+ *  3. TOC dính (thanh ngang) — override .pm-toc (mặc định dạng sidebar)
+ * ============================================================= */
+.pm-toc--bar{
+	position:sticky;top:0;z-index:40;
+	background:var(--pm-brand-dark);border:0;border-radius:0;padding:0;
+	box-shadow:0 3px 14px rgba(0,0,0,.16);
+}
+.pm-toc--bar .pm-container{padding-block:0}
+.pm-toc--bar .pm-toc__list{
+	flex-direction:row;gap:2px;overflow-x:auto;justify-content:flex-start;
+	scrollbar-width:none;-ms-overflow-style:none;
+}
+.pm-toc--bar .pm-toc__list::-webkit-scrollbar{display:none}
+.pm-toc--bar li{flex:0 0 auto;margin:0}
+.pm-toc--bar .pm-toc__link{
+	padding:15px 16px;border:0;border-bottom:3px solid transparent;border-radius:0;
+	background:none;color:#cfe0e7;font-size:14px;font-weight:700;
+	text-transform:uppercase;white-space:nowrap;
+}
+.pm-toc--bar .pm-toc__link:hover{color:#fff;background:none}
+.pm-toc--bar .pm-toc__link.is-active{color:#fff;background:none;border-bottom-color:var(--pm-accent)}
+@media(min-width:769px){.pm-toc--bar .pm-toc__list{justify-content:center}}
+/* Chừa chỗ cho thanh admin của WordPress (chỉ khi đăng nhập) */
+.admin-bar .pm-toc--bar{top:32px}
+@media(max-width:782px){.admin-bar .pm-toc--bar{top:46px}}
+
+/* ============================================================= *
+ *  4. INTRO
+ * ============================================================= */
+.pm-lp-intro-sec{padding-bottom:clamp(20px,3vw,30px)}
+.pm-lp-intro{max-width:860px}
+.pm-lp-intro>p:first-child{font-size:calc(var(--pm-body) + 2px);color:var(--pm-brand-dark);font-weight:500}
+
+/* ============================================================= *
+ *  5. CARDS ứng dụng (sáng/sạch) — dùng .pm-card của Session B
+ * ============================================================= */
+.pm-lp-card__icon-img{width:34px;height:34px;object-fit:contain}
+.pm-lp-card .pm-card__title{margin-bottom:8px}
+
+/* ============================================================= *
+ *  6. GALLERY (masonry) — override .pm-gallery cho landing
+ * ============================================================= */
+.pm-lp-gallery{grid-template-columns:1.15fr .85fr .85fr;gap:18px;align-items:start}
+.pm-lp-gallery figure{
+	margin:0;background:var(--pm-white);border:1px solid var(--pm-line);
+	border-radius:var(--pm-r-md);overflow:hidden;box-shadow:var(--pm-sh-card);
+}
+.pm-lp-gallery figure:first-child{grid-row:span 2}
+.pm-lp-gallery figure:nth-child(6){grid-column:1/-1}
+.pm-lp-gallery a{display:block;border-radius:0;background:var(--pm-surface-2)}
+.pm-lp-gallery img{width:100%;height:250px;aspect-ratio:auto;object-fit:cover}
+.pm-lp-gallery .pm-lp-ph{height:250px;min-height:0;border:0}
+.pm-lp-gallery figure:first-child :where(img,.pm-lp-ph){height:560px}
+.pm-lp-gallery figure:nth-child(6) :where(img,.pm-lp-ph){height:320px}
+.pm-lp-gallery figcaption{
+	padding:13px 16px;font-size:15px;font-weight:700;
+	color:var(--pm-brand-dark);background:var(--pm-white);
+}
+
+/* ============================================================= *
+ *  7. BẢNG loại panel + CTA box
+ * ============================================================= */
+.pm-lp-lv{
+	display:inline-block;padding:4px 12px;border-radius:var(--pm-r-pill);
+	font-size:13px;font-weight:700;line-height:1.5;white-space:nowrap;
+}
+.pm-lp-lv--l1{background:#e3f0e8;color:#2c7a4b}
+.pm-lp-lv--l2{background:#fbeecf;color:#a9721a}
+.pm-lp-lv--l3{background:var(--pm-surface-2);color:var(--pm-brand)}
+
+.pm-lp-ctabox{
+	margin-top:30px;display:flex;justify-content:space-between;align-items:center;
+	gap:26px;flex-wrap:wrap;padding:34px 36px;border-radius:var(--pm-r-lg);color:#fff;
+	background:linear-gradient(135deg,var(--pm-brand-dark),var(--pm-brand));
+}
+.pm-lp-ctabox__text{flex:1 1 320px}
+.pm-lp-ctabox h3{color:#fff;margin:0 0 7px}
+.pm-lp-ctabox p{color:rgba(255,255,255,.82);margin:0}
+
+/* ============================================================= *
+ *  8. QUY TRÌNH — ảnh + các bước đánh số
+ * ============================================================= */
+.pm-lp-process__media{margin-bottom:34px;border-radius:var(--pm-r-lg);overflow:hidden;box-shadow:var(--pm-sh-elev)}
+.pm-lp-process__img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.pm-lp-steps{
+	list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);
+	gap:18px;counter-reset:pmstep;
+}
+.pm-lp-step{
+	position:relative;background:var(--pm-white);border:1px solid var(--pm-line);
+	border-radius:var(--pm-r-md);padding:28px 20px 22px;box-shadow:var(--pm-sh-card);
+}
+.pm-lp-step::before{
+	counter-increment:pmstep;content:counter(pmstep);
+	position:absolute;top:-16px;left:20px;width:38px;height:38px;border-radius:50%;
+	background:var(--pm-brand);color:#fff;font-weight:800;font-size:17px;
+	display:flex;align-items:center;justify-content:center;box-shadow:0 5px 14px rgba(34,75,105,.30);
+}
+.pm-lp-step h3{margin:14px 0 6px}
+.pm-lp-step p{margin:0;color:var(--pm-muted);font-size:15.5px}
+
+/* ============================================================= *
+ *  9. CAM KẾT — split (why-items + icon board)
+ * ============================================================= */
+.pm-lp-commit{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.pm-lp-why{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 30px}
+.pm-lp-why__item{display:flex;gap:14px}
+.pm-lp-why__ic{flex:none;color:var(--pm-brand);line-height:1;margin-top:2px}
+.pm-lp-why__item h3{margin:2px 0 4px}
+.pm-lp-why__item p{margin:0;color:var(--pm-muted);font-size:15.5px}
+.pm-lp-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.pm-lp-tile{
+	background:var(--pm-white);border:1px solid var(--pm-line);border-radius:var(--pm-r-md);
+	padding:22px;text-align:center;box-shadow:var(--pm-sh-card);
+}
+.pm-lp-tile__ic{display:inline-flex;color:var(--pm-brand);margin-bottom:10px}
+.pm-lp-tile__img{width:64px;height:64px;object-fit:contain;margin:0 auto 10px}
+.pm-lp-tile b{display:block;color:var(--pm-brand-dark);font-size:16px;line-height:1.35}
+
+/* ============================================================= *
+ *  10. KHU VỰC + chi nhánh
+ * ============================================================= */
+.pm-lp-areas{margin-bottom:26px}
+.pm-lp-branches{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pm-lp-branch{padding:20px 22px}
+.pm-lp-branch h3{display:flex;align-items:flex-start;gap:8px;margin:0 0 8px}
+.pm-lp-branch h3 .pm-icon{flex:none;margin-top:3px;color:var(--pm-brand)}
+.pm-lp-branch__addr{margin:0 0 6px;color:var(--pm-muted);font-size:15px;line-height:1.6}
+.pm-lp-branch__phone{margin:0;font-size:15px}
+.pm-lp-branch__phone a{text-decoration:none}
+.pm-lp-branch.is-hq{border-color:var(--pm-accent);box-shadow:0 8px 22px rgba(240,147,43,.14)}
+
+/* ============================================================= *
+ *  11. FAQ — dùng .pm-faq của Session B
+ * ============================================================= */
+.pm-lp-faq{max-width:900px}
+
+/* ============================================================= *
+ *  12. FORM báo giá (nền tối, thẻ form trắng)
+ * ============================================================= */
+.pm-lp-form-sec{
+	background:linear-gradient(160deg,var(--pm-brand-dark),var(--pm-brand));
+	color:#fff;padding-block:clamp(40px,6vw,64px);
+}
+.pm-lp-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.pm-lp-form-intro__text{color:rgba(255,255,255,.82)}
+.pm-lp-form-intro__media{margin:22px 0 18px;border-radius:var(--pm-r-lg);overflow:hidden;box-shadow:var(--pm-sh-elev)}
+.pm-lp-form-intro__img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.pm-lp-callbig{
+	display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:#fff;
+	background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);
+	border-radius:var(--pm-r-md);padding:15px 22px;
+}
+.pm-lp-callbig .pm-icon{flex:none;color:var(--pm-accent)}
+.pm-lp-callbig span{display:block;font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.3}
+.pm-lp-callbig b{display:block;font-size:24px;color:#fff;font-weight:800}
+.pm-lp-form{
+	background:var(--pm-white);color:var(--pm-text);border-radius:var(--pm-r-lg);
+	padding:32px 30px;box-shadow:var(--pm-sh-elev);
+}
+.pm-lp-form .pm-field{margin-bottom:14px}
+.pm-lp-form label{color:var(--pm-brand-dark)}
+.pm-lp-form .pm-form-msg{text-align:center}
+.pm-lp-form__fine{font-size:13px;color:var(--pm-muted);text-align:center;margin:12px 0 0}
+
+/* ============================================================= *
+ *  13. Chừa chỗ cho sticky CTA mobile (Session B) trên landing
+ * ============================================================= */
+@media(max-width:1079px){body{padding-bottom:60px}}
+
+/* ============================================================= *
+ *  14. Responsive
+ * ============================================================= */
+@media(max-width:1100px){
+	.pm-lp-gallery{grid-template-columns:1fr 1fr}
+	.pm-lp-gallery figure:first-child{grid-column:1/-1;grid-row:auto}
+	.pm-lp-gallery figure:first-child :where(img,.pm-lp-ph){height:320px}
+	.pm-lp-steps{grid-template-columns:repeat(3,1fr);gap:34px 18px}
+	.pm-lp-branches{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:860px){
+	.pm-lp-hero__grid,.pm-lp-form-grid,.pm-lp-commit{grid-template-columns:1fr;gap:30px}
+	.pm-lp-trust__grid{grid-template-columns:repeat(2,1fr);gap:16px}
+	.pm-lp-why{grid-template-columns:1fr}
+	.pm-lp-ctabox{padding:26px 24px}
+}
+@media(max-width:560px){
+	.pm-lp-gallery,.pm-lp-steps,.pm-lp-branches,.pm-lp-tiles{grid-template-columns:1fr}
+	.pm-lp-gallery figure :where(img,.pm-lp-ph),
+	.pm-lp-gallery figure:first-child :where(img,.pm-lp-ph),
+	.pm-lp-gallery figure:nth-child(6) :where(img,.pm-lp-ph){height:220px}
+	.pm-lp-hero__btns .pm-btn{flex:1 1 100%}
+}

@@ -1,0 +1,270 @@
+/*!
+ * home.css — CSS riêng Trang chủ (9 section). Chuyển thể từ demo-trangchu.html.
+ * @owner Session C · CHỈ dùng var(--pm-*) từ tokens.css.
+ *
+ * Ngoại lệ có chủ đích (đã duyệt):
+ *   • Hero: chữ "PRO-METAL" trong H1 tô cam (--pm-accent).
+ *   • Section "Cam kết": giữ look tech (nền tối + cyan) — biến cyan/dark khai báo
+ *     LOCAL trong .pm-values (KHÔNG đụng tokens.css), nền tĩnh, không animation.
+ *   • rgba(...) dùng cho lớp phủ/viền là các màu palette ở dạng alpha (như A/B đã dùng).
+ */
+
+/* Neo mượt cho CTA hero nhảy tới section (chừa khoảng thở khỏi mép trên) */
+#pm-dich-vu-sat,#pm-lien-he{scroll-margin-top:24px}
+
+/* ── Placeholder ảnh dùng chung (biên tập viên thay ảnh thật sau) ── */
+.pm-ph{
+	display:flex;align-items:center;justify-content:center;text-align:center;
+	background:linear-gradient(135deg,var(--pm-surface-2),var(--pm-line));
+	color:var(--pm-brand-soft);font-weight:600;font-size:14px;
+}
+
+/* ============================================================= *
+ *  SECTION 1 — HERO SLIDER
+ * ============================================================= */
+.pm-hero{position:relative;height:600px;overflow:hidden;background:var(--pm-brand-dark)}
+.pm-hero__slides{position:absolute;inset:0}
+.pm-hero__slide{
+	position:absolute;inset:0;
+	opacity:0;transition:opacity .8s ease;
+}
+.pm-hero__slide.is-active{opacity:1}
+.pm-hero__image{width:100%;height:100%;object-fit:cover;object-position:center}
+/* Lớp phủ tối→trong để chữ trắng luôn đọc rõ (brand-dark → brand, alpha) */
+.pm-hero::after{
+	content:"";position:absolute;inset:0;pointer-events:none;
+	background:linear-gradient(90deg,rgba(11,58,78,.92) 0%,rgba(34,75,105,.72) 45%,rgba(34,75,105,.25) 100%);
+}
+.pm-hero__inner{position:relative;z-index:2;height:100%;display:flex;align-items:center}
+.pm-hero__content{max-width:620px;color:#fff}
+.pm-hero__title{color:#fff;margin-bottom:18px}
+.pm-hero__brand{color:var(--pm-accent)}   /* ngoại lệ đã duyệt */
+.pm-hero__lead{font-size:18px;color:#dbe9f0;margin-bottom:26px;max-width:560px}
+.pm-hero__btns{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Mũi tên trái/phải */
+.pm-hero__arrow{
+	position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+	width:46px;height:46px;border-radius:50%;
+	background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;
+	display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s;
+}
+.pm-hero__arrow .pm-icon{width:22px;height:22px}
+.pm-hero__arrow:hover,.pm-hero__arrow:focus-visible{background:var(--pm-accent);border-color:var(--pm-accent);color:#fff}
+.pm-hero__arrow--prev{left:20px}
+.pm-hero__arrow--prev .pm-icon{transform:rotate(180deg)}
+.pm-hero__arrow--next{right:20px}
+
+/* Chấm điều hướng */
+.pm-hero__nav{position:absolute;z-index:3;bottom:26px;left:0;right:0}
+.pm-hero__dots{display:flex;gap:10px;align-items:center}
+.pm-hero__dot{
+	width:38px;height:5px;border-radius:3px;padding:0;border:0;cursor:pointer;
+	background:rgba(255,255,255,.4);transition:background .16s ease;
+}
+.pm-hero__dot.is-active{background:var(--pm-accent)}
+.pm-hero__dot:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+/* ============================================================= *
+ *  SECTION 2 — GIỚI THIỆU + SLOGAN
+ * ============================================================= */
+.pm-intro__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.pm-intro__title{color:var(--pm-brand);margin-bottom:12px}
+.pm-intro__bar{display:block;width:56px;height:4px;background:var(--pm-accent);border-radius:2px;margin-bottom:18px}
+.pm-intro__desc{color:var(--pm-muted)}
+.pm-intro__slogan{
+	display:inline-block;margin-top:6px;padding:12px 26px;border-radius:var(--pm-r-pill);
+	background:var(--pm-brand);color:#fff;font-weight:800;letter-spacing:.04em;box-shadow:var(--pm-sh-card);
+}
+.pm-intro__imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pm-intro__img{
+	display:block;height:150px;border-radius:var(--pm-r-md);overflow:hidden;box-shadow:var(--pm-sh-card);
+}
+.pm-intro__img img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+a.pm-intro__img:hover img{transform:scale(1.05)}
+
+/* ============================================================= *
+ *  SECTION 3 — 4 CAM KẾT (LOOK TECH: nền tối + cyan, TĨNH)
+ * ============================================================= */
+.pm-values{
+	position:relative;overflow:hidden;
+	/* biến local — chỉ sống trong section này, không đụng tokens.css */
+	--pm-tech-cyan:#22d3ee; --pm-tech-1:#0a1e33; --pm-tech-2:#122a48;
+	background:linear-gradient(135deg,var(--pm-tech-1) 0%,var(--pm-tech-2) 50%,var(--pm-tech-1) 100%);
+	color:#dbe8f0;
+}
+/* Hai vầng sáng TĨNH (không animation, không bám chuột) tạo chiều sâu */
+.pm-values::before,.pm-values::after{content:"";position:absolute;pointer-events:none}
+.pm-values::before{top:-20%;left:10%;width:520px;height:520px;background:radial-gradient(circle,rgba(60,99,130,.35),transparent 70%)}
+.pm-values::after{bottom:-25%;right:5%;width:560px;height:560px;background:radial-gradient(circle,rgba(34,211,238,.14),transparent 70%)}
+.pm-values>.pm-container{position:relative;z-index:2}
+
+.pm-values__grid{
+	list-style:none;margin:0;padding:0;
+	display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+}
+.pm-vcard{
+	position:relative;overflow:hidden;text-align:center;
+	background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+	border-radius:var(--pm-r-md);padding:28px 22px;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+}
+.pm-vcard:hover{transform:translateY(-4px);border-color:rgba(34,211,238,.5);box-shadow:0 0 26px rgba(34,211,238,.18)}
+.pm-vcard__topline{position:absolute;top:0;left:0;right:0;height:1px;opacity:.6;background:linear-gradient(90deg,transparent,var(--pm-tech-cyan),transparent)}
+.pm-vcard__node{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--pm-tech-cyan);box-shadow:0 0 8px var(--pm-tech-cyan)}
+.pm-vcard__node--a{top:6px;left:6px}
+.pm-vcard__node--b{top:6px;right:6px}
+.pm-vcard__node--c{bottom:6px;left:6px}
+.pm-vcard__node--d{bottom:6px;right:6px}
+.pm-vcard__icon{
+	width:60px;height:60px;margin:0 auto 14px;border-radius:50%;color:var(--pm-tech-cyan);
+	background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.25);
+	display:flex;align-items:center;justify-content:center;
+}
+.pm-vcard__icon svg{width:30px;height:30px}
+.pm-vcard__title{color:#fff;font-size:18px;letter-spacing:.03em;margin:0 0 8px}
+.pm-vcard__text{color:rgba(210,230,240,.72);font-size:14px;line-height:1.6;margin:0}
+
+/* ============================================================= *
+ *  SECTION 4 — CỬA SẮT (dùng lại .pm-card)
+ * ============================================================= */
+.pm-services-sat .pm-card__media{height:190px}
+.pm-services-sat .pm-card__body{display:flex;flex-direction:column;align-items:flex-start}
+.pm-services-sat .pm-card__title{color:var(--pm-brand)}
+
+/* ============================================================= *
+ *  SECTION 5 — INOX (nền brand)
+ * ============================================================= */
+.pm-inox{background:var(--pm-brand);color:#fff}
+.pm-itile{
+	display:block;background:var(--pm-brand-deep);border:1px solid rgba(255,255,255,.12);
+	border-radius:var(--pm-r-md);padding:16px;text-align:center;transition:transform .18s ease,border-color .18s ease;
+}
+.pm-itile:hover,.pm-itile:focus-visible{transform:translateY(-4px);border-color:var(--pm-accent)}
+.pm-itile__media{display:flex;height:180px;border-radius:var(--pm-r-sm);margin-bottom:14px;overflow:hidden}
+.pm-itile__media img{width:100%;height:100%;object-fit:cover}
+.pm-itile__title{color:#fff;font-size:17px;margin:0}
+
+/* ============================================================= *
+ *  SECTION 6 — NHÔM KÍNH (split)
+ * ============================================================= */
+.pm-aluminum__grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.pm-aluminum__media{height:320px;border-radius:var(--pm-r-lg);box-shadow:var(--pm-sh-card)}
+.pm-aluminum__title{color:var(--pm-brand);margin-bottom:16px}
+.pm-aluminum__desc{color:var(--pm-muted)}
+.pm-checks{list-style:none;padding:0;margin:0 0 24px}
+.pm-checks__item{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;color:var(--pm-muted);font-size:15px}
+.pm-checks__item .pm-icon{flex:none;margin-top:2px;color:var(--pm-accent)}
+.pm-checks__item strong{color:var(--pm-brand-dark)}
+
+/* ============================================================= *
+ *  SECTION 7 — LIÊN HỆ (nền tối, form lead)
+ * ============================================================= */
+.pm-home-contact{background:var(--pm-brand-dark);color:#fff}
+.pm-home-contact__grid{
+	display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;
+	background:var(--pm-brand-deep);border:1px solid rgba(255,255,255,.1);
+	border-radius:var(--pm-r-lg);padding:32px;
+}
+.pm-home-contact__media{min-height:100%;border-radius:var(--pm-r-md)}
+.pm-home-contact__title{color:#fff}
+/* Form trên nền tối: input gạch chân trong suốt */
+.pm-home-contact__form .pm-field{margin-bottom:16px}
+.pm-home-contact__form input,
+.pm-home-contact__form textarea{
+	width:100%;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);
+	border-radius:0;color:#fff;padding:10px 2px;font-family:inherit;font-size:15px;
+}
+.pm-home-contact__form textarea{min-height:64px;resize:vertical}
+.pm-home-contact__form input::placeholder,
+.pm-home-contact__form textarea::placeholder{color:rgba(255,255,255,.55)}
+.pm-home-contact__form input:focus,
+.pm-home-contact__form textarea:focus{outline:0;border-color:#fff;box-shadow:none}
+.pm-home-contact__form .pm-form-msg{color:#fff}
+.pm-home-contact__form .pm-form-msg.is-ok{color:#7ee2a8}
+.pm-home-contact__form .pm-form-msg.is-error{color:#ff9d9d}
+.pm-home-contact__info{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12)}
+.pm-home-contact__info-label{display:block;color:#a9c6d5;font-size:13px;letter-spacing:.1em;margin-bottom:8px}
+.pm-home-contact__phone{display:inline-flex;align-items:center;gap:10px;color:#fff;font-size:22px;font-weight:700}
+.pm-home-contact__phone .pm-icon{color:var(--pm-accent)}
+.pm-home-contact__phone:hover{color:#fff}
+.pm-home-contact__phone b{font-weight:800}
+
+/* ============================================================= *
+ *  SECTION 8 — ĐÁNH GIÁ (slider cuộn snap)
+ * ============================================================= */
+.pm-tm-slider{position:relative}
+.pm-tm-slider__viewport{
+	overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+	scrollbar-width:none;
+}
+.pm-tm-slider__viewport::-webkit-scrollbar{display:none}
+.pm-tm-slider__track{display:flex;gap:22px;margin:0;padding:0;list-style:none}
+.pm-tm{
+	position:relative;flex:0 0 calc((100% - 44px) / 3);scroll-snap-align:start;
+	height:290px;border-radius:var(--pm-r-md);overflow:hidden;box-shadow:var(--pm-sh-card);
+}
+.pm-tm__bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.pm-tm__bg--ph{background:linear-gradient(135deg,var(--pm-brand-soft),var(--pm-brand-deep))}
+.pm-tm::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,58,78,.15),rgba(11,58,78,.85))}
+.pm-tm__body{
+	position:absolute;inset:0;z-index:2;margin:0;
+	display:flex;flex-direction:column;justify-content:flex-end;gap:12px;padding:24px;text-align:center;
+}
+.pm-tm__quote{margin:0;color:#fff;font-size:14.5px;font-style:italic;line-height:1.6;quotes:"“" "”"}
+.pm-tm__quote::before{content:open-quote}
+.pm-tm__quote::after{content:close-quote}
+.pm-tm__name{margin:0;color:#fff;font-size:15px;font-weight:700}
+/* Nền thẻ = ảnh + overlay navy .85 (tối, biến thiên) → cam #f0932b chỉ ~3,9:1 (FAIL).
+   Dùng cam sáng hơn để đạt WCAG AA: #ffbf66 ≥4,76:1 kể cả khi ảnh nền sáng nhất. */
+.pm-tm__name span{color:#ffbf66;font-weight:600}
+
+/* Nút + chấm điều hướng slider */
+.pm-tm-slider__arrow{
+	position:absolute;top:calc(50% - 22px);transform:translateY(-50%);z-index:3;
+	width:44px;height:44px;border-radius:50%;cursor:pointer;
+	background:var(--pm-white);border:1px solid var(--pm-line);color:var(--pm-brand);
+	display:flex;align-items:center;justify-content:center;box-shadow:var(--pm-sh-card);transition:.15s;
+}
+.pm-tm-slider__arrow .pm-icon{width:22px;height:22px}
+.pm-tm-slider__arrow:hover:not([disabled]){background:var(--pm-accent);border-color:var(--pm-accent);color:#fff}
+.pm-tm-slider__arrow[disabled]{opacity:.35;cursor:not-allowed}
+.pm-tm-slider__arrow--prev{left:-10px}
+.pm-tm-slider__arrow--prev .pm-icon{transform:rotate(180deg)}
+.pm-tm-slider__arrow--next{right:-10px}
+.pm-tm-slider__dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.pm-tm-slider__dot{
+	width:10px;height:10px;padding:0;border:0;border-radius:50%;cursor:pointer;
+	background:var(--pm-line);transition:background .16s ease,transform .16s ease;
+}
+.pm-tm-slider__dot.is-active{background:var(--pm-accent);transform:scale(1.15)}
+.pm-tm-slider__dot:focus-visible{outline:3px solid var(--pm-brand-deep);outline-offset:2px}
+/* Vừa khung → ẩn điều khiển (JS thêm .is-static) */
+.pm-tm-slider.is-static .pm-tm-slider__arrow,
+.pm-tm-slider.is-static .pm-tm-slider__dots{display:none}
+
+/* ============================================================= *
+ *  SECTION 9 — TIN TỨC
+ * ============================================================= */
+.pm-news .pm-post-card__media{height:180px;aspect-ratio:auto}
+.pm-news .pm-post-card__title a{color:var(--pm-brand)}
+.pm-news .pm-post-card__title a:hover{color:var(--pm-accent)}
+.pm-news__all{margin-top:34px;text-align:center}
+
+/* ============================================================= *
+ *  RESPONSIVE (mốc theo demo: 1024 / 720)
+ * ============================================================= */
+@media(max-width:1024px){
+	.pm-values__grid{grid-template-columns:repeat(2,1fr)}
+	.pm-tm{flex-basis:calc((100% - 22px) / 2)}
+	.pm-ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+	.pm-hero{height:520px}
+	.pm-hero__arrow{display:none}
+	.pm-intro__grid,
+	.pm-aluminum__grid,
+	.pm-home-contact__grid,
+	.pm-values__grid{grid-template-columns:1fr}
+	.pm-tm{flex-basis:100%}
+	.pm-home-contact__media{min-height:200px}
+}

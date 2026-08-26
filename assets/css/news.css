@@ -1,0 +1,169 @@
+/*!
+ * News detail (editorial) — bố cục 2 cột, đầu bài, prose, sidebar (tư vấn/related), share.
+ * @owner Session E · CHỈ dùng var(--pm-*) từ tokens.css. Cam (--pm-accent) ≤ 8%:
+ *        chỉ ở gạch lead, tick H2, icon tư vấn, gạch tiêu đề card, nút Gọi (CTA).
+ * Chỉ tải trên is_singular('post') (xem inc/enqueue.php).
+ */
+
+/* ============================================================= *
+ *  1. LAYOUT — bài (~780px) + sidebar (320px)
+ * ============================================================= */
+.pm-news{padding-block:clamp(22px,4vw,40px)}
+.pm-news__grid{
+	display:grid;
+	grid-template-columns:minmax(0,1fr) 320px;
+	gap:clamp(28px,3.2vw,44px);
+	align-items:start;
+}
+@media(max-width:1024px){
+	.pm-news__grid{grid-template-columns:1fr}
+}
+.pm-news__article{min-width:0}
+
+/* ============================================================= *
+ *  2. ĐẦU BÀI — chuyên mục · H1 · lead · meta
+ * ============================================================= */
+.pm-news__cat{
+	display:inline-block;margin:0 0 14px;padding:6px 14px;border-radius:var(--pm-r-pill);
+	background:var(--pm-surface-2);color:var(--pm-brand-deep);
+	font-size:var(--pm-small);font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+	transition:background .16s ease,color .16s ease;
+}
+a.pm-news__cat:hover,a.pm-news__cat:focus-visible{background:var(--pm-brand);color:#fff}
+
+.pm-news__title{color:var(--pm-brand);margin:0 0 18px}
+
+/* Lead: gạch cam bên trái (điểm nhấn tiết chế) */
+.pm-news__lead{
+	font-size:var(--pm-lead);line-height:1.6;color:var(--pm-muted);
+	border-left:4px solid var(--pm-accent);padding-left:16px;margin:0 0 24px;
+}
+
+.pm-news__meta{
+	display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
+	padding-bottom:22px;border-bottom:1px solid var(--pm-line);
+	font-size:var(--pm-small);color:var(--pm-muted);
+}
+.pm-news__author{display:flex;align-items:center;gap:10px}
+.pm-news__avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;box-shadow:var(--pm-sh-card)}
+.pm-news__author-info{display:flex;flex-direction:column;line-height:1.35}
+.pm-news__author-name{font-weight:700;color:var(--pm-brand-dark)}
+.pm-news__author-role{font-size:12.5px}
+.pm-news__meta-sep{width:1px;height:24px;background:var(--pm-line);flex:none}
+.pm-news__meta-item{display:inline-flex;align-items:center;gap:6px}
+.pm-news__meta-item .pm-icon{color:var(--pm-brand)}
+@media(max-width:480px){.pm-news__meta-sep{display:none}}
+
+/* ============================================================= *
+ *  3. ẢNH ĐẠI DIỆN
+ * ============================================================= */
+.pm-news__figure{margin:26px 0 30px}
+.pm-news__hero{
+	width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+	border-radius:var(--pm-r-lg);box-shadow:var(--pm-sh-card);background:var(--pm-surface-2);
+}
+.pm-news__figcap{margin-top:12px;text-align:center;font-size:var(--pm-small);color:var(--pm-muted)}
+
+/* ============================================================= *
+ *  4. THÂN BÀI — bổ trợ .pm-prose (base.css)
+ * ============================================================= */
+.pm-news__body{font-size:var(--pm-body)}
+/* H2 với "tick" cam mảnh bên trái — phân cấp bằng màu/space, không tô nền */
+.pm-news__body h2{color:var(--pm-brand);position:relative;padding-left:16px;margin-top:2rem}
+.pm-news__body h2::before{
+	content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:4px;border-radius:2px;background:var(--pm-accent);
+}
+.pm-news__body h3{color:var(--pm-brand-deep)}
+.pm-news__body blockquote{background:var(--pm-surface);border-radius:var(--pm-r-md);padding:18px 22px;margin:1.6rem 0}
+.pm-news__body img{border-radius:var(--pm-r-md);box-shadow:var(--pm-sh-card)}
+.pm-news__body figure{margin:1.6rem 0}
+.pm-news__body .pm-pagelinks{margin-top:1.4rem;font-size:var(--pm-small);color:var(--pm-muted)}
+.pm-news__body .pm-pagelinks a{margin:0 4px;font-weight:700}
+
+/* ============================================================= *
+ *  5. CHÂN BÀI — tags + chia sẻ
+ * ============================================================= */
+.pm-news__foot{
+	display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;
+	margin-top:34px;padding-top:22px;border-top:1px solid var(--pm-line);
+}
+.pm-news__tags{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.pm-news__tags-label,.pm-news__share-label{font-size:var(--pm-small);color:var(--pm-muted);font-weight:600}
+.pm-news__share{display:flex;align-items:center;gap:8px}
+.pm-share-btn{
+	display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;
+	background:var(--pm-surface-2);color:var(--pm-brand-deep);
+	transition:background .16s ease,color .16s ease,transform .16s ease;
+}
+.pm-share-btn:hover,.pm-share-btn:focus-visible{background:var(--pm-brand);color:#fff;transform:translateY(-2px)}
+
+/* ============================================================= *
+ *  6. SIDEBAR
+ * ============================================================= */
+.pm-news__sidebar{display:flex;flex-direction:column;gap:22px;min-width:0}
+@media(max-width:1024px){.pm-news__sidebar{margin-top:4px}}
+
+/* 6a. Card Tư vấn nhanh (nền brand, chuyển đổi) */
+.pm-consult{
+	position:relative;overflow:hidden;background:var(--pm-brand);color:#fff;
+	border-radius:var(--pm-r-lg);padding:26px 24px;box-shadow:var(--pm-sh-card);
+}
+.pm-consult__glow{
+	position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;
+	background:var(--pm-brand-soft);opacity:.5;
+}
+.pm-consult>:not(.pm-consult__glow){position:relative;z-index:1}
+.pm-consult__icon{
+	display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;
+	border-radius:var(--pm-r-md);background:rgba(255,255,255,.12);color:var(--pm-accent);margin-bottom:16px;
+}
+.pm-consult__title{color:#fff;margin:0 0 8px}
+.pm-consult__text{color:rgba(255,255,255,.82);font-size:var(--pm-small);line-height:1.6;margin:0 0 20px}
+.pm-consult .pm-btn{margin-bottom:10px}
+.pm-consult .pm-btn:last-child{margin-bottom:0}
+
+/* 6b. Card sidebar chung */
+.pm-side-card{
+	background:var(--pm-white);border:1px solid var(--pm-line);border-radius:var(--pm-r-lg);
+	padding:20px 22px;box-shadow:var(--pm-sh-card);
+}
+.pm-side-card__title{
+	margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid var(--pm-line);
+	font-size:var(--pm-lead);color:var(--pm-brand);display:flex;align-items:center;gap:10px;
+}
+.pm-side-card__title::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--pm-accent);flex:none}
+
+/* 6c. Dịch vụ nổi bật */
+.pm-side-services{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.pm-side-services a{
+	display:flex;align-items:center;justify-content:space-between;gap:10px;
+	padding:12px 14px;border:1px solid var(--pm-line);border-radius:var(--pm-r-sm);
+	background:var(--pm-surface);color:var(--pm-brand-dark);font-weight:600;font-size:14.5px;text-decoration:none;
+	transition:border-color .16s ease,background .16s ease,color .16s ease;
+}
+.pm-side-services a:hover,.pm-side-services a:focus-visible{border-color:var(--pm-brand);background:var(--pm-white);color:var(--pm-brand-deep)}
+.pm-side-services .pm-icon{color:var(--pm-muted);flex:none;transition:transform .16s ease,color .16s ease}
+.pm-side-services a:hover .pm-icon,.pm-side-services a:focus-visible .pm-icon{color:var(--pm-brand);transform:translateX(3px)}
+
+/* 6d. Bài viết liên quan */
+.pm-related__list{display:flex;flex-direction:column;gap:16px}
+.pm-related__item{display:flex;gap:12px;align-items:flex-start;text-decoration:none}
+.pm-related__thumb{flex:none;width:76px;height:76px;border-radius:var(--pm-r-sm);overflow:hidden;background:var(--pm-surface-2)}
+.pm-related__thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.pm-related__item:hover .pm-related__thumb img{transform:scale(1.05)}
+.pm-related__meta{display:flex;flex-direction:column;gap:4px;min-width:0}
+.pm-related__title{
+	font-size:14.5px;font-weight:600;line-height:1.4;color:var(--pm-brand-dark);
+	display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+	transition:color .16s ease;
+}
+.pm-related__item:hover .pm-related__title,.pm-related__item:focus-visible .pm-related__title{color:var(--pm-brand-deep)}
+.pm-related__date{font-size:12.5px;color:var(--pm-muted)}
+
+/* 6e. TOC dính (thừa hưởng .pm-toc / --sticky của components.css) */
+.pm-news__toc:empty{display:none}
+
+/* ============================================================= *
+ *  7. COMMENTS (nếu bật)
+ * ============================================================= */
+.pm-news__comments{margin-top:40px;max-width:780px}

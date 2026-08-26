@@ -1,0 +1,118 @@
+/*!
+ * Base — self-host font, reset nhẹ, typography nền, a11y, form cơ sở, prose.
+ * @owner Session A · chỉ dùng var(--pm-*) từ tokens.css.
+ */
+
+/* ============================================================= *
+ *  Be Vietnam Pro — self-host (.woff2, subset latin + vietnamese)
+ * ============================================================= */
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/be-vietnam-pro-400-vietnamese.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/be-vietnam-pro-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/be-vietnam-pro-500-vietnamese.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/be-vietnam-pro-500-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/be-vietnam-pro-600-vietnamese.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/be-vietnam-pro-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/be-vietnam-pro-700-vietnamese.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/be-vietnam-pro-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/be-vietnam-pro-800-vietnamese.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/be-vietnam-pro-800-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* ============================================================= *
+ *  Reset nhẹ
+ * ============================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms !important;transition-duration:.001ms !important}}
+body{margin:0;font-family:var(--pm-font);font-size:var(--pm-body);line-height:1.7;color:var(--pm-text);background:var(--pm-white);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg,video{max-width:100%;height:auto}
+img{display:block}
+/* Chỉ tô currentColor cho svg KHÔNG khai báo fill — tôn trọng fill="none"/màu
+   riêng của icon (VD icon viền trong nội dung landing, tránh bị tô đặc thành khối). */
+svg:not([fill]){fill:currentColor}
+a{color:var(--pm-brand-deep);text-underline-offset:2px;transition:color .16s ease}
+a:hover{color:var(--pm-brand-dark)}
+ul,ol{padding-left:1.25em}
+hr{border:0;border-top:1px solid var(--pm-line);margin:2rem 0}
+
+/* ── Tiêu đề: H1 lớn nhất; H2–H6 BẰNG NHAU (phân cấp bằng weight/màu/space) ── */
+h1,h2,h3,h4,h5,h6{color:var(--pm-brand-dark);line-height:1.28;margin:0 0 .5em;font-weight:700;text-wrap:balance}
+h1{font-size:var(--pm-h1);font-weight:800;line-height:1.18}
+h2,h3,h4,h5,h6{font-size:var(--pm-h)}
+p{margin:0 0 1rem}
+
+/* ============================================================= *
+ *  Container
+ * ============================================================= */
+.pm-container{width:100%;max-width:var(--pm-content);margin-inline:auto;padding-inline:var(--pm-gutter)}
+.pm-wide{width:100%;max-width:var(--pm-wide);margin-inline:auto}
+
+/* ============================================================= *
+ *  A11y helpers
+ * ============================================================= */
+.pm-sr-only,.screen-reader-text{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.pm-skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:var(--pm-accent);color:#fff;padding:10px 18px;border-radius:0 0 var(--pm-r-sm) 0;font-weight:700;text-decoration:none}
+.pm-skip-link:focus{left:0}
+:focus-visible{outline:3px solid var(--pm-brand-deep);outline-offset:2px}
+/* Honeypot chống spam */
+.pm-hp{position:absolute !important;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ============================================================= *
+ *  Form cơ sở (element-level; component .pm-field do Session B mở rộng)
+ * ============================================================= */
+input,select,textarea,button{font-family:inherit;font-size:16px;color:var(--pm-text)}
+input[type=text],input[type=email],input[type=tel],input[type=search],input[type=url],input[type=number],input[type=password],select,textarea{
+	width:100%;padding:12px 14px;border:1px solid #c2d7e2;border-radius:var(--pm-r-sm);background:var(--pm-white);line-height:1.4;transition:border-color .16s ease,box-shadow .16s ease
+}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pm-brand);box-shadow:0 0 0 3px rgba(23,99,132,.14)}
+input::placeholder,textarea::placeholder{color:var(--pm-muted);opacity:.9}
+button{cursor:pointer}
+label{font-weight:600;color:var(--pm-brand-dark)}
+
+/* ============================================================= *
+ *  Prose — nội dung bài viết / trang (dòng đọc dễ chịu)
+ * ============================================================= */
+.pm-prose{color:var(--pm-text);font-size:var(--pm-body);line-height:1.75}
+.pm-prose>*{margin-bottom:1.05rem}
+.pm-prose h2,.pm-prose h3,.pm-prose h4{margin-top:1.8rem}
+.pm-prose a{color:var(--pm-brand-deep);text-decoration:underline}
+.pm-prose ul,.pm-prose ol{margin-left:.2em}
+.pm-prose li{margin-bottom:.4rem}
+.pm-prose img,.pm-prose figure{border-radius:var(--pm-r-md)}
+.pm-prose figure{margin:1.4rem 0}
+.pm-prose figcaption{font-size:var(--pm-small);color:var(--pm-muted);margin-top:.5rem;text-align:center}
+.pm-prose blockquote{margin:1.4rem 0;padding:.4rem 0 .4rem 1.1rem;border-left:4px solid var(--pm-brand);color:var(--pm-brand-dark);font-size:calc(var(--pm-body) + 1px)}
+.pm-prose code{background:var(--pm-surface-2);padding:.12em .4em;border-radius:5px;font-size:.92em}
+.pm-prose table{width:100%;border-collapse:collapse}
+.pm-prose th,.pm-prose td{border:1px solid var(--pm-line);padding:10px 12px;text-align:left}
+
+/* ============================================================= *
+ *  Sections chuẩn (nền full-bleed, nội dung trong .pm-container)
+ * ============================================================= */
+.pm-section{padding-block:clamp(40px,6vw,64px)}
+.pm-section--alt{background:var(--pm-surface)}
+
+/* ── Breadcrumb ── */
+.pm-breadcrumb{font-size:var(--pm-small);color:var(--pm-muted);margin:18px 0 22px}
+.pm-breadcrumb__list{display:flex;flex-wrap:wrap;gap:.3em .55em;list-style:none;margin:0;padding:0}
+.pm-breadcrumb__item{display:flex;align-items:center;gap:.55em}
+.pm-breadcrumb__item+.pm-breadcrumb__item::before{content:"›";color:var(--pm-line);margin-right:.1em}
+.pm-breadcrumb a{color:var(--pm-muted);text-decoration:none}
+.pm-breadcrumb a:hover{color:var(--pm-brand-deep)}
+.pm-breadcrumb [aria-current=page]{color:var(--pm-brand-dark);font-weight:600}
+
+/* ── Pagination (WP the_posts_pagination) ── */
+.pm-archive__header{margin:8px 0 28px}
+.pm-archive__title span{color:var(--pm-brand)}
+.pagination,.pm-pagination{margin:40px 0 8px}
+.pagination .nav-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.pagination .page-numbers{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 12px;border:1px solid var(--pm-line);border-radius:var(--pm-r-sm);color:var(--pm-brand-dark);text-decoration:none;font-weight:600}
+.pagination .page-numbers.current{background:var(--pm-brand);color:#fff;border-color:var(--pm-brand)}
+.pagination a.page-numbers:hover{border-color:var(--pm-brand);background:var(--pm-surface-2)}
+
+/* ── Icon mặc định ── */
+.pm-icon{display:inline-block;vertical-align:middle;flex:none}
+
+/* ── Utilities ── */
+.pm-text-center{text-align:center}
+.pm-mt-0{margin-top:0}.pm-mb-0{margin-bottom:0}

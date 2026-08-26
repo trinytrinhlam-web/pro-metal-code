@@ -74,12 +74,6 @@
 .pm-menu .pm-mega__link:hover,.pm-menu .pm-mega__link:focus-visible{background:rgba(255,255,255,.08);color:#fff}
 .pm-mega__link-icon{flex:none;opacity:.6}
 
-/* Nhãn nhỏ Mới/Hot/Có data — dùng chung mobile + desktop. */
-.pm-mega__badge{display:inline-flex;align-items:center;margin-left:auto;padding:2px 8px;border-radius:var(--pm-r-pill);font-size:10.5px;font-weight:700;letter-spacing:.02em;line-height:1.6;white-space:nowrap}
-.pm-mega__badge--new{background:color-mix(in srgb,var(--pm-accent) 16%,#fff);color:var(--pm-accent-ink)}
-.pm-mega__badge--hot{background:var(--pm-accent);color:#fff}
-.pm-mega__badge--data{background:color-mix(in srgb,var(--pm-brand) 16%,#fff);color:var(--pm-brand-deep)}
-
 /* CTA trong header — mobile: xuống hàng, mở cùng menu */
 .pm-header-cta{flex-basis:100%;display:none;gap:10px;padding-bottom:12px}
 .pm-nav-toggle:checked ~ .pm-header-cta{display:flex}

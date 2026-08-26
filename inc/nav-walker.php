@@ -9,10 +9,6 @@
  *                              qua prometal_mega_col_icon(), danh sách link bên dưới).
  *  - Mục cấp 2 KHÔNG có con → hiển thị như 1 dòng link phẳng, y hệt dropdown
  *                              đơn giản trước đây (menu 2 cấp hiện tại không đổi giao diện).
- *  - Gắn CSS Class "pm-badge-new" / "pm-badge-hot" / "pm-badge-data" cho 1 mục
- *    (cấp 2 hoặc cấp 3) trong Giao diện → Menu để hiện nhãn nhỏ cạnh link.
- *    Điền thêm "Description" của mục đó nếu muốn đổi chữ nhãn, để trống thì
- *    dùng mặc định (Mới / Hot / Có data).
  *
  * @owner   Session A
  * @package Pro-Metal
@@ -77,9 +73,7 @@ class Prometal_Mega_Menu_Walker extends Walker_Nav_Menu {
 			} else {
 				$output .= '<div class="pm-mega__col pm-mega__col--flat"><a class="pm-mega__link" href="' . esc_url( $url ) . '">'
 					. pm_icon( 'chevron-right', array( 'class' => 'pm-mega__link-icon', 'width' => 14, 'height' => 14 ) ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					. '<span>' . esc_html( $item->title ) . '</span>'
-					. prometal_menu_item_badge( $item ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					. '</a>';
+					. '<span>' . esc_html( $item->title ) . '</span></a>';
 			}
 			return;
 		}
@@ -87,9 +81,7 @@ class Prometal_Mega_Menu_Walker extends Walker_Nav_Menu {
 		// Cấp 2 — link lá bên trong 1 cột.
 		$output .= '<li class="pm-mega__item"><a class="pm-mega__link" href="' . esc_url( $url ) . '">'
 			. pm_icon( 'chevron-right', array( 'class' => 'pm-mega__link-icon', 'width' => 14, 'height' => 14 ) ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			. '<span>' . esc_html( $item->title ) . '</span>'
-			. prometal_menu_item_badge( $item ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			. '</a>';
+			. '<span>' . esc_html( $item->title ) . '</span></a>';
 	}
 
 	/**
@@ -126,34 +118,4 @@ function prometal_mega_col_icon( $title ) {
 	}
 
 	return 'grid';
-}
-
-/**
- * Nhãn nhỏ (Mới / Hot / Có data) cho 1 mục menu, dựa trên CSS Class admin gắn
- * trong Giao diện → Menu (pm-badge-new / pm-badge-hot / pm-badge-data). Menu
- * hiện có KHÔNG có class này nên mặc định không hiện nhãn, không ảnh hưởng gì.
- *
- * @param WP_Post $item Mục menu.
- * @return string Markup <span> hoặc chuỗi rỗng.
- */
-function prometal_menu_item_badge( $item ) {
-	if ( empty( $item->classes ) || ! is_array( $item->classes ) ) {
-		return '';
-	}
-
-	$defaults = array(
-		'new'  => __( 'Mới', 'prometal' ),
-		'hot'  => __( 'Hot', 'prometal' ),
-		'data' => __( 'Có data', 'prometal' ),
-	);
-
-	foreach ( $item->classes as $class ) {
-		if ( preg_match( '/^pm-badge-(new|hot|data)$/', $class, $m ) ) {
-			$type  = $m[1];
-			$label = '' !== trim( (string) $item->description ) ? $item->description : $defaults[ $type ];
-			return ' <span class="pm-mega__badge pm-mega__badge--' . esc_attr( $type ) . '">' . esc_html( $label ) . '</span>';
-		}
-	}
-
-	return '';
 }

@@ -62,6 +62,24 @@
 .pm-menu .sub-menu{list-style:none;margin:0;padding:2px 0 6px 14px}
 .pm-menu .sub-menu a{font-weight:500;color:#bcd2dd;font-size:15px;padding:9px 10px}
 
+/* Mega-menu (cấp 3) — mobile: luôn hiện dạng cột dọc bên trong menu đang mở,
+   giống hệt tinh thần .sub-menu ở trên (không JS, không accordion riêng). */
+.pm-mega{display:block;padding:0 0 6px 14px}
+.pm-mega__col{padding:8px 0}
+.pm-mega__col--flat{padding:0}
+.pm-menu .pm-mega__col-heading{display:flex;align-items:center;gap:8px;padding:9px 10px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9fb8c4}
+.pm-mega__col-heading .pm-icon{color:var(--pm-accent);flex:none}
+.pm-mega__list{list-style:none;margin:0;padding:0}
+.pm-menu .pm-mega__link{display:flex;align-items:center;gap:8px;padding:9px 10px;color:#bcd2dd;text-decoration:none;font-weight:500;font-size:15px;border-radius:6px}
+.pm-menu .pm-mega__link:hover,.pm-menu .pm-mega__link:focus-visible{background:rgba(255,255,255,.08);color:#fff}
+.pm-mega__link-icon{flex:none;opacity:.6}
+
+/* Nhãn nhỏ Mới/Hot/Có data — dùng chung mobile + desktop. */
+.pm-mega__badge{display:inline-flex;align-items:center;margin-left:auto;padding:2px 8px;border-radius:var(--pm-r-pill);font-size:10.5px;font-weight:700;letter-spacing:.02em;line-height:1.6;white-space:nowrap}
+.pm-mega__badge--new{background:color-mix(in srgb,var(--pm-accent) 16%,#fff);color:var(--pm-accent-ink)}
+.pm-mega__badge--hot{background:var(--pm-accent);color:#fff}
+.pm-mega__badge--data{background:color-mix(in srgb,var(--pm-brand) 16%,#fff);color:var(--pm-brand-deep)}
+
 /* CTA trong header — mobile: xuống hàng, mở cùng menu */
 .pm-header-cta{flex-basis:100%;display:none;gap:10px;padding-bottom:12px}
 .pm-nav-toggle:checked ~ .pm-header-cta{display:flex}
@@ -70,6 +88,7 @@
 /* ---- Desktop ---- */
 @media (min-width:1080px){
 	.pm-burger{display:none}
+	.pm-header-main{position:sticky;top:0;z-index:70;box-shadow:0 2px 14px rgba(0,0,0,.12)}
 	.pm-header-main__inner{flex-wrap:nowrap}
 	.pm-header-brand{margin-right:24px}
 
@@ -81,11 +100,31 @@
 	/* mũi tên dropdown */
 	.pm-menu .menu-item-has-children>a::after{content:"";display:inline-block;width:.46em;height:.46em;margin-left:.45em;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.85}
 
-	/* Dropdown */
+	/* Dropdown đơn giản (menu 2 cấp không đổi — vẫn dùng .sub-menu như trước) */
 	.pm-menu .sub-menu{position:absolute;top:100%;left:0;min-width:236px;background:var(--pm-white);border-radius:0 0 var(--pm-r-md) var(--pm-r-md);box-shadow:var(--pm-sh-card);padding:8px;margin:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .16s ease,transform .16s ease,visibility .16s;z-index:60}
 	.pm-menu>li:hover>.sub-menu,.pm-menu>li:focus-within>.sub-menu{opacity:1;visibility:visible;transform:none}
 	.pm-menu .sub-menu a{color:var(--pm-text);font-size:15px;padding:10px 12px;border-radius:6px}
 	.pm-menu .sub-menu a:hover,.pm-menu .sub-menu a:focus-visible{background:var(--pm-surface-2);color:var(--pm-brand-deep)}
+
+	/* Mega-menu (cấp 3, cột icon+heading+list) — tự bung khi menu có thêm 1 cấp con */
+	.pm-mega{position:absolute;top:100%;left:0;display:flex;flex-wrap:wrap;align-items:flex-start;width:max-content;max-width:min(94vw,780px);background:var(--pm-white);border-radius:0 0 var(--pm-r-lg) var(--pm-r-lg);box-shadow:var(--pm-sh-elev);padding:6px;margin:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:60}
+	.pm-menu>li:hover>.pm-mega,.pm-menu>li:focus-within>.pm-mega{opacity:1;visibility:visible;transform:none}
+
+	.pm-mega__col{width:230px;flex:0 0 230px;padding:18px 20px;border-left:1px solid var(--pm-line)}
+	.pm-mega__col:first-child{border-left:none}
+	.pm-mega__col--flat{flex:1 1 100%;width:auto;padding:0;border-left:none}
+	.pm-mega__col--flat:not(:first-child){border-top:1px solid var(--pm-line)}
+
+	.pm-menu .pm-mega__col-heading{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding:0;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pm-muted)}
+	.pm-menu .pm-mega__col-heading:hover{color:var(--pm-brand-deep)}
+	.pm-mega__col-heading .pm-icon{color:var(--pm-accent);flex:none}
+
+	.pm-mega__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+	.pm-menu .pm-mega__link{display:flex;align-items:center;gap:8px;padding:8px 10px;margin:0 -10px;border-radius:6px;color:var(--pm-text);text-decoration:none;font-size:14.5px;font-weight:500;white-space:nowrap}
+	.pm-mega__col--flat .pm-mega__link{margin:0;padding:11px 14px}
+	.pm-menu .pm-mega__link:hover,.pm-menu .pm-mega__link:focus-visible{background:var(--pm-surface-2);color:var(--pm-brand-deep)}
+	.pm-mega__link-icon{opacity:0;color:var(--pm-accent);flex:none;transform:translateX(-3px);transition:opacity .15s,transform .15s}
+	.pm-menu .pm-mega__link:hover .pm-mega__link-icon{opacity:1;transform:translateX(0)}
 
 	.pm-header-cta{flex-basis:auto;display:flex;padding:0;margin-left:16px}
 	.pm-header-cta .pm-cta{flex:none}

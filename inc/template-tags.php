@@ -298,6 +298,11 @@ function prometal_icon_library() {
 		'search'       => $s . '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>',
 		'check'        => $s . '<path d="m5 12 4.5 4.5L19 7"/></svg>',
 		'send'         => $s . '<path d="M21 4 3 11l6 2.5L12 20l3-7z"/><path d="M9 13.5 21 4"/></svg>',
+		// Icon cột mega-menu (suy ra theo từ khoá tên mục — xem prometal_mega_col_icon()).
+		'tool'         => $s . '<path d="M14.7 6.3a4 4 0 0 1-5.1 5.1L4 17l3 3 5.6-5.6a4 4 0 0 1 5.1-5.1l-2.6 2.6-2-2z"/></svg>',
+		'home'         => $s . '<path d="m4 11 8-7 8 7"/><path d="M6 10.5V20h12v-9.5"/><path d="M10 20v-5.5h4V20"/></svg>',
+		'roof'         => $s . '<path d="M3.5 12 12 5l8.5 7"/><path d="M6 20c1-1.2 2-1.2 3 0s2 1.2 3 0 2-1.2 3 0 2 1.2 3 0"/></svg>',
+		'grid'         => $s . '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>',
 		// Icon thương hiệu (glyph đặc, dùng currentColor).
 		'facebook'     => '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>',
 		'zalo'         => '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.75 6.53 2.75 10.88c0 2.5 1.36 4.72 3.48 6.16-.13.9-.53 2.06-1.2 2.86-.2.24-.03.6.28.55 1.7-.28 3.02-.86 3.95-1.4A11 11 0 0 0 12 19.6c5.1 0 9.25-3.53 9.25-8.72C21.25 6.53 17.1 3 12 3z"/></svg>',

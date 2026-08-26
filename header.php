@@ -1,7 +1,8 @@
 <?php
 /**
- * Header dùng chung — topbar, logo, menu 2 cấp, CTA Gọi/Zalo.
- * Hamburger mobile + dropdown hoạt động bằng CSS thuần (không phụ thuộc JS).
+ * Header dùng chung — topbar, logo, menu đa cấp (mega-menu), CTA Gọi/Zalo.
+ * Hamburger mobile + dropdown/mega-menu hoạt động bằng CSS thuần (không phụ
+ * thuộc JS) — xem Prometal_Mega_Menu_Walker trong inc/nav-walker.php.
  *
  * @owner   Session A
  * @package Pro-Metal
@@ -66,7 +67,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						'container'      => false,
 						'menu_id'        => 'pm-primary-menu',
 						'menu_class'     => 'pm-menu',
-						'depth'          => 2,
+						'depth'          => 3,
+						'walker'         => new Prometal_Mega_Menu_Walker(),
 						'fallback_cb'    => 'prometal_primary_menu_fallback',
 					)
 				);

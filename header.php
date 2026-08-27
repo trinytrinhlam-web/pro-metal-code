@@ -2,7 +2,7 @@
 /**
  * Header dùng chung — topbar, logo, menu đa cấp (mega-menu), CTA Gọi/Zalo.
  * Hamburger mobile + dropdown/mega-menu hoạt động bằng CSS thuần (không phụ
- * thuộc JS) — xem Prometal_Mega_Menu_Walker trong inc/nav-walker.php.
+ * thuộc JS) — xem Prometal_Mega_Menu_Walker trong inc/template-tags.php.
  *
  * @owner   Session A
  * @package Pro-Metal

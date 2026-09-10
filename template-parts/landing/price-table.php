@@ -137,7 +137,7 @@ $pm_cta_link  = prometal_lp_get( $pm_b, 'cta_link', pm_zalo_link() );
 			<table class="pm-table pm-lp-table">
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Loại panel', 'prometal' ); ?></th>
+						<th><?php esc_html_e( 'Hạng mục', 'prometal' ); ?></th>
 						<th><?php esc_html_e( 'Phù hợp', 'prometal' ); ?></th>
 						<th><?php esc_html_e( 'Ghi chú tư vấn', 'prometal' ); ?></th>
 						<th><?php esc_html_e( 'Mức chi phí tương đối', 'prometal' ); ?></th>

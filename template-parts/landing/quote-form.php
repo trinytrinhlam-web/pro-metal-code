@@ -59,8 +59,8 @@ $pm_src = 'Landing: ' . wp_strip_all_tags( get_the_title() );
 				<input id="pm-lp-sdt" name="sdt" type="tel" inputmode="tel" autocomplete="tel" placeholder="<?php esc_attr_e( 'Số có Zalo càng tốt', 'prometal' ); ?>" required>
 			</div>
 			<div class="pm-field">
-				<label for="pm-lp-noidung"><?php esc_html_e( 'Nhu cầu thi công panel', 'prometal' ); ?></label>
-				<textarea id="pm-lp-noidung" name="noidung" placeholder="<?php esc_attr_e( 'Ví dụ: làm vách panel chia văn phòng trong xưởng, dài khoảng 12m, cao 3m, có 1 cửa đi', 'prometal' ); ?>"></textarea>
+				<label for="pm-lp-noidung"><?php esc_html_e( 'Nhu cầu thi công', 'prometal' ); ?></label>
+				<textarea id="pm-lp-noidung" name="noidung" placeholder="<?php esc_attr_e( 'Ví dụ: vị trí thi công, kích thước ước lượng, vật tư mong muốn (nếu có)', 'prometal' ); ?>"></textarea>
 			</div>
 
 			<input type="hidden" name="src" value="<?php echo esc_attr( $pm_src ); ?>">
@@ -72,7 +72,7 @@ $pm_src = 'Landing: ' . wp_strip_all_tags( get_the_title() );
 
 			<button class="pm-btn pm-btn--call pm-btn--block pm-btn--lg" type="submit">
 				<?php echo pm_icon( 'send', array( 'width' => 18, 'height' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<span><?php esc_html_e( 'Nhận tư vấn vách panel', 'prometal' ); ?></span>
+				<span><?php esc_html_e( 'Nhận tư vấn miễn phí', 'prometal' ); ?></span>
 			</button>
 			<p class="pm-form-msg" role="status" aria-live="polite"></p>
 			<p class="pm-lp-form__fine"><?php esc_html_e( 'Chúng tôi chỉ dùng số điện thoại để gọi lại tư vấn, không gửi tin nhắn quảng cáo.', 'prometal' ); ?></p>

@@ -176,7 +176,7 @@ function prometal_register_landing_fields() {
 							Field::make( 'complex', 'rows', __( 'Dòng bảng', 'prometal' ) )
 								->add_fields(
 									array(
-										Field::make( 'text', 'name', __( 'Loại panel', 'prometal' ) ),
+										Field::make( 'text', 'name', __( 'Tên hạng mục', 'prometal' ) ),
 										Field::make( 'textarea', 'fit', __( 'Phù hợp', 'prometal' ) )->set_rows( 2 ),
 										Field::make( 'textarea', 'note', __( 'Ghi chú tư vấn', 'prometal' ) )->set_rows( 2 ),
 										Field::make( 'text', 'level_label', __( 'Nhãn chi phí', 'prometal' ) ),
@@ -487,8 +487,8 @@ function prometal_lp_nav_meta() {
 			'label' => __( 'Ảnh thật', 'prometal' ),
 		),
 		'price_table'  => array(
-			'id'    => 'loai-panel',
-			'label' => __( 'Loại panel', 'prometal' ),
+			'id'    => 'bang-gia',
+			'label' => __( 'Bảng giá', 'prometal' ),
 		),
 		'cost_factors' => array(
 			'id'    => 'chi-phi',

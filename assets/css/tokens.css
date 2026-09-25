@@ -20,7 +20,8 @@
 	--pm-white:#ffffff;
 
 	/* ── Chữ ── */
-	--pm-font:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+	/* 2 họ "Fallback" = Roboto/Arial đã chỉnh cỡ khớp Be Vietnam Pro (khai báo ở base.css) → chống nhảy chữ khi font tải. */
+	--pm-font:'Be Vietnam Pro','Be Vietnam Pro Fallback','Be Vietnam Pro Fallback A',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
 	--pm-h1:44px;      /* H1 lớn nhất */
 	--pm-h:24px;       /* H2–H6 BẰNG NHAU */
 	--pm-lead:18px;

@@ -1,7 +1,7 @@
 <?php
 /**
  * Thanh CTA Gọi / Zalo cố định đáy màn hình (chỉ hiện mobile/tablet).
- * Nhúng bởi footer.php. Ẩn từ ≥1080px qua components.css (.pm-sticky-cta).
+ * Nhúng bởi footer.php. Ẩn từ ≥1200px qua components.css (.pm-sticky-cta).
  *
  * @owner   Session B
  * @package Pro-Metal

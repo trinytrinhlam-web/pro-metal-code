@@ -34,6 +34,8 @@
 			var index = 0;
 			var timer = null;
 			var DELAY = 5000;
+			var inView = true; // Hero đang nằm trong khung nhìn?
+			var hovering = false;
 
 			function hydrate(slide) {
 				if (!slide || slide.querySelector('img')) {
@@ -42,6 +44,12 @@
 				var src = slide.getAttribute('data-pm-hero-src');
 				if (!src) {
 					return;
+				}
+				// Điện thoại: dùng bản cắt nhẹ (-m.webp) giống ảnh đầu trong <picture>.
+				var srcM = slide.getAttribute('data-pm-hero-src-m');
+				var media = slide.getAttribute('data-pm-hero-media');
+				if (srcM && media && window.matchMedia && window.matchMedia(media).matches) {
+					src = srcM;
 				}
 				var image = document.createElement('img');
 				image.className = 'pm-hero__image';
@@ -57,6 +65,9 @@
 			function show(n) {
 				index = (n + slides.length) % slides.length;
 				hydrate(slides[index]);
+				if (timer) {
+					hydrate(slides[(index + 1) % slides.length]); // sẵn ảnh cho lượt chuyển sau
+				}
 				Array.prototype.forEach.call(slides, function (s, k) {
 					s.classList.toggle('is-active', k === index);
 				});
@@ -71,7 +82,9 @@
 			function prev() { show(index - 1); }
 
 			function start() {
-				if (REDUCE || timer) {
+				// Không chạy khi: giảm chuyển động, đang rê/focus, hero đã cuộn khuất
+				// hoặc tab bị ẩn → không tải ảnh slide thừa, đỡ tốn pin trên điện thoại.
+				if (REDUCE || timer || hovering || !inView || document.hidden) {
 					return;
 				}
 				timer = window.setInterval(next, DELAY);
@@ -95,10 +108,23 @@
 			bindNav(hero, '[data-pm-hero-next]', function () { next(); restart(); });
 
 			// Tạm dừng khi hover / focus để dễ đọc & thao tác.
-			hero.addEventListener('mouseenter', stop);
-			hero.addEventListener('mouseleave', start);
-			hero.addEventListener('focusin', stop);
-			hero.addEventListener('focusout', start);
+			function pause() { hovering = true; stop(); }
+			function resume() { hovering = false; start(); }
+			hero.addEventListener('mouseenter', pause);
+			hero.addEventListener('mouseleave', resume);
+			hero.addEventListener('focusin', pause);
+			hero.addEventListener('focusout', resume);
+
+			// Chỉ tự chạy khi hero còn trên màn hình và tab đang hiển thị.
+			if ('IntersectionObserver' in window) {
+				new IntersectionObserver(function (entries) {
+					inView = entries[0].isIntersecting;
+					if (inView) { start(); } else { stop(); }
+				}).observe(hero);
+			}
+			document.addEventListener('visibilitychange', function () {
+				if (document.hidden) { stop(); } else { start(); }
+			});
 
 			// Bàn phím: mũi tên trái/phải khi hero đang được focus.
 			hero.addEventListener('keydown', function (e) {
@@ -109,7 +135,10 @@
 			show(0);
 			// Ảnh đầu đã được ưu tiên cho LCP. Các ảnh còn lại chỉ tải sau khi
 			// lượt vẽ đầu ổn định hoặc ngay khi khách tương tác với slider.
-			window.setTimeout(function () { hydrate(slides[1]); }, 6000);
+			window.setTimeout(function () {
+				// Tải trước slide kế tiếp cho lượt chuyển đầu (5s) — chỉ khi khách còn xem hero.
+				if (inView && !document.hidden) { hydrate(slides[1]); }
+			}, 3500);
 			start();
 		});
 	}

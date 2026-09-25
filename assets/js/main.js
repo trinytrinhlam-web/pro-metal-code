@@ -24,32 +24,24 @@
 			return;
 		}
 
-		// Gắn ngữ nghĩa button cho label để trợ lý đọc màn hình hiểu.
-		burger.setAttribute('role', 'button');
-		burger.setAttribute('tabindex', '0');
+		// Checkbox (đã có aria-label) là điều khiển thật: nhận focus + Space bật/tắt sẵn,
+		// trạng thái "đã chọn" được trợ lý đọc màn hình đọc lên. KHÔNG gắn role="button" /
+		// tabindex cho <label> — label không được mang role (lỗi ARIA) và tạo 2 điểm Tab trùng.
 		if (nav && nav.id) {
-			burger.setAttribute('aria-controls', nav.id);
+			toggle.setAttribute('aria-controls', nav.id);
 		}
 
-		function sync() {
-			burger.setAttribute('aria-expanded', toggle.checked ? 'true' : 'false');
-		}
 		function close() {
 			if (toggle.checked) {
 				toggle.checked = false;
-				sync();
 			}
 		}
-		sync();
 
-		toggle.addEventListener('change', sync);
-
-		// Bàn phím trên label (Enter/Space) → bật tắt checkbox.
-		burger.addEventListener('keydown', function (e) {
-			if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+		// Enter cũng bật/tắt menu như nút bấm.
+		toggle.addEventListener('keydown', function (e) {
+			if (e.key === 'Enter') {
 				e.preventDefault();
 				toggle.checked = !toggle.checked;
-				sync();
 			}
 		});
 
@@ -71,7 +63,7 @@
 		}
 
 		// Xoay/đổi kích thước sang desktop → reset trạng thái.
-		var mq = window.matchMedia('(min-width:1080px)');
+		var mq = window.matchMedia('(min-width:1200px)'); // khớp mốc menu ngang (header-footer.css)
 		var onMq = function () { if (mq.matches) { close(); } };
 		if (mq.addEventListener) {
 			mq.addEventListener('change', onMq);

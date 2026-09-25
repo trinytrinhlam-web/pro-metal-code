@@ -20,6 +20,10 @@
 .pm-cta--ghost{background:transparent;border-color:currentColor;color:var(--pm-brand)}
 .pm-cta--ghost:hover,.pm-cta--ghost:focus-visible{background:var(--pm-surface-2)}
 .pm-cta[disabled],.pm-cta.is-loading{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+/* Nội dung cũ (VD trang Giới thiệu) dùng <div class="pm-cta"> làm HỘP kêu gọi — trùng tên
+   nút .pm-cta ở trên → bị inline-flex + nowrap, chữ không xuống dòng, tràn ngang ~850px trên
+   điện thoại. Trả hộp về dạng khối bình thường (chỉ áp cho thẻ không phải nút/link). */
+div.pm-cta{display:block;white-space:normal;font-size:inherit;font-weight:inherit;line-height:inherit;cursor:auto}
 
 /* ============================================================= *
  *  HEADER
@@ -30,7 +34,7 @@
 .pm-topbar{background:rgba(0,0,0,.22)}
 .pm-topbar__inner{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;min-height:40px;flex-wrap:wrap;font-size:var(--pm-small)}
 .pm-topbar p{margin:0;display:flex;align-items:center;gap:8px}
-.pm-topbar a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.pm-topbar a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:40px} /* vùng chạm cao bằng thanh */
 .pm-topbar a:hover{color:#fff}
 .pm-topbar__hot b{color:#fff}
 .pm-topbar .pm-icon{color:var(--pm-accent)}
@@ -67,14 +71,20 @@
 .pm-nav-toggle:checked ~ .pm-header-cta{display:flex}
 .pm-header-cta .pm-cta{flex:1;justify-content:center}
 
-/* ---- Desktop ---- */
-@media (min-width:1080px){
+/* ---- Desktop ----
+   Menu ngang từ 1200px (trước là 1080px): logo + 6 mục menu + 2 nút CTA cần ~1280px, không
+   vừa khung 1200px → nút "Gọi ngay/Nhắn Zalo" bị đẩy ra ngoài màn hình (tràn ngang) ở MỌI
+   bề ngang 1080–1440px. Tablet ngang (<1200px) dùng menu gọn + thanh CTA dính như điện thoại
+   (hợp cảm ứng hơn dropdown hover). Desktop: khung header rộng 1440px; màn chưa đủ rộng thì
+   nút CTA chỉ còn icon; menu dài hơn dự kiến thì tự xuống dòng thay vì tràn. */
+@media (min-width:1200px){
 	.pm-burger{display:none}
-	.pm-header-main__inner{flex-wrap:nowrap}
+	.pm-topbar__inner,.pm-header-main__inner{max-width:var(--pm-wide)}
+	.pm-header-main__inner{flex-wrap:nowrap;column-gap:0} /* khoảng cách đã có margin riêng của logo/CTA */
 	.pm-header-brand{margin-right:24px}
 
-	.pm-nav{flex-basis:auto;display:block;margin-left:auto}
-	.pm-menu{flex-direction:row;align-items:center;gap:2px;padding:0}
+	.pm-nav{flex-basis:auto;display:block;margin-left:auto;min-width:0}
+	.pm-menu{flex-direction:row;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:2px;padding:0}
 	.pm-menu>li{position:relative}
 	.pm-menu>li>a{padding:10px 13px;white-space:nowrap}
 
@@ -90,9 +100,21 @@
 	.pm-header-cta{flex-basis:auto;display:flex;padding:0;margin-left:16px}
 	.pm-header-cta .pm-cta{flex:none}
 }
+@media (min-width:1200px) and (max-width:1439px){
+	.pm-menu>li>a{padding-inline:10px}
+	/* Nút CTA chỉ còn icon (nhãn vẫn đọc được cho trình đọc màn hình + tooltip title). */
+	.pm-header-cta .pm-cta{padding:11px}
+	.pm-header-cta .pm-cta span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+}
 
 @media (max-width:600px){
-	.pm-topbar__addr{display:none}
+	/* Cần đủ độ ưu tiên để thắng ".pm-topbar p{display:flex}" (0,1,1) — trước đây địa chỉ
+	   vẫn hiện, topbar chiếm 2 dòng (~80px) ngay đầu màn hình điện thoại. */
+	.pm-topbar .pm-topbar__addr{display:none}
+}
+@media (max-width:349px){
+	/* Máy 320–349px: logo 34px cao (~243px ngang) + nút menu không vừa 1 hàng → nút rớt xuống dòng. */
+	.pm-header-main .pm-logo__img{max-height:28px}
 }
 
 /* ============================================================= *

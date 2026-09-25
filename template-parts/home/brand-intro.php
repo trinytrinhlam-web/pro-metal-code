@@ -54,7 +54,16 @@ $pm_intro_q = new WP_Query(
 					$pm_intro_q->the_post();
 					?>
 					<a class="pm-intro__img" href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail( 'pm-thumb', array( 'alt' => the_title_attribute( array( 'echo' => false ) ), 'loading' => 'lazy' ) ); ?>
+						<?php
+						the_post_thumbnail(
+							'pm-thumb',
+							array(
+								'alt'     => the_title_attribute( array( 'echo' => false ) ),
+								'loading' => 'lazy',
+								'sizes'   => '(max-width: 720px) calc(50vw - 23px), 252px',
+							)
+						);
+						?>
 					</a>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
@@ -70,7 +79,16 @@ $pm_intro_q = new WP_Query(
 				foreach ( $pm_intro_imgs as $pm_im ) :
 					?>
 					<div class="pm-intro__img">
-						<img src="<?php echo esc_url( get_theme_file_uri( $pm_im['file'] ) ); ?>" alt="<?php echo esc_attr( $pm_im['alt'] ); ?>" loading="lazy">
+						<?php
+						echo pm_theme_img( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- đã escape trong helper.
+							$pm_im['file'],
+							array(
+								'alt'    => $pm_im['alt'],
+								'widths' => array( 360, 720 ),
+								'sizes'  => '(max-width: 720px) calc(50vw - 23px), 252px',
+							)
+						);
+						?>
 					</div>
 				<?php endforeach; ?>
 			<?php endif; ?>

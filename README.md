@@ -37,3 +37,18 @@ define( 'PROMETAL_TELEGRAM_CHAT_ID', 'chat-id-cua-ban' );
 Nếu website đang có tích hợp CRM/Zalo OA riêng, gắn nó vào hook
 `prometal_lead_saved`; hook này được gọi từ tác vụ nền và nhận `$lead_id`,
 `$data` (`ten`, `sdt`, `noidung`, `src`).
+
+## Tối ưu mobile (Session M)
+
+- `inc/mobile.php`: inline CSS của theme vào `<head>` (đã rút gọn, bỏ request CSS chặn hiển thị);
+  chuyển ký tự như "à" đứng ngay trước thẻ HTML thành thực thể `&#224;` để plugin nén HTML
+  (SpeedyCache "Minify HTML") không cắt mất byte → hết lỗi "nh�". Tắt bằng filter
+  `prometal_inline_css` / `prometal_utf8_guard` (trả `false`).
+- `inc/media.php`: `pm_theme_img( 'assets/img/x.jpg', array( 'widths' => array( 480, 800 ), 'sizes' => '…' ) )`
+  in `<img>` WebP đúng cỡ + `srcset` + `width/height`. Bản thu nhỏ đặt tên `x-480.webp`, `x-800.webp`
+  cạnh ảnh gốc; ảnh hero cắt riêng cho điện thoại đặt tên `hero-N-m.webp` (dùng ở ≤480px).
+  Ảnh trong nội dung dán tay (thiếu class `wp-image-ID`) được gắn lại ID để WordPress tự thêm
+  `srcset/sizes/width/height/lazy`.
+- `inc/links.php`: `pm_service_url( 'sua-cua-sat' )` trả link trang dịch vụ CÓ THẬT (thử lần lượt
+  các slug, filter `prometal_service_slugs`) — không gõ cứng đường dẫn trong template nữa.
+- Mốc menu ngang/thanh CTA dính: **1200px** (header-footer.css, components.css, landing.css, main.js).

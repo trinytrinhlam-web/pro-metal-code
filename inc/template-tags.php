@@ -462,17 +462,18 @@ function prometal_primary_menu_fallback( $args = array() ) {
 	$menu_class = isset( $args['menu_class'] ) ? $args['menu_class'] : 'menu';
 	$menu_id    = isset( $args['menu_id'] ) ? $args['menu_id'] : 'pm-primary-menu';
 
+	// Link trỏ vào trang dịch vụ có thật (inc/links.php) — tránh 404.
 	$sua_chua = array(
-		__( 'Sửa cửa sắt tại nhà', 'prometal' )  => '/dich-vu/sua-cua-sat-tai-nha/',
-		__( 'Sửa cửa kéo', 'prometal' )          => '/dich-vu/sua-cua-keo/',
-		__( 'Thợ hàn sắt tại nhà', 'prometal' )  => '/dich-vu/tho-han-sat-tai-nha/',
+		__( 'Sửa cửa sắt tại nhà', 'prometal' )  => pm_service_url( 'sua-cua-sat' ),
+		__( 'Sửa cửa kéo', 'prometal' )          => pm_service_url( 'sua-cua-keo' ),
+		__( 'Thợ hàn sắt tại nhà', 'prometal' )  => pm_service_url( 'tho-han-sat' ),
 	);
 	$thi_cong = array(
-		__( 'Làm cửa/cổng sắt', 'prometal' )     => '/thi-cong/lam-cua-cong-sat/',
-		__( 'Làm cửa kéo', 'prometal' )          => '/thi-cong/lam-cua-keo/',
-		__( 'Mái hiên/mái che', 'prometal' )     => '/thi-cong/mai-hien-mai-che/',
-		__( 'Cầu thang/lan can', 'prometal' )    => '/thi-cong/cau-thang-lan-can/',
-		__( 'Vách ngăn panel', 'prometal' )      => '/thi-cong/vach-ngan-panel/',
+		__( 'Làm cửa/cổng sắt', 'prometal' )     => pm_service_url( 'lam-cua-sat' ),
+		__( 'Làm cửa kéo', 'prometal' )          => pm_service_url( 'lam-cua-keo' ),
+		__( 'Mái hiên/mái che', 'prometal' )     => pm_service_url( 'mai-hien' ),
+		__( 'Cầu thang/lan can', 'prometal' )    => pm_service_url( 'cau-thang' ),
+		__( 'Vách ngăn panel', 'prometal' )      => pm_service_url( 'vach-panel' ),
 	);
 
 	echo '<ul id="' . esc_attr( $menu_id ) . '" class="' . esc_attr( $menu_class ) . '">';
@@ -480,20 +481,20 @@ function prometal_primary_menu_fallback( $args = array() ) {
 	echo '<li class="menu-item"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Trang chủ', 'prometal' ) . '</a></li>';
 
 	// Dịch vụ sửa chữa (submenu).
-	echo '<li class="menu-item menu-item-has-children"><a href="' . esc_url( home_url( '/dich-vu-sua-chua/' ) ) . '">' . esc_html__( 'Dịch vụ sửa chữa', 'prometal' ) . '</a><ul class="sub-menu">';
-	foreach ( $sua_chua as $label => $path ) {
-		echo '<li class="menu-item"><a href="' . esc_url( home_url( $path ) ) . '">' . esc_html( $label ) . '</a></li>';
+	echo '<li class="menu-item menu-item-has-children"><a href="' . esc_url( pm_service_url( 'dich-vu-sua-chua' ) ) . '">' . esc_html__( 'Dịch vụ sửa chữa', 'prometal' ) . '</a><ul class="sub-menu">';
+	foreach ( $sua_chua as $label => $url ) {
+		echo '<li class="menu-item"><a href="' . esc_url( $url ) . '">' . esc_html( $label ) . '</a></li>';
 	}
 	echo '</ul></li>';
 
 	// Thi công mới (submenu).
-	echo '<li class="menu-item menu-item-has-children"><a href="' . esc_url( home_url( '/thi-cong-moi/' ) ) . '">' . esc_html__( 'Thi công mới', 'prometal' ) . '</a><ul class="sub-menu">';
-	foreach ( $thi_cong as $label => $path ) {
-		echo '<li class="menu-item"><a href="' . esc_url( home_url( $path ) ) . '">' . esc_html( $label ) . '</a></li>';
+	echo '<li class="menu-item menu-item-has-children"><a href="' . esc_url( pm_service_url( 'thi-cong-moi' ) ) . '">' . esc_html__( 'Thi công mới', 'prometal' ) . '</a><ul class="sub-menu">';
+	foreach ( $thi_cong as $label => $url ) {
+		echo '<li class="menu-item"><a href="' . esc_url( $url ) . '">' . esc_html( $label ) . '</a></li>';
 	}
 	echo '</ul></li>';
 
-	echo '<li class="menu-item"><a href="' . esc_url( home_url( '/bao-gia-cua-sat/' ) ) . '">' . esc_html__( 'Báo giá cửa sắt', 'prometal' ) . '</a></li>';
+	echo '<li class="menu-item"><a href="' . esc_url( pm_service_url( 'bao-gia' ) ) . '">' . esc_html__( 'Báo giá cửa sắt', 'prometal' ) . '</a></li>';
 	echo '<li class="menu-item"><a href="' . esc_url( home_url( '/gioi-thieu/' ) ) . '">' . esc_html__( 'Giới thiệu', 'prometal' ) . '</a></li>';
 	echo '<li class="menu-item"><a href="' . esc_url( home_url( '/lien-he/' ) ) . '">' . esc_html__( 'Liên hệ', 'prometal' ) . '</a></li>';
 

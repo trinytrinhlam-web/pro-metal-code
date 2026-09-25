@@ -44,32 +44,36 @@ if ( $pm_tm_q->have_posts() ) {
 			$pm_quote = wp_strip_all_tags( get_the_excerpt() );
 		}
 		$pm_tm_items[] = array(
-			'quote' => wp_trim_words( $pm_quote, 45, '…' ),
-			'name'  => get_the_title(),
-			'place' => has_excerpt() ? wp_strip_all_tags( get_the_excerpt() ) : '',
-			'img'   => has_post_thumbnail() ? get_the_post_thumbnail_url( get_the_ID(), 'pm-card' ) : '',
+			'quote'  => wp_trim_words( $pm_quote, 45, '…' ),
+			'name'   => get_the_title(),
+			'place'  => has_excerpt() ? wp_strip_all_tags( get_the_excerpt() ) : '',
+			'img'    => '',
+			'img_id' => (int) get_post_thumbnail_id(),
 		);
 	}
 	wp_reset_postdata();
 } else {
 	$pm_tm_items = array(
 		array(
-			'quote' => __( 'Pro-Metal tư vấn vật liệu tốt, thi công đúng tiến độ và rất cẩn thận. Tôi rất hài lòng về chất lượng công trình.', 'prometal' ),
-			'name'  => __( 'Anh Trường', 'prometal' ),
-			'place' => __( 'Q. Gò Vấp', 'prometal' ),
-			'img'   => get_theme_file_uri( 'assets/img/sat-nhaxuong.jpg' ),
+			'quote'  => __( 'Pro-Metal tư vấn vật liệu tốt, thi công đúng tiến độ và rất cẩn thận. Tôi rất hài lòng về chất lượng công trình.', 'prometal' ),
+			'name'   => __( 'Anh Trường', 'prometal' ),
+			'place'  => __( 'Q. Gò Vấp', 'prometal' ),
+			'img'    => 'assets/img/sat-nhaxuong.jpg',
+			'img_id' => 0,
 		),
 		array(
-			'quote' => __( 'Anh em thợ rất chuyên nghiệp và tận tâm. Từ thi công đến dọn dẹp vệ sinh sau khi xong đều gọn gàng.', 'prometal' ),
-			'name'  => __( 'Chị Hoa', 'prometal' ),
-			'place' => __( 'Q. Bình Thạnh', 'prometal' ),
-			'img'   => get_theme_file_uri( 'assets/img/inox-cauthang.jpg' ),
+			'quote'  => __( 'Anh em thợ rất chuyên nghiệp và tận tâm. Từ thi công đến dọn dẹp vệ sinh sau khi xong đều gọn gàng.', 'prometal' ),
+			'name'   => __( 'Chị Hoa', 'prometal' ),
+			'place'  => __( 'Q. Bình Thạnh', 'prometal' ),
+			'img'    => 'assets/img/inox-cauthang.jpg',
+			'img_id' => 0,
 		),
 		array(
-			'quote' => __( 'Chọn Pro-Metal thi công lan can, cầu thang cho dự án lớn, được giám sát chặt chẽ. Rất yên tâm.', 'prometal' ),
-			'name'  => __( 'Cty PNJ', 'prometal' ),
-			'place' => __( 'Bình Thạnh', 'prometal' ),
-			'img'   => get_theme_file_uri( 'assets/img/nhom-kinh.jpg' ),
+			'quote'  => __( 'Chọn Pro-Metal thi công lan can, cầu thang cho dự án lớn, được giám sát chặt chẽ. Rất yên tâm.', 'prometal' ),
+			'name'   => __( 'Cty PNJ', 'prometal' ),
+			'place'  => __( 'Bình Thạnh', 'prometal' ),
+			'img'    => 'assets/img/nhom-kinh.jpg',
+			'img_id' => 0,
 		),
 	);
 }
@@ -90,11 +94,34 @@ if ( $pm_tm_q->have_posts() ) {
 				<ul class="pm-tm-slider__track">
 					<?php foreach ( $pm_tm_items as $pm_tm ) : ?>
 						<li class="pm-tm">
-							<?php if ( $pm_tm['img'] ) : ?>
-								<span class="pm-tm__bg" style="background-image:url('<?php echo esc_url( $pm_tm['img'] ); ?>')" aria-hidden="true"></span>
-							<?php else : ?>
-								<span class="pm-tm__bg pm-tm__bg--ph" aria-hidden="true"></span>
-							<?php endif; ?>
+							<?php
+							// Ảnh nền thẻ = <img> lazy (thay background-image inline luôn tải ngay).
+							$pm_tm_sizes = '(max-width: 720px) calc(100vw - 32px), (max-width: 1024px) calc(50vw - 27px), 378px';
+							if ( $pm_tm['img_id'] ) {
+								echo wp_get_attachment_image( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									$pm_tm['img_id'],
+									'pm-card',
+									false,
+									array(
+										'class'   => 'pm-tm__bg',
+										'alt'     => '',
+										'loading' => 'lazy',
+										'sizes'   => $pm_tm_sizes,
+									)
+								);
+							} elseif ( $pm_tm['img'] ) {
+								echo pm_theme_img( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- đã escape trong helper.
+									$pm_tm['img'],
+									array(
+										'class'  => 'pm-tm__bg',
+										'widths' => array( 480, 800 ),
+										'sizes'  => $pm_tm_sizes,
+									)
+								);
+							} else {
+								echo '<span class="pm-tm__bg pm-tm__bg--ph" aria-hidden="true"></span>';
+							}
+							?>
 							<figure class="pm-tm__body">
 								<blockquote class="pm-tm__quote"><?php echo esc_html( $pm_tm['quote'] ); ?></blockquote>
 								<figcaption class="pm-tm__name">

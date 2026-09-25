@@ -17,21 +17,21 @@ $pm_sat_cards = array(
 	array(
 		'title' => __( 'CỬA SẮT', 'prometal' ),
 		'text'  => __( 'Chuyên thiết kế, thi công Cửa Sắt, Cửa Cuốn, Cửa Cổng, Cửa Sổ. Mẫu mã hiện đại, vật liệu bền bỉ.', 'prometal' ),
-		'url'   => home_url( '/thi-cong/lam-cua-cong-sat/' ),
+		'url'   => pm_service_url( 'lam-cua-sat' ),
 		'media' => __( 'Ảnh cửa sắt', 'prometal' ),
 		'img'   => 'assets/img/sat-cua.jpg',
 	),
 	array(
 		'title' => __( 'NHÀ XƯỞNG – CÔNG TY', 'prometal' ),
 		'text'  => __( 'Thiết kế, thi công & sửa chữa nhà xưởng, văn phòng, công ty. Tối ưu không gian, đúng tiến độ.', 'prometal' ),
-		'url'   => home_url( '/thi-cong/nha-xuong-cong-ty/' ),
+		'url'   => pm_service_url( 'nha-xuong' ),
 		'media' => __( 'Ảnh nhà xưởng', 'prometal' ),
 		'img'   => 'assets/img/sat-nhaxuong.jpg',
 	),
 	array(
 		'title' => __( 'CÔNG TRÌNH SẮT KHÁC', 'prometal' ),
 		'text'  => __( 'Lan can, cầu thang, mái hiên, mái che. Sản phẩm bền đẹp, an toàn và thẩm mỹ.', 'prometal' ),
-		'url'   => home_url( '/thi-cong/cau-thang-lan-can/' ),
+		'url'   => pm_service_url( 'cau-thang' ),
 		'media' => __( 'Ảnh lan can', 'prometal' ),
 		'img'   => 'assets/img/sat-khac.jpg',
 	),
@@ -49,7 +49,16 @@ $pm_sat_cards = array(
 			<?php foreach ( $pm_sat_cards as $pm_c ) : ?>
 				<article class="pm-card pm-card--link">
 					<a class="pm-card__media" href="<?php echo esc_url( $pm_c['url'] ); ?>" tabindex="-1" aria-hidden="true">
-						<img src="<?php echo esc_url( get_theme_file_uri( $pm_c['img'] ) ); ?>" alt="<?php echo esc_attr( $pm_c['media'] ); ?>" loading="lazy">
+						<?php
+						echo pm_theme_img( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- đã escape trong helper.
+							$pm_c['img'],
+							array(
+								'alt'    => $pm_c['media'],
+								'widths' => array( 480, 800 ),
+								'sizes'  => '(max-width: 640px) calc(100vw - 32px), (max-width: 980px) calc(50vw - 28px), 362px',
+							)
+						);
+						?>
 					</a>
 					<div class="pm-card__body">
 						<h3 class="pm-card__title"><a href="<?php echo esc_url( $pm_c['url'] ); ?>"><?php echo esc_html( $pm_c['title'] ); ?></a></h3>

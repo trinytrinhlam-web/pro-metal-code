@@ -74,6 +74,7 @@
 
 				if (ok) {
 					setMsg(msg, text, 'is-ok');
+					track(body.get('src'));
 					form.reset();
 					focusFirst(form);
 				} else {
@@ -90,6 +91,24 @@
 	}
 
 	/* ---- helpers ---- */
+
+	/*
+	 * Ghi nhận chuyển đổi khi gửi lead THÀNH CÔNG (GA4/Google Ads qua gtag + dataLayer),
+	 * cùng tên sự kiện "form_submit" mà script đo lường hiện có của site dùng. Script đó chỉ
+	 * bắt form Pagelayer cũ nên form .pm-lead-form trước đây không được đếm.
+	 */
+	function track(src) {
+		var params = { form_id: String(src || 'pm-lead-form').slice(0, 100) };
+		try {
+			if (typeof window.gtag === 'function') {
+				window.gtag('event', 'form_submit', params);
+			}
+		} catch (err) {}
+		try {
+			window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push({ event: 'form_submit', form_id: params.form_id });
+		} catch (err) {}
+	}
 
 	function setBusy(btn, busy) {
 		if (!btn) {

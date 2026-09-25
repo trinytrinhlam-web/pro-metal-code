@@ -74,11 +74,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</nav>
 
 			<div class="pm-header-cta">
-				<a class="pm-cta pm-cta--call" href="<?php echo esc_url( pm_phone_link() ); ?>">
+				<a class="pm-cta pm-cta--call" href="<?php echo esc_url( pm_phone_link() ); ?>" title="<?php echo esc_attr( sprintf( /* translators: %s: hotline. */ __( 'Gọi %s', 'prometal' ), pm_phone() ) ); ?>">
 					<?php echo pm_icon( 'phone', array( 'width' => 18, 'height' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<span><?php esc_html_e( 'Gọi ngay', 'prometal' ); ?></span>
 				</a>
-				<a class="pm-cta pm-cta--zalo" href="<?php echo esc_url( pm_zalo_link() ); ?>" target="_blank" rel="noopener">
+				<a class="pm-cta pm-cta--zalo" href="<?php echo esc_url( pm_zalo_link() ); ?>" target="_blank" rel="noopener" title="<?php esc_attr_e( 'Nhắn Zalo', 'prometal' ); ?>">
 					<?php echo pm_icon( 'zalo', array( 'width' => 18, 'height' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<span><?php esc_html_e( 'Nhắn Zalo', 'prometal' ); ?></span>
 				</a>

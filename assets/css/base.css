@@ -17,13 +17,23 @@
 @font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/be-vietnam-pro-800-vietnamese.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
 @font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/be-vietnam-pro-800-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
+/* Font dự phòng có SỐ ĐO KHỚP Be Vietnam Pro (rộng hơn Roboto/Arial ~11–15%): trong lúc font
+   web chưa tải xong, chữ vẽ bằng Roboto (Android) / Arial (iOS, Windows) đã phóng đúng tỉ lệ →
+   khi đổi sang Be Vietnam Pro chữ không xuống dòng khác, trang không "nhảy" (CLS).
+   size-adjust = tổng bề rộng ~190.000 ký tự nội dung tiếng Việt của site đo bằng BVP / font dự phòng
+   (bold so với trung bình BVP 700–800); ascent/descent = số đo BVP (1000/265 trên 1000) ÷ size-adjust. */
+@font-face{font-family:'Be Vietnam Pro Fallback';font-weight:1 549;src:local('Roboto'),local('Roboto-Regular');size-adjust:109.44%;ascent-override:91.37%;descent-override:24.21%;line-gap-override:0%}
+@font-face{font-family:'Be Vietnam Pro Fallback';font-weight:550 1000;src:local('Roboto Bold'),local('Roboto-Bold');size-adjust:111.96%;ascent-override:89.32%;descent-override:23.67%;line-gap-override:0%}
+@font-face{font-family:'Be Vietnam Pro Fallback A';font-weight:1 549;src:local('Arial'),local('ArialMT'),local('Arimo'),local('Liberation Sans');size-adjust:107.5%;ascent-override:93.02%;descent-override:24.65%;line-gap-override:0%}
+@font-face{font-family:'Be Vietnam Pro Fallback A';font-weight:550 1000;src:local('Arial Bold'),local('Arial-BoldMT'),local('Arimo Bold'),local('Liberation Sans Bold');size-adjust:104.18%;ascent-override:95.99%;descent-override:25.44%;line-gap-override:0%}
+
 /* ============================================================= *
  *  Reset nhẹ
  * ============================================================= */
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms !important;transition-duration:.001ms !important}}
-body{margin:0;font-family:var(--pm-font);font-size:var(--pm-body);line-height:1.7;color:var(--pm-text);background:var(--pm-white);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;font-family:var(--pm-font);font-size:var(--pm-body);line-height:1.7;color:var(--pm-text);background:var(--pm-white);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-wrap:break-word} /* chuỗi dài (URL, mã) tự xuống dòng thay vì tràn ngang mobile */
 img,svg,video{max-width:100%;height:auto}
 img{display:block}
 /* Chỉ tô currentColor cho svg KHÔNG khai báo fill — tôn trọng fill="none"/màu
@@ -37,6 +47,8 @@ hr{border:0;border-top:1px solid var(--pm-line);margin:2rem 0}
 /* ── Tiêu đề: H1 lớn nhất; H2–H6 BẰNG NHAU (phân cấp bằng weight/màu/space) ── */
 h1,h2,h3,h4,h5,h6{color:var(--pm-brand-dark);line-height:1.28;margin:0 0 .5em;font-weight:700;text-wrap:balance}
 h1{font-size:var(--pm-h1);font-weight:800;line-height:1.18}
+/* Điện thoại nhỏ: H1 co theo bề ngang (≈26–29px) để tiêu đề dài không chiếm 4–5 dòng màn đầu. */
+@media (max-width:480px){h1{font-size:min(var(--pm-h1),7.4vw)}}
 h2,h3,h4,h5,h6{font-size:var(--pm-h)}
 p{margin:0 0 1rem}
 
@@ -116,3 +128,18 @@ label{font-weight:600;color:var(--pm-brand-dark)}
 /* ── Utilities ── */
 .pm-text-center{text-align:center}
 .pm-mt-0{margin-top:0}.pm-mb-0{margin-bottom:0}
+
+/* ============================================================= *
+ *  Tương thích snippet / nội dung cũ (thời Pagelayer) còn chạy ngoài theme
+ * ============================================================= */
+/* Snippet in ở footer trang bài viết/chuyên mục thêm ".pm-container::after{display:table}"
+   (clearfix) → trong header/footer dạng flex/grid, ::after thành 1 phần tử thừa: nút menu
+   bị đẩy lệch ~18px, footer dư khoảng trống. Theme không dùng float nên bỏ an toàn. */
+html .pm-container::after{content:none}
+
+/* Nội dung cũ bọc <div class="pm-page"> (trang Giới thiệu): snippet "pm-page-css" ép font
+   serif Tinos (không được tải → máy dùng Times/Noto Serif) và thêm lề trong thứ 2 trên mobile.
+   Đưa về font thương hiệu + thẳng lề với tiêu đề; giữ nguyên phần còn lại của thiết kế cũ. */
+.pm-page__content .pm-page{padding-inline:0}
+.pm-page__content .pm-page,
+.pm-page__content .pm-page :is(h1,h2,h3,p,li,a,span,figcaption){font-family:var(--pm-font)}

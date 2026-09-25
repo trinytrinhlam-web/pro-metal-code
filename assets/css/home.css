@@ -29,6 +29,7 @@
 	opacity:0;transition:opacity .8s ease;
 }
 .pm-hero__slide.is-active{opacity:1}
+.pm-hero__slide>picture{display:block;height:100%}
 .pm-hero__image{width:100%;height:100%;object-fit:cover;object-position:center}
 /* Lớp phủ tối→trong để chữ trắng luôn đọc rõ (brand-dark → brand, alpha) */
 .pm-hero::after{
@@ -56,13 +57,17 @@
 .pm-hero__arrow--next{right:20px}
 
 /* Chấm điều hướng */
-.pm-hero__nav{position:absolute;z-index:3;bottom:26px;left:0;right:0}
+.pm-hero__nav{position:absolute;z-index:3;bottom:16px;left:0;right:0}
 .pm-hero__dots{display:flex;gap:10px;align-items:center}
+/* Vùng chạm cao 24px (chuẩn WCAG 2.2), thanh hiển thị vẫn 5px vẽ bằng ::before. */
 .pm-hero__dot{
-	width:38px;height:5px;border-radius:3px;padding:0;border:0;cursor:pointer;
+	position:relative;width:38px;height:24px;padding:0;border:0;cursor:pointer;background:none;
+}
+.pm-hero__dot::before{
+	content:"";position:absolute;left:0;right:0;top:50%;height:5px;margin-top:-2.5px;border-radius:3px;
 	background:rgba(255,255,255,.4);transition:background .16s ease;
 }
-.pm-hero__dot.is-active{background:var(--pm-accent)}
+.pm-hero__dot.is-active::before{background:var(--pm-accent)}
 .pm-hero__dot:focus-visible{outline:3px solid #fff;outline-offset:3px}
 
 /* ============================================================= *
@@ -148,7 +153,8 @@ a.pm-intro__img:hover img{transform:scale(1.05)}
  *  SECTION 6 — NHÔM KÍNH (split)
  * ============================================================= */
 .pm-aluminum__grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-.pm-aluminum__media{height:320px;border-radius:var(--pm-r-lg);box-shadow:var(--pm-sh-card)}
+.pm-aluminum__media{height:320px;border-radius:var(--pm-r-lg);box-shadow:var(--pm-sh-card);overflow:hidden;background:var(--pm-surface-2)}
+.pm-aluminum__media img{width:100%;height:100%;object-fit:cover}
 .pm-aluminum__title{color:var(--pm-brand);margin-bottom:16px}
 .pm-aluminum__desc{color:var(--pm-muted)}
 .pm-checks{list-style:none;padding:0;margin:0 0 24px}
@@ -172,7 +178,7 @@ a.pm-intro__img:hover img{transform:scale(1.05)}
 .pm-home-contact__form input,
 .pm-home-contact__form textarea{
 	width:100%;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);
-	border-radius:0;color:#fff;padding:10px 2px;font-family:inherit;font-size:15px;
+	border-radius:0;color:#fff;padding:10px 2px;font-family:inherit;font-size:16px; /* <16px → iOS Safari tự phóng to khi chạm ô nhập */
 }
 .pm-home-contact__form textarea{min-height:64px;resize:vertical}
 .pm-home-contact__form input::placeholder,
@@ -184,7 +190,7 @@ a.pm-intro__img:hover img{transform:scale(1.05)}
 .pm-home-contact__form .pm-form-msg.is-error{color:#ff9d9d}
 .pm-home-contact__info{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12)}
 .pm-home-contact__info-label{display:block;color:#a9c6d5;font-size:13px;letter-spacing:.1em;margin-bottom:8px}
-.pm-home-contact__phone{display:inline-flex;align-items:center;gap:10px;color:#fff;font-size:22px;font-weight:700}
+.pm-home-contact__phone{display:inline-flex;align-items:center;gap:10px;color:#fff;font-size:22px;font-weight:700;text-decoration:none}
 .pm-home-contact__phone .pm-icon{color:var(--pm-accent)}
 .pm-home-contact__phone:hover{color:#fff}
 .pm-home-contact__phone b{font-weight:800}
@@ -203,7 +209,7 @@ a.pm-intro__img:hover img{transform:scale(1.05)}
 	position:relative;flex:0 0 calc((100% - 44px) / 3);scroll-snap-align:start;
 	height:290px;border-radius:var(--pm-r-md);overflow:hidden;box-shadow:var(--pm-sh-card);
 }
-.pm-tm__bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.pm-tm__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pm-tm__bg--ph{background:linear-gradient(135deg,var(--pm-brand-soft),var(--pm-brand-deep))}
 .pm-tm::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,58,78,.15),rgba(11,58,78,.85))}
 .pm-tm__body{
@@ -231,12 +237,13 @@ a.pm-intro__img:hover img{transform:scale(1.05)}
 .pm-tm-slider__arrow--prev{left:-10px}
 .pm-tm-slider__arrow--prev .pm-icon{transform:rotate(180deg)}
 .pm-tm-slider__arrow--next{right:-10px}
-.pm-tm-slider__dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.pm-tm-slider__dots{display:flex;justify-content:center;gap:2px;margin-top:14px}
+/* Chấm 10px nhưng vùng chạm 24×24 (background-clip giới hạn phần tô màu). */
 .pm-tm-slider__dot{
-	width:10px;height:10px;padding:0;border:0;border-radius:50%;cursor:pointer;
-	background:var(--pm-line);transition:background .16s ease,transform .16s ease;
+	width:24px;height:24px;padding:7px;border:0;border-radius:50%;cursor:pointer;
+	background:var(--pm-line);background-clip:content-box;transition:background .16s ease,transform .16s ease;
 }
-.pm-tm-slider__dot.is-active{background:var(--pm-accent);transform:scale(1.15)}
+.pm-tm-slider__dot.is-active{background-color:var(--pm-accent);transform:scale(1.15)}
 .pm-tm-slider__dot:focus-visible{outline:3px solid var(--pm-brand-deep);outline-offset:2px}
 /* Vừa khung → ẩn điều khiển (JS thêm .is-static) */
 .pm-tm-slider.is-static .pm-tm-slider__arrow,
@@ -264,7 +271,26 @@ a.pm-intro__img:hover img{transform:scale(1.05)}
 	.pm-intro__grid,
 	.pm-aluminum__grid,
 	.pm-home-contact__grid,
-	.pm-values__grid{grid-template-columns:1fr}
+	.pm-values__grid{grid-template-columns:minmax(0,1fr)}
 	.pm-tm{flex-basis:100%}
-	.pm-home-contact__media{min-height:200px}
+
+	/* Cam kết: thẻ ngang (icon trái, chữ phải) — 4 thẻ cao ~120px thay vì ~230px mỗi thẻ. */
+	.pm-values__grid{gap:14px}
+	.pm-vcard{display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:16px;align-items:center;text-align:left;padding:18px}
+	.pm-vcard__icon{grid-row:span 2;width:52px;height:52px;margin:0}
+	.pm-vcard__icon svg{width:26px;height:26px}
+	.pm-vcard__title{margin:0 0 4px;align-self:end;font-size:17px}
+	.pm-vcard__text{align-self:start}
+
+	/* Liên hệ: bỏ hình minh hoạ trang trí để form hiện ngay dưới tiêu đề; khung gọn hơn. */
+	.pm-home-contact__media{display:none}
+	.pm-home-contact__grid{padding:22px 20px;gap:0}
+
+	/* Đánh giá: vuốt ngang + chấm; mũi tên đè lên ảnh thẻ trên màn hẹp nên ẩn đi. */
+	.pm-tm-slider__arrow{display:none}
+}
+@media(max-width:480px){
+	/* Hai nút hero bằng nhau, full chiều ngang — không còn nút thụt lề lệch nhau. */
+	.pm-hero__btns .pm-btn{flex:1 1 100%}
+	.pm-home-contact__phone{font-size:18px} /* "SĐT/Zalo: 03.4444.07.17" vừa 1 dòng */
 }

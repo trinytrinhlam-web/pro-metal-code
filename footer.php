@@ -11,15 +11,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Link trỏ vào trang dịch vụ có thật (inc/links.php) — tránh 404.
 $pm_services = array(
-	__( 'Sửa cửa sắt tại nhà', 'prometal' ) => home_url( '/dich-vu/sua-cua-sat-tai-nha/' ),
-	__( 'Sửa cửa kéo, cổng', 'prometal' )   => home_url( '/dich-vu/sua-cua-keo/' ),
-	__( 'Thợ hàn sắt tại nhà', 'prometal' ) => home_url( '/dich-vu/tho-han-sat-tai-nha/' ),
-	__( 'Làm cửa / cổng sắt', 'prometal' )  => home_url( '/thi-cong/lam-cua-cong-sat/' ),
-	__( 'Mái hiên / mái che', 'prometal' )  => home_url( '/thi-cong/mai-hien-mai-che/' ),
-	__( 'Cầu thang / lan can', 'prometal' ) => home_url( '/thi-cong/cau-thang-lan-can/' ),
-	__( 'Cửa & cầu thang inox', 'prometal' )=> home_url( '/dich-vu/inox/' ),
-	__( 'Nhôm kính, vách panel', 'prometal' )=> home_url( '/dich-vu/nhom-kinh/' ),
+	__( 'Sửa cửa sắt tại nhà', 'prometal' )   => pm_service_url( 'sua-cua-sat' ),
+	__( 'Sửa cửa kéo, cổng', 'prometal' )     => pm_service_url( 'sua-cua-keo' ),
+	__( 'Thợ hàn sắt tại nhà', 'prometal' )   => pm_service_url( 'tho-han-sat' ),
+	__( 'Làm cửa / cổng sắt', 'prometal' )    => pm_service_url( 'lam-cua-sat' ),
+	__( 'Mái hiên / mái che', 'prometal' )    => pm_service_url( 'mai-hien' ),
+	__( 'Cầu thang / lan can', 'prometal' )   => pm_service_url( 'cau-thang' ),
+	__( 'Cửa & cầu thang inox', 'prometal' )  => pm_service_url( 'inox' ),
+	__( 'Nhôm kính, vách panel', 'prometal' ) => pm_service_url( 'nhom-kinh' ),
 );
 ?>
 </div><!-- #content -->

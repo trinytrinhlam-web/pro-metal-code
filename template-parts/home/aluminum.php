@@ -28,12 +28,23 @@ $pm_alu_checks = array(
 	),
 );
 
-$pm_alu_img = get_theme_file_uri( 'assets/img/nhom-kinh.jpg' );
 ?>
 <section class="pm-section pm-aluminum">
 	<div class="pm-container pm-aluminum__grid">
 
-		<div class="pm-aluminum__media" role="img" aria-label="<?php esc_attr_e( 'Hệ cửa nhôm kính và vách ngăn nhôm kính Pro-Metal', 'prometal' ); ?>" style="background-image:url('<?php echo esc_url( $pm_alu_img ); ?>');background-size:cover;background-position:center"></div>
+		<?php // <img> lazy thay cho background-image inline (ảnh nền tải ngay cả khi ở cuối trang, tranh băng thông với ảnh hero trên mobile). ?>
+		<div class="pm-aluminum__media">
+			<?php
+			echo pm_theme_img( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- đã escape trong helper.
+				'assets/img/nhom-kinh.jpg',
+				array(
+					'alt'    => __( 'Hệ cửa nhôm kính và vách ngăn nhôm kính Pro-Metal', 'prometal' ),
+					'widths' => array( 480, 800, 1100 ),
+					'sizes'  => '(max-width: 720px) calc(100vw - 32px), 546px',
+				)
+			);
+			?>
+		</div>
 
 		<div class="pm-aluminum__text">
 			<h2 class="pm-aluminum__title"><?php esc_html_e( 'Giải pháp nhôm kính toàn diện', 'prometal' ); ?></h2>
@@ -54,7 +65,7 @@ $pm_alu_img = get_theme_file_uri( 'assets/img/nhom-kinh.jpg' );
 					</li>
 				<?php endforeach; ?>
 			</ul>
-			<a class="pm-btn pm-btn--call" href="<?php echo esc_url( home_url( '/dich-vu/nhom-kinh/' ) ); ?>">
+			<a class="pm-btn pm-btn--call" href="<?php echo esc_url( pm_service_url( 'nhom-kinh' ) ); ?>">
 				<?php esc_html_e( 'Xem chi tiết', 'prometal' ); ?>
 			</a>
 		</div>

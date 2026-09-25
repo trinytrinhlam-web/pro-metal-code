@@ -17,48 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Danh sách slide hero. Mỗi phần tử: img (URL) + alt (mô tả a11y).
- * Bỏ qua slide thiếu file ảnh để không hiện khung trống.
+ * Danh sách slide hero (inc/media.php): url + url_m (bản cắt cho điện thoại) + alt.
+ * Ảnh gốc lọc được qua 'prometal_hero_slides'; slide thiếu file ảnh bị bỏ qua.
  */
-$pm_hero_slides = array(
-	array(
-		'file' => 'assets/img/hero-1.png',
-		'alt'  => __( 'Thợ Pro-Metal sửa chữa cửa sắt tại nhà', 'prometal' ),
-	),
-	array(
-		'file' => 'assets/img/hero-2.png',
-		'alt'  => __( 'Thi công tổng hợp cửa sắt, nhôm, inox', 'prometal' ),
-	),
-	array(
-		'file' => 'assets/img/hero-3.png',
-		'alt'  => __( 'Nhà xưởng cơ khí Pro-Metal', 'prometal' ),
-	),
-);
-
-/** Cho phép ghi đè nguồn ảnh hero. */
-$pm_hero_slides = apply_filters( 'prometal_hero_slides', $pm_hero_slides );
-
-// Chuẩn hoá: chỉ giữ slide có ảnh thật (file bundle tồn tại, hoặc URL tuyệt đối).
-$pm_slides = array();
-foreach ( (array) $pm_hero_slides as $pm_s ) {
-	if ( empty( $pm_s['file'] ) ) {
-		continue;
-	}
-	$pm_file = (string) $pm_s['file'];
-	if ( preg_match( '#^https?://#i', $pm_file ) ) {
-		$pm_url = $pm_file; // URL tuyệt đối do filter cấp.
-	} elseif ( file_exists( get_theme_file_path( $pm_file ) ) ) {
-		$pm_url = get_theme_file_uri( $pm_file );
-	} else {
-		continue; // Thiếu ảnh → bỏ qua.
-	}
-	$pm_slides[] = array(
-		'url' => $pm_url,
-		'alt' => isset( $pm_s['alt'] ) ? (string) $pm_s['alt'] : '',
-	);
-}
-
+$pm_slides     = prometal_hero_slides_resolved();
 $pm_has_slides = ! empty( $pm_slides );
+$pm_hero_media = prometal_hero_mobile_media();
 ?>
 <section class="pm-hero" aria-label="<?php esc_attr_e( 'Giới thiệu Pro-Metal', 'prometal' ); ?>"<?php echo $pm_has_slides ? ' data-pm-hero' : ''; ?>>
 
@@ -67,10 +31,15 @@ $pm_has_slides = ! empty( $pm_slides );
 			<?php foreach ( $pm_slides as $pm_i => $pm_slide ) : ?>
 				<?php if ( 0 === $pm_i ) : ?>
 					<div class="pm-hero__slide is-active" role="img" aria-label="<?php echo esc_attr( $pm_slide['alt'] ); ?>">
-						<img class="pm-hero__image" src="<?php echo esc_url( $pm_slide['url'] ); ?>" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+						<picture>
+							<?php if ( $pm_slide['url_m'] ) : ?>
+								<source media="<?php echo esc_attr( $pm_hero_media ); ?>" srcset="<?php echo esc_url( $pm_slide['url_m'] ); ?>">
+							<?php endif; ?>
+							<img class="pm-hero__image" src="<?php echo esc_url( $pm_slide['url'] ); ?>" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+						</picture>
 					</div>
 				<?php else : ?>
-					<div class="pm-hero__slide" role="img" aria-label="<?php echo esc_attr( $pm_slide['alt'] ); ?>" data-pm-hero-src="<?php echo esc_url( $pm_slide['url'] ); ?>"></div>
+					<div class="pm-hero__slide" role="img" aria-label="<?php echo esc_attr( $pm_slide['alt'] ); ?>" data-pm-hero-src="<?php echo esc_url( $pm_slide['url'] ); ?>"<?php echo $pm_slide['url_m'] ? ' data-pm-hero-src-m="' . esc_url( $pm_slide['url_m'] ) . '" data-pm-hero-media="' . esc_attr( $pm_hero_media ) . '"' : ''; ?>></div>
 				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>

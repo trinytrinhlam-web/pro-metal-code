@@ -28,8 +28,8 @@ if ( ! $pm_news_q->have_posts() ) {
 	return; // Chưa có bài → bỏ qua section (tránh khối rỗng).
 }
 
-$pm_blog_id  = (int) get_option( 'page_for_posts' );
-$pm_blog_url = $pm_blog_id ? get_permalink( $pm_blog_id ) : home_url( '/tin-tuc/' );
+// Trang Bài viết → chuyên mục Tin tức → '' (ẩn nút) — không trỏ /tin-tuc/ khi trang đó không tồn tại.
+$pm_blog_url = pm_blog_url();
 ?>
 <section class="pm-section pm-news">
 	<div class="pm-container">
@@ -46,7 +46,15 @@ $pm_blog_url = $pm_blog_id ? get_permalink( $pm_blog_id ) : home_url( '/tin-tuc/
 				<article <?php post_class( 'pm-card pm-card--link pm-post-card' ); ?>>
 					<?php if ( has_post_thumbnail() ) : ?>
 						<a class="pm-card__media pm-post-card__media" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
-							<?php the_post_thumbnail( 'pm-card', array( 'loading' => 'lazy' ) ); ?>
+							<?php
+							the_post_thumbnail(
+								'pm-card',
+								array(
+									'loading' => 'lazy',
+									'sizes'   => '(max-width: 640px) calc(100vw - 32px), (max-width: 980px) calc(50vw - 28px), 362px',
+								)
+							);
+							?>
 						</a>
 					<?php else : ?>
 						<a class="pm-card__media pm-post-card__media pm-ph" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
@@ -71,11 +79,13 @@ $pm_blog_url = $pm_blog_id ? get_permalink( $pm_blog_id ) : home_url( '/tin-tuc/
 			<?php endwhile; ?>
 		</div>
 
-		<div class="pm-news__all">
-			<a class="pm-btn pm-btn--ghost" href="<?php echo esc_url( $pm_blog_url ); ?>">
-				<?php esc_html_e( 'Xem tất cả tin tức', 'prometal' ); ?>
-			</a>
-		</div>
+		<?php if ( $pm_blog_url ) : ?>
+			<div class="pm-news__all">
+				<a class="pm-btn pm-btn--ghost" href="<?php echo esc_url( $pm_blog_url ); ?>">
+					<?php esc_html_e( 'Xem tất cả tin tức', 'prometal' ); ?>
+				</a>
+			</div>
+		<?php endif; ?>
 
 	</div>
 </section>

@@ -61,11 +61,12 @@
 	display:flex;gap:7px;justify-content:center;
 }
 .pm-lp-hero__dot{
-	width:9px;height:9px;padding:0;border:0;border-radius:50%;cursor:pointer;
-	background:rgba(255,255,255,.55);
+	/* Chấm 9px nhưng vùng chạm 24×24 (WCAG 2.2) — background-clip chỉ tô phần giữa. */
+	width:24px;height:24px;padding:7.5px;border:0;border-radius:50%;cursor:pointer;
+	background:rgba(255,255,255,.55);background-clip:content-box;
 	transition:background .2s ease,transform .2s ease;
 }
-.pm-lp-hero__dot.is-active{background:var(--pm-accent);transform:scale(1.25)}
+.pm-lp-hero__dot.is-active{background-color:var(--pm-accent);transform:scale(1.25)}
 @media(prefers-reduced-motion:reduce){
 	.pm-lp-hero__track{transition:none}
 }
@@ -342,7 +343,7 @@
 /* ============================================================= *
  *  14. Chừa chỗ cho sticky CTA mobile (Session B) trên landing
  * ============================================================= */
-@media(max-width:1079px){body{padding-bottom:60px}}
+@media(max-width:1199px){body{padding-bottom:60px}}
 
 /* ============================================================= *
  *  15. Responsive
@@ -356,21 +357,24 @@
 	.pm-lp-branches{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:860px){
-	.pm-lp-hero__grid,.pm-lp-form-grid,.pm-lp-commit{grid-template-columns:1fr;gap:30px}
+	/* minmax(0,1fr): nội dung dài (nút nowrap…) không nong cột rộng hơn màn hình. */
+	.pm-lp-hero__grid,.pm-lp-form-grid,.pm-lp-commit{grid-template-columns:minmax(0,1fr);gap:30px}
 	.pm-lp-trust__grid{grid-template-columns:repeat(2,1fr);gap:16px}
 	.pm-lp-why{grid-template-columns:1fr}
 	.pm-lp-ctabox{padding:26px 24px}
-	.pm-lp-sol{grid-template-columns:1fr}
+	.pm-lp-sol{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:560px){
 	.pm-lp-formula{padding:22px 16px}
 	.pm-lp-formula__row{gap:8px}
 	.pm-lp-formula__op{font-size:20px}
-	.pm-lp-gallery,.pm-lp-steps,.pm-lp-branches,.pm-lp-tiles{grid-template-columns:1fr}
+	.pm-lp-gallery,.pm-lp-steps,.pm-lp-branches,.pm-lp-tiles{grid-template-columns:minmax(0,1fr)}
 	.pm-lp-gallery figure :where(img,.pm-lp-ph),
 	.pm-lp-gallery figure:first-child :where(img,.pm-lp-ph),
 	.pm-lp-gallery figure:nth-child(6) :where(img,.pm-lp-ph){height:220px}
 	/* Thư viện ảnh thuần giữ 2 cột trên điện thoại cho dễ lướt. */
-	.pm-lp-gallery--plain{grid-template-columns:repeat(2,1fr);gap:10px}
+	.pm-lp-gallery--plain{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+	/* Form báo giá: khung trắng bớt đệm để ô nhập rộng hơn trên màn hẹp. */
+	.pm-lp-form{padding:24px 18px}
 	.pm-lp-hero__btns .pm-btn{flex:1 1 100%}
 }

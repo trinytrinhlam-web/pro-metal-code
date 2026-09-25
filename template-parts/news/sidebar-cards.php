@@ -34,17 +34,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php
 $pm_hot_services = array(
-	__( 'Sửa cửa sắt tại nhà', 'prometal' ) => '/dich-vu/sua-cua-sat-tai-nha/',
-	__( 'Làm cửa / cổng sắt', 'prometal' )  => '/thi-cong/lam-cua-cong-sat/',
-	__( 'Báo giá cửa sắt', 'prometal' )     => '/bao-gia-cua-sat/',
+	__( 'Sửa cửa sắt tại nhà', 'prometal' ) => pm_service_url( 'sua-cua-sat' ),
+	__( 'Làm cửa / cổng sắt', 'prometal' )  => pm_service_url( 'lam-cua-sat' ),
+	__( 'Báo giá cửa sắt', 'prometal' )     => pm_service_url( 'bao-gia' ),
 );
 ?>
 <div class="pm-side-card">
 	<h2 class="pm-side-card__title"><?php esc_html_e( 'Dịch vụ nổi bật', 'prometal' ); ?></h2>
 	<ul class="pm-side-services">
-		<?php foreach ( $pm_hot_services as $pm_label => $pm_path ) : ?>
+		<?php foreach ( $pm_hot_services as $pm_label => $pm_url ) : ?>
 			<li>
-				<a href="<?php echo esc_url( home_url( $pm_path ) ); ?>">
+				<a href="<?php echo esc_url( $pm_url ); ?>">
 					<span><?php echo esc_html( $pm_label ); ?></span>
 					<?php echo pm_icon( 'chevron-right', array( 'width' => 18, 'height' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</a>

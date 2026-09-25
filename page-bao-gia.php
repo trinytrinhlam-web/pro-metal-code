@@ -36,12 +36,15 @@ while ( have_posts() ) :
 		),
 	);
 	?>
-	<main id="main" class="site-main pm-container pm-page">
+	<main id="main" class="site-main pm-container pm-page-wrap">
 		<?php pm_the_breadcrumb(); ?>
 
-		<header class="pm-page__header">
-			<h1 class="pm-page__title"><?php echo esc_html( $pm_title ); ?></h1>
-		</header>
+		<?php // Nội dung đã có <h1> riêng → không in thêm H1 (tránh 2 tiêu đề chính). ?>
+		<?php if ( ! preg_match( '/<h1[\s>]/i', (string) get_the_content() ) ) : ?>
+			<header class="pm-page__header">
+				<h1 class="pm-page__title"><?php echo esc_html( $pm_title ); ?></h1>
+			</header>
+		<?php endif; ?>
 
 		<?php if ( trim( get_the_content() ) ) : ?>
 			<div class="pm-page__content pm-prose"><?php the_content(); ?></div>

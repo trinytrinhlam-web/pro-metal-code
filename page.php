@@ -6,6 +6,11 @@
  *  • Trang landing nhập khẩu (nội dung tự dựng bọc trong .pm-lp, kèm <style> +
  *    layout riêng): render FULL-BLEED — bỏ container/prose/tiêu đề trùng/wpautop
  *    để giữ đúng thiết kế, và ép nội dung dùng font thương hiệu (thay serif Tinos).
+ *  • <main> dùng class .pm-page-wrap (KHÔNG dùng .pm-page): snippet CSS cũ ngoài
+ *    theme (id "pm-page-css") nhắm .pm-page của nội dung cũ → nếu trùng, cả trang
+ *    bị ép font serif Tinos + đổi cỡ tiêu đề.
+ *  • Nội dung đã có <h1> riêng (VD trang Giới thiệu cũ) → không in thêm H1 tiêu đề
+ *    (tránh 2 H1 + tiêu đề lặp chiếm màn hình đầu trên điện thoại).
  *
  * @owner   Session A
  * @package Pro-Metal
@@ -39,13 +44,15 @@ while ( have_posts() ) :
 		<?php
 	else :
 		?>
-		<main id="main" class="site-main pm-container pm-page">
+		<main id="main" class="site-main pm-container pm-page-wrap">
 			<?php pm_the_breadcrumb(); ?>
 
 			<article <?php post_class( 'pm-page__article' ); ?>>
-				<header class="pm-page__header">
-					<h1 class="pm-page__title"><?php the_title(); ?></h1>
-				</header>
+				<?php if ( ! preg_match( '/<h1[\s>]/i', (string) get_the_content() ) ) : ?>
+					<header class="pm-page__header">
+						<h1 class="pm-page__title"><?php the_title(); ?></h1>
+					</header>
+				<?php endif; ?>
 
 				<?php if ( has_post_thumbnail() ) : ?>
 					<figure class="pm-page__thumb">

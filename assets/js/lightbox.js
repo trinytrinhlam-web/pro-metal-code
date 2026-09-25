@@ -65,6 +65,10 @@
 
 		el.classList.add('pm-lb-trigger');
 		el.setAttribute('role', 'button');
+		// Link chỉ bọc ảnh alt="" → không có tên đọc được (lỗi a11y "link-name").
+		if (el.tagName === 'A' && !(el.textContent || '').trim() && !(thumb && thumb.getAttribute('alt')) && !el.getAttribute('aria-label')) {
+			el.setAttribute('aria-label', caption || ('Phóng to ảnh ' + (index + 1)));
+		}
 		el.addEventListener('click', function (e) {
 			e.preventDefault();
 			open(name, index);

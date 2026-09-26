@@ -137,14 +137,16 @@ function prometal_utf8_guard_end() {
 }
 
 /**
- * Ký tự UTF-8 có byte cuối \xA0 (à, Ạ, Ơ, Ỡ, nbsp…) đứng ngay trước "<" → &#NNN;.
+ * Ký tự UTF-8 có byte cuối \xA0 (à, Ạ, Ơ, Ỡ, nbsp…) đứng trước "<" → &#NNN;. Tính cả khi
+ * giữa chúng chỉ có khoảng trắng ("nhà\n</a>", "Nhà </title>"): bộ nén xoá khoảng trắng
+ * trước thẻ và coi luôn \xA0 là khoảng trắng.
  * Bỏ qua nội dung <script>/<style> (thực thể không được giải mã trong đó).
  *
  * @param string $html
  * @return string
  */
 function prometal_utf8_guard_filter( $html ) {
-	if ( ! is_string( $html ) || false === strpos( $html, "\xA0<" ) ) {
+	if ( ! is_string( $html ) || ! preg_match( '/\xA0[ \t\r\n\f]*</', $html ) ) {
 		return $html;
 	}
 	$parts = preg_split( '#(<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>)#is', $html, -1, PREG_SPLIT_DELIM_CAPTURE );
@@ -156,7 +158,7 @@ function prometal_utf8_guard_filter( $html ) {
 			continue; // Khối script/style → giữ nguyên.
 		}
 		$parts[ $i ] = preg_replace_callback(
-			'/(?:[\xC2-\xDF]|[\xE0-\xEF][\x80-\xBF]|[\xF0-\xF4][\x80-\xBF]{2})\xA0(?=<)/',
+			'/(?:[\xC2-\xDF]|[\xE0-\xEF][\x80-\xBF]|[\xF0-\xF4][\x80-\xBF]{2})\xA0(?=[ \t\r\n\f]*<)/',
 			'prometal_utf8_char_to_entity',
 			$part
 		);

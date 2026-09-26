@@ -54,7 +54,7 @@ Cách gỡ an toàn:
 
 Hiện trạng:
 
-- Sitemap thật của SiteSEO là **`/sitemaps.xml`** (có chữ "s") và đang chạy tốt: 5 bài viết,
+- Sitemap thật của SiteSEO là **`/sitemaps.xml`** (có chữ "s") và đang chạy tốt: 4 bài viết,
   26 trang, 3 chuyên mục, 20 thẻ.
 - `/sitemap.xml` là **file tĩnh cũ** (sửa lần cuối 04/12/2025) chỉ chứa `//suachuacuasat.com` → hỏng.
 - `robots.txt` cũng là file tĩnh (18/08/2026) và đang trỏ vào file hỏng đó.

@@ -36,7 +36,8 @@ function prometal_service_slugs() {
 			'lam-cua-sat'      => array( 'thiet-ke-thi-cong-sua-chua-cua-sat-hcm', 'thi-cong/lam-cua-cong-sat' ),
 			'lam-cua-keo'      => array( 'lam-cua-keo-tphcm', 'thi-cong/lam-cua-keo' ),
 			'mai-hien'         => array( 'lam-mai-hien-tphcm', 'sua-mai-hien-mai-che', 'thi-cong/mai-hien-mai-che' ),
-			'cau-thang'        => array( 'thiet-ke-thi-cong-sua-chua-cau-thang-lan-can', 'lan-can-cau-thang-sat', 'thi-cong/cau-thang-lan-can' ),
+			// Trang "thiet-ke-thi-cong-sua-chua-cau-thang-lan-can" đang chuyển hướng 301 sang trang này.
+			'cau-thang'        => array( 'lan-can-cau-thang-sat', 'thiet-ke-thi-cong-sua-chua-cau-thang-lan-can', 'thi-cong/cau-thang-lan-can' ),
 			'vach-panel'       => array( 'thi-cong-vach-ngan-panel-tphcm', 'thi-cong/vach-ngan-panel' ),
 			'nha-xuong'        => array( 'thi-cong-nha-xuong', 'thi-cong/nha-xuong-cong-ty' ),
 			'inox'             => array( 'cua-cong-inox', 'lan-can-cau-thang-inox', 'dich-vu/inox' ),

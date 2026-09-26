@@ -4,6 +4,24 @@ Lập 26/09/2026 sau khi đo trực tiếp trên site thật (32 trang, bề r�
 đoạn code trong trình duyệt rồi so sánh). Dành cho chủ site tự làm, hoặc cho một phiên Claude có
 quyền quản trị (xem mục cuối). Thư mục `docs/` không cần tải lên host.
 
+## Trạng thái (cập nhật 26/09/2026)
+
+Đã làm qua REST API (có sao lưu toàn bộ 69 snippet trước khi đổi):
+
+- Tắt 7 snippet cũ: #100 `pm-header-fix`, #162 `pm-home-fixes`, #172 `pm-hdr-addr`,
+  #144 `pm-no-sticky`, #161 `pm-single-style`, #139 `.pm-container` cuối trang, #137
+  `h1.pagelayer-post-title` + khối "liên quan" kiểu Pagelayer. Chỉ **tắt**, chưa xoá — bật lại
+  được trong Snippets. Vẫn giữ: #24/#64 (schema), #30 (`prometal-ga-events`), #77 (`pm-page-css`).
+- Trang `test-bot-chatgpt` (ID 581) đã vào thùng rác → 404, ra khỏi sitemap.
+- Đã xoá cache SpeedyCache; 31 trang chính kiểm tra lại: 200, không lỗi PHP, không còn code cũ.
+
+Còn lại (chủ site):
+
+1. Mục C — sửa `robots.txt`, đổi tên `sitemap.xml` (file tĩnh, API không sửa được).
+2. Mục D — thẻ meta description trùng ở trang chủ: xoá ô mô tả ở cài đặt chung SiteSEO.
+3. Mục A — cập nhật theme; sau đó tắt snippet #77 `pm-page-css`.
+4. Xong việc: thu hồi mật khẩu ứng dụng "Claude Code" và xoá API credential trong môi trường.
+
 ## Thứ tự nên làm
 
 1. Cập nhật theme bản tối ưu mobile (mục A) — bản mới đã có sẵn phần CSS thay cho snippet `pm-page-css`.
@@ -68,14 +86,21 @@ Cách sửa (File Manager của hosting, thư mục gốc website — cùng ch�
 3. Google Search Console → Sơ đồ trang web: gửi `sitemaps.xml`; xoá mục `sitemap.xml` cũ nếu có.
 4. (Nên) SiteSEO: bỏ khỏi sitemap / đặt noindex các thẻ tiếng Anh không liên quan (`carpentry`,
    `contractor`, `plumber`, `plumbing`, `renovation`, `repair`, `welding`) và chuyên mục `uncategorized`.
+5. (Nên) Trang "thiet-ke-thi-cong-sua-chua-cau-thang-lan-can" (ID 102) đang tự chuyển 301 sang
+   `/lan-can-cau-thang-sat/` nhưng vẫn nằm trong sitemap và trong menu ("Cầu thang, lan can sắt").
+   Đặt noindex cho trang 102 trong SiteSEO và cho mục menu trỏ thẳng tới `/lan-can-cau-thang-sat/`.
+   Theme mới đã tự trỏ thẳng (inc/links.php).
 
 ## D. Trang test và thẻ meta trùng (việc số 5)
 
 - **Trang → "test-bot-chatgpt" (ID 581) → Bỏ vào thùng rác.** Chính trang ghi "có thể xoá page này
   sau khi xác nhận test thành công"; hiện nó vẫn nằm trong sitemap nên Google có thể lập chỉ mục.
-- **Thẻ meta description in 2 lần — chỉ ở trang chủ**, nội dung giống hệt nhau. Thẻ thứ 2 (có dấu
-  cách trước `>`) là của SiteSEO. Thẻ thứ 1 in ngay sau thẻ `robots`, từ một snippet khác: tìm trong
-  Snippets chữ `name="description"` → xoá/tắt riêng phần đó (SiteSEO đã in đúng nội dung này).
+- **Thẻ meta description in 2 lần — chỉ ở trang chủ**, nội dung giống hệt nhau. Không snippet nào in
+  thẻ này. Đã thử (rồi khôi phục): xoá mô tả SiteSEO của trang "Trang chủ" (ID 42) thì thẻ thứ 2 (có
+  dấu cách trước `>`) thành **rỗng**, còn thẻ thứ 1 vẫn y nguyên → thẻ 1 lấy từ nơi khác, nhiều khả
+  năng là ô mô tả trong **SiteSEO → Titles & Metas → Home**. Cách sửa: xoá ô mô tả ở đó (giữ mô tả
+  của trang "Trang chủ"), xoá cache, kiểm tra trang chủ còn đúng 1 thẻ. KHÔNG xoá mô tả của trang
+  "Trang chủ" — SiteSEO sẽ in thẻ rỗng.
 - (Nên) SiteSEO → Social → Knowledge Graph: điền tên doanh nghiệp và logo — schema Organization
   của SiteSEO đang để trống `name` và `logo`.
 

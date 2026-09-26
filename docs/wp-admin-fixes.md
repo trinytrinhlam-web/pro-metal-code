@@ -15,11 +15,18 @@ quyền quản trị (xem mục cuối). Thư mục `docs/` không cần tải l
 - Trang `test-bot-chatgpt` (ID 581) đã vào thùng rác → 404, ra khỏi sitemap.
 - Đã xoá cache SpeedyCache; 31 trang chính kiểm tra lại: 200, không lỗi PHP, không còn code cũ.
 
+- Chủ site đã sửa `robots.txt` (→ `/sitemaps.xml`) và đổi tên `sitemap.xml` tĩnh
+  (`/sitemap.xml` nay chuyển 301 sang `/wp-sitemap.xml`), đã tải theme mới lên host.
+- Sau khi theme lên: đã tắt snippet #77 `pm-page-css`, xoá cache, kiểm tra 30 trang ở 390px và
+  1280–1536px: không tràn ngang, 1 H1, đúng font. Còn "nh�" ở 2 bài (tiêu đề + thẻ tag) trong bản
+  cache → đã sửa trong `inc/mobile.php` (commit sau cùng), cần tải lại file này.
+
 Còn lại (chủ site):
 
-1. Mục C — sửa `robots.txt`, đổi tên `sitemap.xml` (file tĩnh, API không sửa được).
+1. Tải `inc/mobile.php` mới lên host (hoặc tắt "Minify HTML" trong SpeedyCache), rồi xoá cache.
 2. Mục D — thẻ meta description trùng ở trang chủ: xoá ô mô tả ở cài đặt chung SiteSEO.
-3. Mục A — cập nhật theme; sau đó tắt snippet #77 `pm-page-css`.
+3. Sitemap (nên): bỏ thẻ (tag) khỏi sitemap, xoá 7 thẻ rỗng, noindex trang 102 và `uncategorized`;
+   gửi `sitemaps.xml` trong Search Console.
 4. Xong việc: thu hồi mật khẩu ứng dụng "Claude Code" và xoá API credential trong môi trường.
 
 ## Thứ tự nên làm

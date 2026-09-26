@@ -25,8 +25,9 @@ Còn lại (chủ site):
 
 1. Tải `inc/mobile.php` mới lên host (hoặc tắt "Minify HTML" trong SpeedyCache), rồi xoá cache.
 2. Mục D — thẻ meta description trùng ở trang chủ: xoá ô mô tả ở cài đặt chung SiteSEO.
-3. Sitemap (nên): bỏ thẻ (tag) khỏi sitemap, xoá 7 thẻ rỗng, noindex trang 102 và `uncategorized`;
-   gửi `sitemaps.xml` trong Search Console.
+3. Sitemap: đã xoá qua API 7 thẻ tiếng Anh rỗng và chuyên mục rỗng `uncategorized` (bài nháp
+   ID 430 chuyển sang "Tin tức"). Còn phải làm trong SiteSEO (API không có): bỏ Tags khỏi sitemap,
+   đặt noindex trang 102; rồi gửi `sitemaps.xml` trong Search Console.
 4. Xong việc: thu hồi mật khẩu ứng dụng "Claude Code" và xoá API credential trong môi trường.
 
 ## Thứ tự nên làm

@@ -9,6 +9,8 @@
  *     "tại nh�" ở menu, footer, tiêu đề… Chuyển các ký tự đó thành thực thể HTML
  *     (&#224;) trước khi plugin nén chạy. Nên TẮT hẳn "Minify HTML" trong SpeedyCache.
  *  3) <meta name="theme-color">: thanh địa chỉ Chrome Android cùng màu header.
+ *  4) ?ver= của CSS/JS theme kèm thời điểm sửa file: host cho trình duyệt giữ JS tới 1 năm,
+ *     nên cập nhật theme mà giữ nguyên PROMETAL_VERSION thì khách cũ vẫn chạy JS cũ.
  *
  * Tắt từng phần bằng filter: 'prometal_inline_css', 'prometal_utf8_guard'.
  *
@@ -191,4 +193,29 @@ add_action( 'wp_head', 'prometal_theme_color_meta', 2 );
  */
 function prometal_theme_color_meta() {
 	echo '<meta name="theme-color" content="#0b3a4e">' . "\n";
+}
+
+/* ------------------------------------------------------------------ *
+ *  4) Phiên bản CSS/JS theo thời điểm sửa file
+ * ------------------------------------------------------------------ */
+
+add_action( 'wp_enqueue_scripts', 'prometal_asset_file_versions', 10000 );
+/**
+ * ?ver= = PROMETAL_VERSION + filemtime → file đổi là URL đổi, không cần nhớ tăng
+ * PROMETAL_VERSION mỗi lần cập nhật theme. Chạy sau phần inline CSS (style đã inline
+ * có src = false nên được bỏ qua).
+ */
+function prometal_asset_file_versions() {
+	foreach ( array( wp_scripts(), wp_styles() ) as $deps ) {
+		foreach ( $deps->registered as $dep ) {
+			$src = is_string( $dep->src ) ? $dep->src : '';
+			if ( '' === $src || 0 !== strpos( $src, PROMETAL_URI . '/' ) ) {
+				continue;
+			}
+			$path = PROMETAL_DIR . substr( strtok( $src, '?' ), strlen( PROMETAL_URI ) );
+			if ( is_readable( $path ) ) {
+				$dep->ver = PROMETAL_VERSION . '.' . filemtime( $path );
+			}
+		}
+	}
 }

@@ -38,8 +38,8 @@ Còn lại (chủ site):
   `git diff --name-only aeacd0b..HEAD -- . ':!docs' ':!README.md'`
 - KHÔNG chép đè `template-landing.php`, `template-parts/landing/*`, `inc/fields.php`,
   `inc/enqueue.php`, `assets/js/lp-hero.js`: bản trên host mới hơn repo.
-- `functions.php` chỉ đổi 1 dòng: `define( 'PROMETAL_VERSION', '0.3.1' );` → `'0.4.0'`. Sửa đúng
-  dòng đó trên host thay vì chép đè cả file (phòng khi file trên host có thêm code).
+- Không đụng `functions.php`: `?ver=` của CSS/JS tự đổi theo thời điểm sửa file (`inc/mobile.php`),
+  nên trình duyệt của khách cũ (host cho giữ JS tới 1 năm) vẫn nhận bản mới.
 
 ## B. Gỡ đoạn code cũ thời Pagelayer (việc số 2)
 

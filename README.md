@@ -44,7 +44,8 @@ Nếu website đang có tích hợp CRM/Zalo OA riêng, gắn nó vào hook
   chuyển ký tự như "à" đứng ngay trước thẻ HTML thành thực thể `&#224;` để plugin nén HTML
   (SpeedyCache "Minify HTML") không cắt mất byte → hết lỗi "nh�". Tắt bằng filter
   `prometal_inline_css` / `prometal_utf8_guard` (trả `false`). `?ver=` của CSS/JS theme =
-  `PROMETAL_VERSION` + thời điểm sửa file → cập nhật theme không cần tăng số phiên bản.
+  `PROMETAL_VERSION` + thời điểm sửa file → cập nhật theme không cần tăng số phiên bản. Trang chủ
+  chỉ giữ 1 thẻ `<meta name="description">` (SiteSEO in 2 thẻ khi trang chủ là trang tĩnh).
 - `inc/media.php`: `pm_theme_img( 'assets/img/x.jpg', array( 'widths' => array( 480, 800 ), 'sizes' => '…' ) )`
   in `<img>` WebP đúng cỡ + `srcset` + `width/height`. Bản thu nhỏ đặt tên `x-480.webp`, `x-800.webp`
   cạnh ảnh gốc; ảnh hero cắt riêng cho điện thoại đặt tên `hero-N-m.webp` (dùng ở ≤480px).

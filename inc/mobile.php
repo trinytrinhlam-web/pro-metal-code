@@ -11,6 +11,7 @@
  *  3) <meta name="theme-color">: thanh địa chỉ Chrome Android cùng màu header.
  *  4) ?ver= của CSS/JS theme kèm thời điểm sửa file: host cho trình duyệt giữ JS tới 1 năm,
  *     nên cập nhật theme mà giữ nguyên PROMETAL_VERSION thì khách cũ vẫn chạy JS cũ.
+ *  5) Chỉ giữ 1 thẻ <meta name="description"> (SiteSEO in 2 thẻ ở trang chủ dạng trang tĩnh).
  *
  * Tắt từng phần bằng filter: 'prometal_inline_css', 'prometal_utf8_guard'.
  *
@@ -146,7 +147,11 @@ function prometal_utf8_guard_end() {
  * @return string
  */
 function prometal_utf8_guard_filter( $html ) {
-	if ( ! is_string( $html ) || ! preg_match( '/\xA0[ \t\r\n\f]*</', $html ) ) {
+	if ( ! is_string( $html ) ) {
+		return $html;
+	}
+	$html = prometal_single_meta_description( $html );
+	if ( ! preg_match( '/\xA0[ \t\r\n\f]*</', $html ) ) {
 		return $html;
 	}
 	$parts = preg_split( '#(<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>)#is', $html, -1, PREG_SPLIT_DELIM_CAPTURE );
@@ -164,6 +169,39 @@ function prometal_utf8_guard_filter( $html ) {
 		);
 	}
 	return implode( '', $parts );
+}
+
+/**
+ * Chỉ giữ 1 thẻ <meta name="description"> trong <head>. Với trang chủ dạng trang tĩnh, SiteSEO in
+ * 2 thẻ: mô tả chung (Titles & Metas → Home; để trống thì lấy khẩu hiệu site) và mô tả riêng của
+ * trang. Giữ thẻ CUỐI CÙNG có nội dung (mô tả riêng của trang), bỏ các thẻ còn lại.
+ * Tắt bằng filter 'prometal_single_meta_description' (trả false).
+ *
+ * @param string $html
+ * @return string
+ */
+function prometal_single_meta_description( $html ) {
+	$head_end = stripos( $html, '</head>' );
+	if ( false === $head_end || ! apply_filters( 'prometal_single_meta_description', true ) ) {
+		return $html;
+	}
+	$head = substr( $html, 0, $head_end );
+	if ( preg_match_all( '#<meta\b[^>]*\bname=(["\'])description\1[^>]*>#i', $head, $m, PREG_OFFSET_CAPTURE ) < 2 ) {
+		return $html;
+	}
+	$tags = $m[0];
+	$keep = count( $tags ) - 1;
+	foreach ( $tags as $i => $tag ) {
+		if ( preg_match( '#\scontent=(["\'])(?!\s*\1)#i', $tag[0] ) ) {
+			$keep = $i; // Thẻ có nội dung cuối cùng.
+		}
+	}
+	for ( $i = count( $tags ) - 1; $i >= 0; $i-- ) { // Xoá từ cuối lên để vị trí không lệch.
+		if ( $i !== $keep ) {
+			$head = substr_replace( $head, '', $tags[ $i ][1], strlen( $tags[ $i ][0] ) );
+		}
+	}
+	return $head . substr( $html, $head_end );
 }
 
 /**

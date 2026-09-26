@@ -88,8 +88,11 @@ Cách sửa (File Manager của hosting, thư mục gốc website — cùng ch�
 
 ## Dành cho phiên Claude có quyền quản trị
 
-- Xác thực REST bằng Application Password đọc từ biến môi trường `WP_USER` và `WP_APP_PASSWORD`
-  (chủ site đặt trong cài đặt môi trường — không dán vào chat).
+- Xác thực REST bằng Application Password mà chủ site lưu ở mục **API credentials** của môi trường
+  (loại **Basic**, website `suachuacuasat.com`): proxy tự gắn header `Authorization`, phiên không
+  thấy mật khẩu — cứ gọi API không kèm xác thực. Kiểm tra trước:
+  `curl -s "https://suachuacuasat.com/wp-json/wp/v2/users/me?context=edit"` phải trả về tài khoản
+  có quyền `administrator` (401 `rest_not_logged_in` = chưa gắn được).
 - Snippets: `GET /wp-json/code-snippets/v1/snippets?per_page=100` (lọc theo trường `code`); sao lưu
   bằng `GET …/snippets/{id}/export` trước khi đổi; tắt bằng `POST …/snippets/{id}/deactivate`;
   sửa bằng `POST …/snippets/{id}` với trường `code`.

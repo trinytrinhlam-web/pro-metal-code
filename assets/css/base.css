@@ -143,3 +143,20 @@ html .pm-container::after{content:none}
 .pm-page__content .pm-page{padding-inline:0}
 .pm-page__content .pm-page,
 .pm-page__content .pm-page :is(h1,h2,h3,p,li,a,span,figcaption){font-family:var(--pm-font)}
+/* Các khối của nội dung cũ (ô số liệu, danh sách ✓, hộp kêu gọi…) trước đây chỉ được định
+   dạng bởi snippet "pm-page-css" → đưa vào theme (giới hạn trong .pm-page__content) để gỡ
+   được snippet đó mà trang Giới thiệu không bị vỡ khung. */
+.pm-page__content .pm-page .pm-lead{font-size:var(--pm-lead);color:var(--pm-muted)}
+.pm-page__content .pm-page h2{padding-left:14px;border-left:4px solid var(--pm-accent)}
+.pm-page__content .pm-page figure{text-align:center}
+.pm-page__content .pm-page figure img{display:block;width:auto;max-width:100%;height:auto;max-height:500px;margin-inline:auto;border-radius:var(--pm-r-lg);box-shadow:var(--pm-sh-card)}
+.pm-page__content .pm-stats{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0}
+.pm-page__content .pm-stat{flex:1 1 130px;padding:18px 12px;border:1px solid var(--pm-line);border-radius:var(--pm-r-lg);background:var(--pm-surface);text-align:center}
+.pm-page__content .pm-stat .pm-num{display:block;font-size:27px;font-weight:800;line-height:1.2;color:var(--pm-brand)}
+.pm-page__content .pm-stat .pm-lbl{display:block;margin-top:5px;font-size:14px;line-height:1.4;color:var(--pm-muted)}
+.pm-page__content .pm-check{list-style:none;margin-left:0;padding:0}
+.pm-page__content .pm-check li{position:relative;margin:0;padding:9px 0 9px 32px;border-bottom:1px solid var(--pm-surface-2)}
+.pm-page__content .pm-check li::before{content:"\2713";position:absolute;left:2px;top:9px;font-weight:800;color:var(--pm-accent)}
+.pm-page__content .pm-page .pm-cta{margin:36px 0 0;padding:28px 22px;border:0;border-radius:16px;background:var(--pm-brand);text-align:center}
+.pm-page__content .pm-page .pm-cta p{margin:0 0 18px;font-size:var(--pm-lead);color:#e3eef4}
+.pm-page__content .pm-page .pm-cta p:last-child{margin-bottom:0}

@@ -52,3 +52,6 @@ Nếu website đang có tích hợp CRM/Zalo OA riêng, gắn nó vào hook
 - `inc/links.php`: `pm_service_url( 'sua-cua-sat' )` trả link trang dịch vụ CÓ THẬT (thử lần lượt
   các slug, filter `prometal_service_slugs`) — không gõ cứng đường dẫn trong template nữa.
 - Mốc menu ngang/thanh CTA dính: **1200px** (header-footer.css, components.css, landing.css, main.js).
+- Cuối `base.css`: tương thích nội dung cũ bọc `<div class="pm-page">` (trang Giới thiệu) — đủ để gỡ
+  snippet `pm-page-css` ngoài theme.
+- Việc còn lại trong wp-admin (snippet cũ, sitemap, trang test, meta trùng): `docs/wp-admin-fixes.md`.
